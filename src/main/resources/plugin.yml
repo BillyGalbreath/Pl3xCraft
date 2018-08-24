@@ -1,0 +1,77 @@
+name: ${project.artifactId}
+main: ${project.groupId}.${project.artifactId}
+version: ${project.version}
+description: ${project.artifactId} Paper Plugin
+author: BillyGalbreath
+softdepend:
+- Vault
+
+commands:
+  pl3xcraft:
+    description: Reload configs
+    usage: /<command> (reload)
+  delhome:
+    description: Deletes a home.
+    usage: /<command> [home (player)]
+    aliases:
+    - deletehome
+  home:
+    description: Teleports the player home.
+    usage: /<command> (home (player))
+  homes:
+    description: List the player's homes.
+    usage: /<command> (player)
+    aliases:
+    - listhomes
+  sethome:
+    description: Sets the player's home.
+    usage: /<command> (home (player))
+    aliases:
+    - homeset
+
+permissions:
+  command.delhome:
+    description: Allows the player to delete a home.
+    default: op
+  command.home:
+    description: Allows the player to go home.
+    default: op
+  command.homes:
+    description: Allows the player to list homes.
+    default: op
+  command.pl3xhomes:
+    description: Allows to reload configs
+    default: op
+  command.sethome:
+    description: Allows the player to set a home.
+    default: op
+    children:
+      command.sethome.limit.1:
+        description: Allows the player to set 1 home.
+        default: true
+
+  command.delhome.other:
+    description: Allows the player to delete other players' homes.
+    default: op
+  command.home.other:
+    description: Allows the player to go to other players' homes.
+    default: op
+  command.homes.other:
+    description: Allows the player to list other players' homes.
+    default: op
+  command.sethome.other:
+    description: Allows the player to set other players' homes.
+    default: op
+
+  command.delhome.exempt:
+    description: Makes it so other players cannot delete the player's homes.
+    default: false
+  command.home.exempt:
+    description: Makes it so other players cannot go to the player's homes.
+    default: false
+  command.homes.exempt:
+    description: Makes it so other players cannot list the player's homes.
+    default: false
+  command.sethome.exempt:
+    description: Makes it so other players cannot set the player's homes.
+    default: false

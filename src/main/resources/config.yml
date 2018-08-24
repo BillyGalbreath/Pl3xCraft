@@ -1,0 +1,15 @@
+# Enable debug info in console
+debug-mode: false
+
+# Enable colors in console output
+color-logs: true
+
+# Language file (for translations)
+language-file: lang-en.yml
+
+# Play sound when teleporting
+use-teleport-sounds: true
+
+# Sounds to play in world when teleporting
+sound-to: ENTITY_ENDERMAN_TELEPORT
+sound-from: ENTITY_ENDERMAN_TELEPORT

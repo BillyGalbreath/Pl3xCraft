@@ -1,0 +1,26 @@
+command-no-permission: "&4You do not have permission for that command!"
+player-command: "&4This command is only available to players!"
+player-not-found: "&4That player does not exist!"
+
+home-does-not-exist: "&4That home does not exist!"
+homes-cannot-be-used-here: "&4Homes cannot be used here!"
+invalid-home-name: "&4Invalid home name!"
+specify-home: "&4Please specify a home!\n&7{home-list}"
+home-not-set: "&4You have not set a home!"
+
+home-deleted: "&dThe home &7{home} &dhas been deleted."
+
+home-list: "&dHomes&e: &7{home-list}"
+
+home: "&dGoing to home &7{home}&d."
+please-delete-homes: "&4You currently exceed your homes limit! ({count}>{limit})\n&4To use homes please delete some until you are below your allowed limit."
+
+home-set: "&dHome &7{home} &dset."
+home-set-max: "&4Max number of homes reached! &e(&7{limit}&e)"
+
+bed-spawn-set: "&dBed spawn set"
+
+home-exempt: "&4You cannot go to that player's home!"
+home-delete-exempt: "&4You may not delete that player's home!"
+home-list-exempt: "&4You may not list that player's homes!"
+home-set-exempt: "&4Cannot set that player's home!"
