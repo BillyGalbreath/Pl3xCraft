@@ -5,6 +5,7 @@ import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
 import net.pl3x.pl3xcraft.hook.Vault;
+import net.pl3x.pl3xcraft.task.TeleportSounds;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
@@ -121,11 +122,8 @@ public class CmdHome implements TabExecutor {
             return true;
         }
 
-        if (Config.USE_TELEPORT_SOUNDS) {
-            Location from = player.getLocation();
-            from.getWorld().playSound(from, Config.SOUND_FROM, 1.0F, 1.0F);
-            homeLoc.getWorld().playSound(homeLoc, Config.SOUND_TO, 1.0F, 1.0F);
-        }
+        new TeleportSounds(homeLoc, player.getLocation())
+                .runTaskLater(plugin, 1);
 
         player.teleport(homeLoc);
 

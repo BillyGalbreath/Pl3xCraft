@@ -3,6 +3,7 @@ main: ${project.groupId}.${project.artifactId}
 version: ${project.version}
 description: ${project.artifactId} Paper Plugin
 author: BillyGalbreath
+api-version: 1.13
 softdepend:
 - Vault
 
@@ -10,6 +11,9 @@ commands:
   pl3xcraft:
     description: Reload configs
     usage: /<command> (reload)
+  back:
+    description: Go back to previous location
+    usage: /<command>
   delhome:
     description: Deletes a home.
     usage: /<command> [home (player)]
@@ -23,13 +27,61 @@ commands:
     usage: /<command> (player)
     aliases:
     - listhomes
+  jump:
+    description: Go to block in line of sight
+    usage: /<command>
   sethome:
     description: Sets the player's home.
     usage: /<command> (home (player))
     aliases:
     - homeset
+  teleportaccept:
+    description: Accept teleport request
+    usage: /<command>
+    aliases:
+    - tpaccept
+  teleportdeny:
+    description: Decline teleport request
+    usage: /<command>
+    aliases:
+    - tpdeny
+  teleportrequest:
+    description: Request to teleport to another player
+    usage: /<command> player
+    aliases:
+    - tpa
+    - tprequest
+  teleportrequestall:
+    description: Send teleport here request to all players
+    usage: /<command>
+    aliases:
+    - tpaall
+    - teleportrequestall
+  teleportrequesthere:
+    description: Request another player to teleport to you
+    usage: /<command> player
+    aliases:
+    - tpah
+    - tpahere
+    - teleportrequesth
+    - teleportrequesthere
+  teleporttoggle:
+    description: Toggle teleport requests on/off
+    usage: /<command>
+    aliases:
+    - tpt
+    - tptoggle
+  top:
+    description: Go to the highest block at current position
+    usage: /<command>
 
 permissions:
+  command.pl3xcraft:
+    description: Allows to reload configs
+    default: op
+  command.back:
+    description: Go back to previous location
+    default: op
   command.delhome:
     description: Allows the player to delete a home.
     default: op
@@ -39,8 +91,8 @@ permissions:
   command.homes:
     description: Allows the player to list homes.
     default: op
-  command.pl3xhomes:
-    description: Allows to reload configs
+  command.jump:
+    description: Go to block in line of sight
     default: op
   command.sethome:
     description: Allows the player to set a home.
@@ -49,6 +101,30 @@ permissions:
       command.sethome.limit.1:
         description: Allows the player to set 1 home.
         default: true
+  command.teleport.override:
+    description: Overrides teleport request toggle setting
+    default: op
+  command.teleportaccept:
+    description: Accept teleport request
+    default: op
+  command.teleportdeny:
+    description: Decline teleport request
+    default: op
+  command.teleportrequest:
+    description: Request to teleport to another player
+    default: op
+  command.teleportrequestall:
+    description: Send teleport here request to all players
+    default: op
+  command.teleportrequesthere:
+    description: Request another player to teleport to you
+    default: op
+  command.teleporttoggle:
+    description: Toggle teleport requests on/off
+    default: op
+  command.top:
+    description: Go to highest block at current position
+    default: op
 
   command.delhome.other:
     description: Allows the player to delete other players' homes.

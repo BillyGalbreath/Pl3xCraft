@@ -7,6 +7,12 @@ color-logs: true
 # Language file (for translations)
 language-file: lang-en.yml
 
+# Allow /back command to go to last death location
+back-on-death: true
+
+# How long before teleport requests timeout (in seconds)
+teleport-request-timeout: 30
+
 # Play sound when teleporting
 use-teleport-sounds: true
 

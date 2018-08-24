@@ -9,7 +9,11 @@ public class Config {
     public static boolean COLOR_LOGS;
     public static boolean DEBUG_MODE;
     public static String LANGUAGE_FILE;
+
+    public static int TELEPORT_REQUEST_TIMEOUT;
+    public static boolean BACK_ON_DEATH;
     public static boolean USE_TELEPORT_SOUNDS;
+
     public static Sound SOUND_TO;
     public static Sound SOUND_FROM;
 
@@ -21,7 +25,11 @@ public class Config {
         COLOR_LOGS = config.getBoolean("color-logs", true);
         DEBUG_MODE = config.getBoolean("debug-mode", false);
         LANGUAGE_FILE = config.getString("language-file", "lang-en.yml");
+
+        TELEPORT_REQUEST_TIMEOUT = config.getInt("teleport-request-timeout", 30);
+        BACK_ON_DEATH = config.getBoolean("back-on-death", true);
         USE_TELEPORT_SOUNDS = config.getBoolean("use-teleport-sounds", true);
+
         try {
             SOUND_TO = Sound.valueOf(config.getString("sound-to", "ENTITY_ENDERMAN_TELEPORT"));
         } catch (IllegalArgumentException e) {

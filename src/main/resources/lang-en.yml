@@ -1,6 +1,8 @@
 command-no-permission: "&4You do not have permission for that command!"
 player-command: "&4This command is only available to players!"
 player-not-found: "&4That player does not exist!"
+no-player-specified: "&4You must specify a player name!"
+player-not-online: "&4That player is not online right now!"
 
 home-does-not-exist: "&4That home does not exist!"
 homes-cannot-be-used-here: "&4Homes cannot be used here!"
@@ -24,3 +26,32 @@ home-exempt: "&4You cannot go to that player's home!"
 home-delete-exempt: "&4You may not delete that player's home!"
 home-list-exempt: "&4You may not list that player's homes!"
 home-set-exempt: "&4Cannot set that player's home!"
+
+no-pending-requests: "&4You do not have any pending teleport requests."
+target-has-pending-request: "&4{target} has pending request!"
+target-toggled-off: "&4{target} has teleports toggled off!"
+request-timed-out: "&4{type} request has timed out!"
+no-target-block: "&No block in line of sight, or too far away."
+
+back-death-hint: "&dType &7/back &dto go back to where you died."
+no-back-location: "&4No back location found!"
+
+teleporting-back: "&dTeleporting back to previous location."
+teleporting-jump: "&dJumped to block."
+teleporting-top: "&dTeleporting to highest block."
+
+teleport-accept-requester: "&d{target} has accepted your teleport request."
+teleport-accept-target: "&dYou have accepted the teleport request from {requester}."
+
+teleport-denied-requester: "&d{target} has denied your teleport request."
+teleport-denied-target: "&dYou have denied the teleport request from {requester}."
+
+teleport-request-requester: "&dTeleport request sent to &7{target}&d."
+teleport-request-target: "&7{requester} &dhas requested to teleport to you.\n&dType &7/tpaccept &dor &7/tpdeny&d."
+
+teleport-requesthere-requester: "&dTeleport here request sent to &7{target}&d."
+teleport-requesthere-target: "&7{requester} &dhas requested you to teleport to them.\n&dType &7/tpaccept &dor &7/tpdeny&d."
+
+teleport-requestall-requester: "&dTeleport here request sent to &7all players&d."
+
+teleport-toggle-set: "&dPersonal teleports toggled &7{toggle}&d."

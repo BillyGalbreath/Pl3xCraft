@@ -2,6 +2,7 @@ package net.pl3x.pl3xcraft.configuration;
 
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.hook.Vault;
+import net.pl3x.pl3xcraft.request.Request;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
@@ -38,6 +39,7 @@ public class PlayerConfig extends YamlConfiguration {
     private final File file;
     private final Object saveLock = new Object();
     private final OfflinePlayer player;
+    private Request request;
 
     private PlayerConfig(Pl3xCraft plugin, OfflinePlayer player) {
         super();
@@ -156,5 +158,22 @@ public class PlayerConfig extends YamlConfiguration {
             }
         }
         return limit;
+    }
+
+    public boolean allowTeleports() {
+        return getBoolean("allow-teleports", true);
+    }
+
+    public void setAllowTeleports(boolean allowTeleports) {
+        set("allow-teleports", allowTeleports);
+        save();
+    }
+
+    public Request getRequest() {
+        return request;
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
     }
 }

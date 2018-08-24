@@ -12,6 +12,8 @@ public class Lang {
     public static String COMMAND_NO_PERMISSION;
     public static String PLAYER_COMMAND;
     public static String PLAYER_NOT_FOUND;
+    public static String NO_PLAYER_SPECIFIED;
+    public static String PLAYER_NOT_ONLINE;
     public static String HOME_DOES_NOT_EXIST;
     public static String INVALID_HOME_NAME;
     public static String SPECIFY_HOME;
@@ -27,6 +29,26 @@ public class Lang {
     public static String HOME_DELETE_EXEMPT;
     public static String HOME_LIST_EXEMPT;
     public static String HOME_SET_EXEMPT;
+    public static String NO_PENDING_REQUESTS;
+    public static String TARGET_HAS_PENDING_REQUEST;
+    public static String TELEPORT_TOGGLED_OFF;
+    public static String REQUEST_TIMED_OUT;
+    public static String NO_TARGET_BLOCK;
+    public static String BACK_DEATH_HINT;
+    public static String NO_BACK_LOCATION;
+    public static String TELEPORTING_BACK;
+    public static String TELEPORTING_JUMP;
+    public static String TELEPORTING_TOP;
+    public static String TELEPORT_ACCEPT_REQUESTER;
+    public static String TELEPORT_ACCEPT_TARGET;
+    public static String TELEPORT_DENIED_REQUESTER;
+    public static String TELEPORT_DENIED_TARGET;
+    public static String TELEPORT_REQUEST_REQUESTER;
+    public static String TELEPORT_REQUEST_TARGET;
+    public static String TELEPORT_REQUESTHERE_REQUESTER;
+    public static String TELEPORT_REQUESTHERE_TARGET;
+    public static String TELEPORT_REQUESTALL_REQUESTER;
+    public static String TELEPORT_TOGGLE_SET;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -39,6 +61,8 @@ public class Lang {
         COMMAND_NO_PERMISSION = config.getString("command-no-permission", "&4You do not have permission for that command!");
         PLAYER_COMMAND = config.getString("player-command", "&4This command is only available to players!");
         PLAYER_NOT_FOUND = config.getString("player-not-found", "&4That player does not exist!");
+        NO_PLAYER_SPECIFIED = config.getString("no-player-specified", "&4You must specify a player name!");
+        PLAYER_NOT_ONLINE = config.getString("player-not-online", "&4That player is not online right now!");
 
         HOME_DOES_NOT_EXIST = config.getString("home-does-not-exist", "&4That home does not exist!");
         INVALID_HOME_NAME = config.getString("invalid-home-name", "&4Invalid home name!");
@@ -61,6 +85,35 @@ public class Lang {
         HOME_DELETE_EXEMPT = config.getString("home-delete-exempt", "&4You may not delete that player's home!");
         HOME_LIST_EXEMPT = config.getString("home-list-exempt", "&4You may not list that player's homes!");
         HOME_SET_EXEMPT = config.getString("home-set-exempt", "&4Cannot set that player's home!");
+
+        NO_PENDING_REQUESTS = config.getString("no-pending-requests", "&4You do not have any pending teleport requests.");
+        TARGET_HAS_PENDING_REQUEST = config.getString("target-has-pending-request", "&4{target} has pending request!");
+        TELEPORT_TOGGLED_OFF = config.getString("target-toggled-off", "&4{target} has teleports toggled off!");
+        REQUEST_TIMED_OUT = config.getString("request-timed-out", "&4{type} request has timed out!");
+        NO_TARGET_BLOCK = config.getString("no-target-block", "&No block in line of sight, or too far away.");
+
+        BACK_DEATH_HINT = config.getString("back-death-hint", "&dType &7/back &dto go back to where you died.");
+        NO_BACK_LOCATION = config.getString("no-back-location", "&4No back location found!");
+
+        TELEPORTING_BACK = config.getString("teleporting-back", "&dTeleporting back to previous location.");
+        TELEPORTING_JUMP = config.getString("teleporting-jump", "&dJumped to block.");
+        TELEPORTING_TOP = config.getString("teleporting-top", "&dTeleporting to highest block.");
+
+        TELEPORT_ACCEPT_REQUESTER = config.getString("teleport-accept-requester", "&d{target} has accepted your teleport request.");
+        TELEPORT_ACCEPT_TARGET = config.getString("teleport-accept-target", "&dYou have accepted the teleport request from {requester}.");
+
+        TELEPORT_DENIED_REQUESTER = config.getString("teleport-denied-requester", "&d{target} has denied your teleport request.");
+        TELEPORT_DENIED_TARGET = config.getString("teleport-denied-target", "&dYou have denied the teleport request from {requester}.");
+
+        TELEPORT_REQUEST_REQUESTER = config.getString("teleport-request-requester", "&dTeleport request sent to &7{target}&d.");
+        TELEPORT_REQUEST_TARGET = config.getString("teleport-request-target", "&7{requester} &dhas requested to teleport to you.\n&dType &7/tpaccept &dor &7/tpdeny&d.");
+
+        TELEPORT_REQUESTHERE_REQUESTER = config.getString("teleport-requesthere-requester", "&dTeleport here request sent to &7{target}&d.");
+        TELEPORT_REQUESTHERE_TARGET = config.getString("teleport-requesthere-target", "&7{requester} &dhas requested you to teleport to them.\n&dType &7/tpaccept &dor &7/tpdeny&d.");
+
+        TELEPORT_REQUESTALL_REQUESTER = config.getString("teleport-requestall-requester", "&dTeleport here request sent to &7all players&d.");
+
+        TELEPORT_TOGGLE_SET = config.getString("teleport-toggle-set", "&dPersonal teleports toggled &7{toggle}&d.");
     }
 
     public static void send(CommandSender recipient, String message) {
