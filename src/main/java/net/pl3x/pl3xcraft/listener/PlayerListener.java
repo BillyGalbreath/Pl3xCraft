@@ -4,6 +4,7 @@ import net.pl3x.pl3xcraft.commands.CmdBack;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -11,6 +12,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
@@ -58,6 +60,11 @@ public class PlayerListener implements Listener {
         if (!to.getWorld().equals(from.getWorld()) || to.distanceSquared(from) > 25) {
             CmdBack.setPreviousLocation(event.getPlayer(), event.getFrom());
         }
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        event.getPlayer().setGameMode(GameMode.SURVIVAL);
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
