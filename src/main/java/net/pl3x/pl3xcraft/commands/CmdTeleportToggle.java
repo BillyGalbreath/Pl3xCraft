@@ -35,7 +35,7 @@ public class CmdTeleportToggle implements TabExecutor {
             return true;
         }
 
-        PlayerConfig config = PlayerConfig.getConfig(plugin, (Player) sender);
+        PlayerConfig config = PlayerConfig.getConfig((Player) sender);
         config.setAllowTeleports(!config.allowTeleports());
 
         Lang.send(sender, Lang.TELEPORT_TOGGLE_SET

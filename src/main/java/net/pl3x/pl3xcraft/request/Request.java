@@ -68,7 +68,7 @@ public abstract class Request {
     void cancel() {
         try {
             timeoutTask.cancel();
-            PlayerConfig.getConfig(plugin, target).setRequest(null);
+            PlayerConfig.getConfig(target).setRequest(null);
         } catch (IllegalStateException ignore) {
         }
     }

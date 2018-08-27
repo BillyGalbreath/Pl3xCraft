@@ -44,7 +44,7 @@ public class CmdTeleportRequestAll implements TabExecutor {
             }
 
             // check for pending requests
-            PlayerConfig targetConfig = PlayerConfig.getConfig(plugin, target);
+            PlayerConfig targetConfig = PlayerConfig.getConfig(target);
             if (targetConfig.getRequest() != null) {
                 continue; // skip
             }

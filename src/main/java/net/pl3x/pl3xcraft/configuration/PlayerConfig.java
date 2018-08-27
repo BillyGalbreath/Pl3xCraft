@@ -20,14 +20,16 @@ import java.util.stream.Collectors;
 public class PlayerConfig extends YamlConfiguration {
     private static final Map<OfflinePlayer, PlayerConfig> configs = new HashMap<>();
 
-    public static PlayerConfig getConfig(Pl3xCraft plugin, OfflinePlayer player) {
+    public static PlayerConfig getConfig(OfflinePlayer player) {
         synchronized (configs) {
-            return configs.computeIfAbsent(player, k -> new PlayerConfig(plugin, player));
+            return configs.computeIfAbsent(player, k -> new PlayerConfig(player));
         }
     }
 
     public static void remove(OfflinePlayer player) {
-        configs.remove(player);
+        synchronized (configs) {
+            configs.remove(player);
+        }
     }
 
     public static void removeAll() {
@@ -41,10 +43,10 @@ public class PlayerConfig extends YamlConfiguration {
     private final OfflinePlayer player;
     private Request request;
 
-    private PlayerConfig(Pl3xCraft plugin, OfflinePlayer player) {
+    private PlayerConfig(OfflinePlayer player) {
         super();
         this.player = player;
-        this.file = new File(plugin.getDataFolder(),
+        this.file = new File(Pl3xCraft.getPlugin().getDataFolder(),
                 "userdata" + File.separator + player.getUniqueId() + ".yml");
         reload();
     }

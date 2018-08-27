@@ -35,7 +35,7 @@ public class CmdTeleportAccept implements TabExecutor {
             return true;
         }
 
-        Request request = PlayerConfig.getConfig(plugin, (Player) sender).getRequest();
+        Request request = PlayerConfig.getConfig((Player) sender).getRequest();
         if (request == null) {
             Lang.send(sender, Lang.NO_PENDING_REQUESTS);
             return true;

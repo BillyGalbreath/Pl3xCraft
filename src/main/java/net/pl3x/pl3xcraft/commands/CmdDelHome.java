@@ -25,7 +25,7 @@ public class CmdDelHome implements TabExecutor {
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
             if (args.length == 1) {
-                return PlayerConfig.getConfig(plugin, (OfflinePlayer) sender).getMatchingHomeNames(args[0]);
+                return PlayerConfig.getConfig((OfflinePlayer) sender).getMatchingHomeNames(args[0]);
             }
             if (args.length == 2) {
                 return Bukkit.getOnlinePlayers().stream()
@@ -67,14 +67,14 @@ public class CmdDelHome implements TabExecutor {
                 return true;
             }
 
-            config = PlayerConfig.getConfig(plugin, target);
+            config = PlayerConfig.getConfig(target);
 
             if (config == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
                 return true;
             }
         } else {
-            config = PlayerConfig.getConfig(plugin, (Player) sender);
+            config = PlayerConfig.getConfig((Player) sender);
         }
 
         String home = (args.length > 0) ? args[0] : "home";

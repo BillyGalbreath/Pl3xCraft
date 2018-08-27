@@ -71,13 +71,13 @@ public class CmdHomes implements TabExecutor {
                 return true;
             }
 
-            config = PlayerConfig.getConfig(plugin, target);
+            config = PlayerConfig.getConfig(target);
             if (config == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
                 return true;
             }
         } else {
-            config = PlayerConfig.getConfig(plugin, (Player) sender);
+            config = PlayerConfig.getConfig((Player) sender);
         }
 
         List<BaseComponent> homeList = new ArrayList<>(Arrays.asList(TextComponent.fromLegacyText(

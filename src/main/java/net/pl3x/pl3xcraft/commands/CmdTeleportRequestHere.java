@@ -56,7 +56,7 @@ public class CmdTeleportRequestHere implements TabExecutor {
         }
 
         // check for pending requests
-        PlayerConfig targetConfig = PlayerConfig.getConfig(plugin, target);
+        PlayerConfig targetConfig = PlayerConfig.getConfig(target);
         if (targetConfig.getRequest() != null) {
             Lang.send(sender, Lang.TARGET_HAS_PENDING_REQUEST
                     .replace("{target}", target.getName()));

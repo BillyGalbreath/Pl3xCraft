@@ -28,7 +28,7 @@ public class CmdHome implements TabExecutor {
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
             if (args.length == 1) {
-                return PlayerConfig.getConfig(plugin, (Player) sender).getMatchingHomeNames(args[0]);
+                return PlayerConfig.getConfig((Player) sender).getMatchingHomeNames(args[0]);
             }
             if (args.length == 2) {
                 return Bukkit.getOnlinePlayers().stream()
@@ -52,7 +52,7 @@ public class CmdHome implements TabExecutor {
         }
 
         Player player = (Player) sender;
-        PlayerConfig config = PlayerConfig.getConfig(plugin, player);
+        PlayerConfig config = PlayerConfig.getConfig(player);
         int limit = config.getHomesLimit();
         String home = null;
         if (args.length == 0) {
@@ -96,7 +96,7 @@ public class CmdHome implements TabExecutor {
                 return true;
             }
 
-            config = PlayerConfig.getConfig(plugin, target);
+            config = PlayerConfig.getConfig(target);
 
             if (config == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
