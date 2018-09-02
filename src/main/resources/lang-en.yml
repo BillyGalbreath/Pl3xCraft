@@ -4,6 +4,9 @@ player-not-found: "&4That player does not exist!"
 no-player-specified: "&4You must specify a player name!"
 player-not-online: "&4That player is not online right now!"
 
+gamemode-set: "&dGamemode set to {gamemode}"
+gamemode-set-other: "&dGamemode for {target} set to {gamemode}"
+
 home-does-not-exist: "&4That home does not exist!"
 homes-cannot-be-used-here: "&4Homes cannot be used here!"
 invalid-home-name: "&4Invalid home name!"

@@ -19,6 +19,30 @@ commands:
     usage: /<command> [home (player)]
     aliases:
     - deletehome
+  gmadventure:
+    description: Set gamemode to adventure mode
+    usage: /<command> (player)
+    aliases:
+    - gamemodeadventure
+    - gma
+  gmcreative:
+    description: Set gamemode to creative mode
+    usage: /<command> (player)
+    aliases:
+    - gamemodecreative
+    - gmc
+  gmspectator:
+    description: Set gamemode to spectator mode
+    usage: /<command> (player)
+    aliases:
+    - gamemodespectator
+    - gmsp
+  gmsurvival:
+    description: Set gamemode to survival mode
+    usage: /<command> (player)
+    aliases:
+    - gamemodesurvival
+    - gms
   home:
     description: Teleports the player home.
     usage: /<command> (home (player))
@@ -84,6 +108,30 @@ permissions:
     default: op
   command.delhome:
     description: Allows the player to delete a home.
+    default: op
+  command.gamemode.adventure:
+    description: Allows player to set own gamemode to adventure mode
+    default: op
+  command.gamemode.adventure.other:
+    description: Allows player to set another player's gamemode to adventure mode
+    default: op
+  command.gamemode.creative:
+    description: Allows player to set own gamemode to creative mode
+    default: op
+  command.gamemode.creative.other:
+    description: Allows player to set another player's gamemode to creative mode
+    default: op
+  command.gamemode.spectator:
+    description: Allows player to set own gamemode to spectator mode
+    default: op
+  command.gamemode.spectator.other:
+    description: Allows player to set another player's gamemode to spectator mode
+    default: op
+  command.gamemode.survival:
+    description: Allows player to set own gamemode to survival mode
+    default: op
+  command.gamemode.survival.other:
+    description: Allows player to set another player's gamemode to survival mode
     default: op
   command.home:
     description: Allows the player to go home.

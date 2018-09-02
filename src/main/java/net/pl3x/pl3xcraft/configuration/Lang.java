@@ -14,6 +14,8 @@ public class Lang {
     public static String PLAYER_NOT_FOUND;
     public static String NO_PLAYER_SPECIFIED;
     public static String PLAYER_NOT_ONLINE;
+    public static String GAMEMODE_SET;
+    public static String GAMEMODE_SET_OTHER;
     public static String HOME_DOES_NOT_EXIST;
     public static String INVALID_HOME_NAME;
     public static String SPECIFY_HOME;
@@ -63,6 +65,9 @@ public class Lang {
         PLAYER_NOT_FOUND = config.getString("player-not-found", "&4That player does not exist!");
         NO_PLAYER_SPECIFIED = config.getString("no-player-specified", "&4You must specify a player name!");
         PLAYER_NOT_ONLINE = config.getString("player-not-online", "&4That player is not online right now!");
+
+        GAMEMODE_SET = config.getString("gamemode-set", "&dGamemode set to {gamemode}");
+        GAMEMODE_SET_OTHER = config.getString("gamemode-set-other", "&dGamemode for {target} set to {gamemode}");
 
         HOME_DOES_NOT_EXIST = config.getString("home-does-not-exist", "&4That home does not exist!");
         INVALID_HOME_NAME = config.getString("invalid-home-name", "&4Invalid home name!");
