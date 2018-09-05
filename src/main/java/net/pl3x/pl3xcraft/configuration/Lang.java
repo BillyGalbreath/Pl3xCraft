@@ -49,6 +49,12 @@ public class Lang {
     public static String TELEPORT_REQUESTHERE_TARGET;
     public static String TELEPORT_REQUESTALL_REQUESTER;
     public static String TELEPORT_TOGGLE_SET;
+    public static String NOTHING_IN_HAND_TO_REMOVE;
+    public static String COMMANDS_REMOVED_FROM_ITEM;
+    public static String NOTHING_IN_HAND_TO_COMMAND;
+    public static String COMMAND_ADDED_TO_ITEM;
+    public static String NO_ASSIGN_COMMANDS_TO_ITEM;
+    public static String ONLY_ITEMS_CAN_ASSIGN;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -114,6 +120,13 @@ public class Lang {
         TELEPORT_REQUESTALL_REQUESTER = config.getString("teleport-requestall-requester", "&dTeleport here request sent to &7all players&d.");
 
         TELEPORT_TOGGLE_SET = config.getString("teleport-toggle-set", "&dPersonal teleports toggled &7{toggle}&d.");
+
+        NOTHING_IN_HAND_TO_REMOVE = config.getString("nothing-in-hand-to-remove","&dYou can not remove commands from air!");
+        COMMANDS_REMOVED_FROM_ITEM = config.getString("commands-removed-from-item","&dAll commands removed from &7{item}");
+        NOTHING_IN_HAND_TO_COMMAND = config.getString("nothing-in-hand-to-command","&You can not assign commands to air!");
+        COMMAND_ADDED_TO_ITEM = config.getString("command-added-to-item","&&d Added command &7/{commandInput} &dto that item.");
+        NO_ASSIGN_COMMANDS_TO_ITEM = config.getString("no-assign-commands-to-item","&dYou have no assigned commands to this item!");
+        ONLY_ITEMS_CAN_ASSIGN = config.getString("only-items-can-assign", "&dYou can only assign a command to items, not blocks!");
     }
 
     public static void send(CommandSender recipient, String message) {

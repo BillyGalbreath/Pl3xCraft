@@ -55,3 +55,10 @@ teleport-requesthere-target: "&7{requester} &dhas requested you to teleport to t
 teleport-requestall-requester: "&dTeleport here request sent to &7all players&d."
 
 teleport-toggle-set: "&dPersonal teleports toggled &7{toggle}&d."
+
+nothing-in-hand-to-remove: "&dYou can not remove commands from air!"
+commands-removed-from-item: "&dAll commands removed from &7{item}"
+nothing-in-hand-to-command: "&You can not assign commands to air!"
+command-added-to-item: "&&d Added command &7/{commandInput} &dto that item."
+no-assign-commands-to-item: "&dYou have no assigned commands to this item!"
+only-items-can-assign: "&dYou can only assign a command to items, not blocks!"
