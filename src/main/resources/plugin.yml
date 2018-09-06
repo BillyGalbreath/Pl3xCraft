@@ -14,6 +14,9 @@ commands:
   back:
     description: Go back to previous location
     usage: /<command>
+  burn:
+    description: Sets a player on fire
+    usage: /<command> [player] (seconds)
   delhome:
     description: Deletes a home.
     usage: /<command> [home (player)]
@@ -106,6 +109,9 @@ permissions:
   command.back:
     description: Go back to previous location
     default: op
+  command.burn:
+    description: Sets a player on fire
+    default: op
   command.delhome:
     description: Allows the player to delete a home.
     default: op
@@ -187,6 +193,9 @@ permissions:
     description: Allows the player to set other players' homes.
     default: op
 
+  command.burn.exempt:
+    description: Makes it so other players cannot burn the player.
+    default: false
   command.delhome.exempt:
     description: Makes it so other players cannot delete the player's homes.
     default: false

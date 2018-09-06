@@ -51,6 +51,9 @@ public class Lang {
     public static String TELEPORT_REQUESTHERE_TARGET;
     public static String TELEPORT_REQUESTALL_REQUESTER;
     public static String TELEPORT_TOGGLE_SET;
+    public static String PLAYER_CANT_BURN;
+    public static String PLAYER_HAS_BURNED_YOU;
+    public static String YOU_BURNED_PLAYER;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -119,6 +122,10 @@ public class Lang {
         TELEPORT_REQUESTALL_REQUESTER = config.getString("teleport-requestall-requester", "&dTeleport here request sent to &7all players&d.");
 
         TELEPORT_TOGGLE_SET = config.getString("teleport-toggle-set", "&dPersonal teleports toggled &7{toggle}&d.");
+
+        PLAYER_CANT_BURN = config.getString("player-cant-burn","&dYou cannot burn that player.");
+        PLAYER_HAS_BURNED_YOU = config.getString("player-has-burned-you","&dYou have just been burned by {playerBurner}.");
+        YOU_BURNED_PLAYER = config.getString("you-burned-player","&dYou just burned {burnedPlayer}.");
     }
 
     public static void send(CommandSender recipient, String message) {

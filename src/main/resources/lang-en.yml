@@ -58,3 +58,7 @@ teleport-requesthere-target: "&7{requester} &dhas requested you to teleport to t
 teleport-requestall-requester: "&dTeleport here request sent to &7all players&d."
 
 teleport-toggle-set: "&dPersonal teleports toggled &7{toggle}&d."
+
+player-cant-burn: "&dYou cannot burn that player."
+player-has-burned-you: "&dYou have just been burned by {playerBurner}."
+you-burned-player: "&dYou just burned {burnedPlayer}."
