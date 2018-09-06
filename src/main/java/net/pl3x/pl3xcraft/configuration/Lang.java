@@ -63,6 +63,9 @@ public class Lang {
     public static String PLAYER_HAS_BURNED_YOU;
     public static String YOU_BURNED_PLAYER;
     public static String BROADCAST_TITLE;
+    public static String PLAYER_INVENTORY_CLEARED;
+    public static String INVENTORY_CLEARED_BY_OTHER;
+    public static String INVENTORY_CLEARED;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -147,6 +150,10 @@ public class Lang {
         YOU_BURNED_PLAYER = config.getString("you-burned-player","&dYou just burned {burnedPlayer}.");
 
         BROADCAST_TITLE = config.getString("broadcast-title","&2[&dBroadcast&2]&7 {message}");
+
+        PLAYER_INVENTORY_CLEARED = config.getString("player-inventory-cleared", "&dYou have cleared the inventory of {playerCleared}.");
+        INVENTORY_CLEARED_BY_OTHER = config.getString("inventory-clear-by-other","&dYour inventory has been cleared by {playerClearedBy}");
+        INVENTORY_CLEARED = config.getString("inventory-cleared","&dYou have cleared your inventory.");
     }
 
     public static void send(CommandSender recipient, String message) {

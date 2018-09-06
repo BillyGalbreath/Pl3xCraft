@@ -28,6 +28,12 @@ commands:
     usage: /<command> [message]
     aliases:
     - say
+  clearinventory:
+    description: Clears your inventory
+    usage: /<command> (player)
+    aliases:
+    - clear
+    - ci
   delhome:
     description: Deletes a home.
     usage: /<command> [home (player)]
@@ -138,6 +144,9 @@ permissions:
   command.burn:
     description: Sets a player on fire
     default: op
+  command.clearinventory:
+    description: Clears your inventory
+    default: op
   command.delhome:
     description: Allows the player to delete a home.
     default: op
@@ -212,6 +221,9 @@ permissions:
     description: Go to highest block at current position
     default: op
 
+  command.clearinventory.other:
+    description: Allows the player to clear other players inventory.
+    default: op
   command.delhome.other:
     description: Allows the player to delete other players' homes.
     default: op
