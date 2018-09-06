@@ -59,6 +59,15 @@ commands:
     usage: /<command> (home (player))
     aliases:
     - homeset
+  setspawn:
+    description: Sets the server spawn point
+    usage: /<command>
+  spawn:
+    description: Teleport to the server spawn point
+    usage: /<command>
+    aliases:
+    - hub
+    - server
   teleportaccept:
     description: Accept teleport request
     usage: /<command>
@@ -149,6 +158,12 @@ permissions:
       command.sethome.limit.1:
         description: Allows the player to set 1 home.
         default: true
+  command.setspawn:
+    description: Allows the player to set the server spawn.
+    default: op
+  command.spawn:
+    description: Allows the player to teleport to the server spawn
+    default: true
   command.teleport.override:
     description: Overrides teleport request toggle setting
     default: op

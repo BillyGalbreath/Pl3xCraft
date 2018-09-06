@@ -8,6 +8,8 @@ import net.pl3x.pl3xcraft.commands.CmdHomes;
 import net.pl3x.pl3xcraft.commands.CmdJump;
 import net.pl3x.pl3xcraft.commands.CmdPl3xCraft;
 import net.pl3x.pl3xcraft.commands.CmdSetHome;
+import net.pl3x.pl3xcraft.commands.CmdSetSpawn;
+import net.pl3x.pl3xcraft.commands.CmdSpawn;
 import net.pl3x.pl3xcraft.commands.CmdTeleportAccept;
 import net.pl3x.pl3xcraft.commands.CmdTeleportDeny;
 import net.pl3x.pl3xcraft.commands.CmdTeleportRequest;
@@ -49,7 +51,7 @@ public class Pl3xCraft extends JavaPlugin {
             return;
         }
 
-        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
 
         getCommand("pl3xcraft").setExecutor(new CmdPl3xCraft(this));
         getCommand("back").setExecutor(new CmdBack(this));
@@ -62,6 +64,8 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("homes").setExecutor(new CmdHomes(this));
         getCommand("jump").setExecutor(new CmdJump(this));
         getCommand("sethome").setExecutor(new CmdSetHome(this));
+        getCommand("setspawn").setExecutor(new CmdSetSpawn());
+        getCommand("spawn").setExecutor(new CmdSpawn(this));
         getCommand("teleportaccept").setExecutor(new CmdTeleportAccept(this));
         getCommand("teleportdeny").setExecutor(new CmdTeleportDeny(this));
         getCommand("teleportrequest").setExecutor(new CmdTeleportRequest(this));

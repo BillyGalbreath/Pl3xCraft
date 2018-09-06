@@ -38,6 +38,8 @@ public class Lang {
     public static String NO_TARGET_BLOCK;
     public static String BACK_DEATH_HINT;
     public static String NO_BACK_LOCATION;
+    public static String SPAWN;
+    public static String SPAWN_SET;
     public static String TELEPORTING_BACK;
     public static String TELEPORTING_JUMP;
     public static String TELEPORTING_TOP;
@@ -99,6 +101,9 @@ public class Lang {
 
         BACK_DEATH_HINT = config.getString("back-death-hint", "&dType &7/back &dto go back to where you died.");
         NO_BACK_LOCATION = config.getString("no-back-location", "&4No back location found!");
+
+        SPAWN = config.getString("spawn", "&dTeleported to spawn");
+        SPAWN_SET = config.getString("spawn-set", "&dSpawn point set");
 
         TELEPORTING_BACK = config.getString("teleporting-back", "&dTeleporting back to previous location.");
         TELEPORTING_JUMP = config.getString("teleporting-jump", "&dJumped to block.");

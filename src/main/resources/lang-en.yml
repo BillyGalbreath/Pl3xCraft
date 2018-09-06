@@ -39,6 +39,9 @@ no-target-block: "&No block in line of sight, or too far away."
 back-death-hint: "&dType &7/back &dto go back to where you died."
 no-back-location: "&4No back location found!"
 
+spawn: "&dTeleported to spawn"
+spawn-set: "&dSpawn point set"
+
 teleporting-back: "&dTeleporting back to previous location."
 teleporting-jump: "&dJumped to block."
 teleporting-top: "&dTeleporting to highest block."
