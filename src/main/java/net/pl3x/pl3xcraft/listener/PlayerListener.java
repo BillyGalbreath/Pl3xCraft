@@ -8,18 +8,21 @@ import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class PlayerListener implements Listener {
@@ -95,5 +98,24 @@ public class PlayerListener implements Listener {
     public void onPlayerSleep(PlayerBedEnterEvent event) {
         event.getPlayer().setBedSpawnLocation(event.getBed().getLocation());
         Lang.send(event.getPlayer(), Lang.BED_SPAWN_SET);
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onPlayerAssign(PlayerInteractEvent event) {
+        Player player = event.getPlayer();
+        if (!player.hasPermission("command.assign")) {
+            return;
+        }
+        Material tool = event.getMaterial();
+        if (tool != null && !tool.isBlock()) {
+            PlayerConfig config = PlayerConfig.getConfig(player);
+            List<String> command = config.getAssignCommand(tool);
+            if (!command.isEmpty()) {
+                for (String assignedTool : command) {
+                    player.chat("/" + assignedTool);
+                }
+                event.setCancelled(true);
+            }
+        }
     }
 }

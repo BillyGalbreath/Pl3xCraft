@@ -11,9 +11,23 @@ commands:
   pl3xcraft:
     description: Reload configs
     usage: /<command> (reload)
+  assign:
+    description: Assign a command to any itme in your hand
+    usage: /<command> [command]
+    aliases:
+    - powertool
+    - pt
   back:
     description: Go back to previous location
     usage: /<command>
+  burn:
+    description: Sets a player on fire
+    usage: /<command> [player] (seconds)
+  broadcast:
+    description: Broadcasts a message to all players
+    usage: /<command> [message]
+    aliases:
+    - say
   delhome:
     description: Deletes a home.
     usage: /<command> [home (player)]
@@ -112,8 +126,17 @@ permissions:
   command.pl3xcraft:
     description: Allows to reload configs
     default: op
+  command.assign:
+    description: ssign a command to any itme in your hand
+    default: op
   command.back:
     description: Go back to previous location
+    default: op
+  command.broadcast:
+    description: Broadcast message
+    default: op
+  command.burn:
+    description: Sets a player on fire
     default: op
   command.delhome:
     description: Allows the player to delete a home.
@@ -202,6 +225,9 @@ permissions:
     description: Allows the player to set other players' homes.
     default: op
 
+  command.burn.exempt:
+    description: Makes it so other players cannot burn the player.
+    default: false
   command.delhome.exempt:
     description: Makes it so other players cannot delete the player's homes.
     default: false

@@ -5,6 +5,7 @@ import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.request.Request;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
 
 public class PlayerConfig extends YamlConfiguration {
     private static final Map<OfflinePlayer, PlayerConfig> configs = new HashMap<>();
+    private List<String> assignTools = new ArrayList<>();
 
     public static PlayerConfig getConfig(OfflinePlayer player) {
         synchronized (configs) {
@@ -101,6 +103,23 @@ public class PlayerConfig extends YamlConfiguration {
         set("home." + name + ".z", location.getZ());
         set("home." + name + ".pitch", location.getPitch());
         set("home." + name + ".yaw", location.getYaw());
+        save();
+    }
+
+    // Billys kay/value swap
+    // ----> WORKS LEAVE IT!
+    public List<String> getAssignCommand(Material material) {
+        return getConfigurationSection("assign").getStringList(material.name());
+    }
+
+    // WORKS LEAVE IT!!
+    public void setAssignCommand(Material material, List<String> commands) {
+        if (commands == null) {
+            set("assign." + material, null);
+            save();
+            return;
+        }
+        set("assign." + material, commands);
         save();
     }
 
