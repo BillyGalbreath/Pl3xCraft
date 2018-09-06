@@ -1,7 +1,6 @@
 package net.pl3x.pl3xcraft.commands;
 
 import net.pl3x.pl3xcraft.Pl3xCraft;
-import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
 import net.pl3x.pl3xcraft.hook.Vault;

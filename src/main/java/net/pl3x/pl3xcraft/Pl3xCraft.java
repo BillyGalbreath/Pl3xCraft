@@ -1,5 +1,6 @@
 package net.pl3x.pl3xcraft;
 
+import net.pl3x.pl3xcraft.commands.CmdAssign;
 import net.pl3x.pl3xcraft.commands.CmdBack;
 import net.pl3x.pl3xcraft.commands.CmdDelHome;
 import net.pl3x.pl3xcraft.commands.CmdGamemode;
@@ -69,6 +70,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("teleportrequesthere").setExecutor(new CmdTeleportRequestHere(this));
         getCommand("teleporttoggle").setExecutor(new CmdTeleportToggle(this));
         getCommand("top").setExecutor(new CmdTop(this));
+        getCommand("assign").setExecutor(new CmdAssign(this));
 
         Logger.info(getName() + " v" + getDescription().getVersion() + " enabled!");
     }
