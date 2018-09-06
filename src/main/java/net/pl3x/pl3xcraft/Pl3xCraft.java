@@ -1,20 +1,6 @@
 package net.pl3x.pl3xcraft;
 
-import net.pl3x.pl3xcraft.commands.CmdBack;
-import net.pl3x.pl3xcraft.commands.CmdDelHome;
-import net.pl3x.pl3xcraft.commands.CmdGamemode;
-import net.pl3x.pl3xcraft.commands.CmdHome;
-import net.pl3x.pl3xcraft.commands.CmdHomes;
-import net.pl3x.pl3xcraft.commands.CmdJump;
-import net.pl3x.pl3xcraft.commands.CmdPl3xCraft;
-import net.pl3x.pl3xcraft.commands.CmdSetHome;
-import net.pl3x.pl3xcraft.commands.CmdTeleportAccept;
-import net.pl3x.pl3xcraft.commands.CmdTeleportDeny;
-import net.pl3x.pl3xcraft.commands.CmdTeleportRequest;
-import net.pl3x.pl3xcraft.commands.CmdTeleportRequestAll;
-import net.pl3x.pl3xcraft.commands.CmdTeleportRequestHere;
-import net.pl3x.pl3xcraft.commands.CmdTeleportToggle;
-import net.pl3x.pl3xcraft.commands.CmdTop;
+import net.pl3x.pl3xcraft.commands.*;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
@@ -69,6 +55,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("teleportrequesthere").setExecutor(new CmdTeleportRequestHere(this));
         getCommand("teleporttoggle").setExecutor(new CmdTeleportToggle(this));
         getCommand("top").setExecutor(new CmdTop(this));
+        getCommand("broadcast").setExecutor(new CmdBroadcast(this));
 
         Logger.info(getName() + " v" + getDescription().getVersion() + " enabled!");
     }

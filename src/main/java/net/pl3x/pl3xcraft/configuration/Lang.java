@@ -51,6 +51,7 @@ public class Lang {
     public static String TELEPORT_REQUESTHERE_TARGET;
     public static String TELEPORT_REQUESTALL_REQUESTER;
     public static String TELEPORT_TOGGLE_SET;
+    public static String BROADCAST_TITLE;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -119,6 +120,7 @@ public class Lang {
         TELEPORT_REQUESTALL_REQUESTER = config.getString("teleport-requestall-requester", "&dTeleport here request sent to &7all players&d.");
 
         TELEPORT_TOGGLE_SET = config.getString("teleport-toggle-set", "&dPersonal teleports toggled &7{toggle}&d.");
+        BROADCAST_TITLE = config.getString("broadcast-title","&2[&dBroadcast&2] ");
     }
 
     public static void send(CommandSender recipient, String message) {
