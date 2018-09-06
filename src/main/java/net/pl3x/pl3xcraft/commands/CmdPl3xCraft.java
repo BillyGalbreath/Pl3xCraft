@@ -2,6 +2,7 @@ package net.pl3x.pl3xcraft.commands;
 
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.configuration.Config;
+import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -37,6 +38,7 @@ public class CmdPl3xCraft implements TabExecutor {
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
             Config.reload(plugin);
             Lang.reload(plugin);
+            Data.getInstance().reload();
 
             response += " reloaded.";
         }

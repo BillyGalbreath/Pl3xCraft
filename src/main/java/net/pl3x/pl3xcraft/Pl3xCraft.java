@@ -21,9 +21,11 @@ import net.pl3x.pl3xcraft.commands.CmdTeleportRequestHere;
 import net.pl3x.pl3xcraft.commands.CmdTeleportToggle;
 import net.pl3x.pl3xcraft.commands.CmdTop;
 import net.pl3x.pl3xcraft.configuration.Config;
+import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
 import net.pl3x.pl3xcraft.hook.Vault;
+import net.pl3x.pl3xcraft.listener.MOTDListener;
 import net.pl3x.pl3xcraft.listener.PlayerListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -43,6 +45,7 @@ public class Pl3xCraft extends JavaPlugin {
     public void onEnable() {
         Config.reload(this);
         Lang.reload(this);
+        Data.getInstance();
 
         if (!Bukkit.getPluginManager().isPluginEnabled("Vault")) {
             Logger.error("Missing required dependency: Vault");
@@ -54,6 +57,7 @@ public class Pl3xCraft extends JavaPlugin {
             return;
         }
 
+        getServer().getPluginManager().registerEvents(new MOTDListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
 
         getCommand("pl3xcraft").setExecutor(new CmdPl3xCraft(this));
