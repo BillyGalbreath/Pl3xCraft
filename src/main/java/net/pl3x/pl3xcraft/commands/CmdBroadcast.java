@@ -2,8 +2,8 @@ package net.pl3x.pl3xcraft.commands;
 
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.configuration.Lang;
-import net.pl3x.pl3xcraft.configuration.PlayerConfig;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -14,6 +14,7 @@ import java.util.List;
 
 public class CmdBroadcast implements TabExecutor {
     private final Pl3xCraft plugin;
+    private final String message = "";
 
     public CmdBroadcast(Pl3xCraft plugin) {
         this.plugin = plugin;
@@ -31,18 +32,12 @@ public class CmdBroadcast implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (!(sender instanceof Player)){
-            Lang.send(sender, Lang.PLAYER_COMMAND);
-            return true;
-        }
-
         if (!sender.hasPermission("command.broadcast")){
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
             return true;
         }
 
-        if (args.length == 0){
-            Lang.send(sender, cmd.getDescription());
+        if (message == null || args.length == 0){
             return false;
         }
 
@@ -54,9 +49,14 @@ public class CmdBroadcast implements TabExecutor {
             for (int i = 1; i < args.length; i++){
                 message.append(" ").append(args[i]);
             }
+            Bukkit.broadcastMessage(sendColor(message.toString()));
+            return true;
         }
-
-        Bukkit.broadcastMessage(message.toString());
         return false;
+    }
+
+    private String sendColor(String message) {
+        message = ChatColor.translateAlternateColorCodes('&', message);
+        return message;
     }
 }

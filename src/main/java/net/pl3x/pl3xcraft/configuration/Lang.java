@@ -120,7 +120,7 @@ public class Lang {
         TELEPORT_REQUESTALL_REQUESTER = config.getString("teleport-requestall-requester", "&dTeleport here request sent to &7all players&d.");
 
         TELEPORT_TOGGLE_SET = config.getString("teleport-toggle-set", "&dPersonal teleports toggled &7{toggle}&d.");
-        BROADCAST_TITLE = config.getString("broadcast-title","&2[&dBroadcast&2] ");
+        BROADCAST_TITLE = config.getString("broadcast-title","&2[&dBroadcast&2] &7");
     }
 
     public static void send(CommandSender recipient, String message) {

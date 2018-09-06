@@ -59,4 +59,4 @@ teleport-requestall-requester: "&dTeleport here request sent to &7all players&d.
 
 teleport-toggle-set: "&dPersonal teleports toggled &7{toggle}&d."
 
-broadcast-title: "&2[&dBroadcast&2] "
+broadcast-title: "&2[&dBroadcast&2] &7"
