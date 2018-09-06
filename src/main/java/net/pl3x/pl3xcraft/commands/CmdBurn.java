@@ -27,8 +27,8 @@ public class CmdBurn implements TabExecutor {
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
             return true;
         }
-        if (args.length < 1){
-            return true;
+        if (args.length == 0){
+            return false;
         }
         Player playerBurned = Pl3xCraft.getPlugin().getServer().getPlayer(args[0]);
         if ((playerBurned == null)){
@@ -55,6 +55,6 @@ public class CmdBurn implements TabExecutor {
                 .replace("{playerBurner}", theBurner));
         Lang.send(sender, Lang.YOU_BURNED_PLAYER
                 .replace("{burnedPlayer}",playerBurned.getDisplayName()));
-        return false;
+        return true;
     }
 }
