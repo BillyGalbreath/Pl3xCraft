@@ -2,6 +2,7 @@ package net.pl3x.pl3xcraft;
 
 import net.pl3x.pl3xcraft.commands.CmdAssign;
 import net.pl3x.pl3xcraft.commands.CmdBack;
+import net.pl3x.pl3xcraft.commands.CmdBroadcast;
 import net.pl3x.pl3xcraft.commands.CmdBurn;
 import net.pl3x.pl3xcraft.commands.CmdDelHome;
 import net.pl3x.pl3xcraft.commands.CmdGamemode;
@@ -54,7 +55,10 @@ public class Pl3xCraft extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
 
         getCommand("pl3xcraft").setExecutor(new CmdPl3xCraft(this));
+        getCommand("assign").setExecutor(new CmdAssign());
         getCommand("back").setExecutor(new CmdBack(this));
+        getCommand("broadcast").setExecutor(new CmdBroadcast());
+        getCommand("burn").setExecutor(new CmdBurn());
         getCommand("delhome").setExecutor(new CmdDelHome(this));
         getCommand("gmadventure").setExecutor(new CmdGamemode(GameMode.ADVENTURE));
         getCommand("gmcreative").setExecutor(new CmdGamemode(GameMode.CREATIVE));
@@ -71,8 +75,6 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("teleportrequesthere").setExecutor(new CmdTeleportRequestHere(this));
         getCommand("teleporttoggle").setExecutor(new CmdTeleportToggle(this));
         getCommand("top").setExecutor(new CmdTop(this));
-        getCommand("assign").setExecutor(new CmdAssign(this));
-        getCommand("burn").setExecutor(new CmdBurn(this));
 
         Logger.info(getName() + " v" + getDescription().getVersion() + " enabled!");
     }

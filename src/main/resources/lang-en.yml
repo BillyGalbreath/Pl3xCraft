@@ -69,3 +69,5 @@ only-items-can-assign: "&dYou can only assign a command to items, not blocks!"
 player-cant-burn: "&dYou cannot burn that player."
 player-has-burned-you: "&dYou have just been burned by {playerBurner}."
 you-burned-player: "&dYou just burned {burnedPlayer}."
+
+broadcast-title: "&2[&dBroadcast&2] &7"

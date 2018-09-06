@@ -16,13 +16,18 @@ commands:
     usage: /<command> [command]
     aliases:
     - powertool
-    -pt
+    - pt
   back:
     description: Go back to previous location
     usage: /<command>
   burn:
     description: Sets a player on fire
     usage: /<command> [player] (seconds)
+  broadcast:
+    description: Broadcasts a message to all players
+    usage: /<command> [message]
+    aliases:
+    - say
   delhome:
     description: Deletes a home.
     usage: /<command> [home (player)]
@@ -117,6 +122,9 @@ permissions:
     default: op
   command.back:
     description: Go back to previous location
+    default: op
+  command.broadcast:
+    description: Broadcast message
     default: op
   command.burn:
     description: Sets a player on fire

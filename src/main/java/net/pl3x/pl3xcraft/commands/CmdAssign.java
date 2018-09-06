@@ -1,9 +1,7 @@
 package net.pl3x.pl3xcraft.commands;
 
-import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -12,18 +10,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 public class CmdAssign implements TabExecutor {
-    private final Pl3xCraft plugin;
-    private static final HashMap<UUID, Location> assigndb = new HashMap<>();
-
-    public CmdAssign(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         return null;
