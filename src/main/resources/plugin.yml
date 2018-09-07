@@ -34,6 +34,14 @@ commands:
     aliases:
     - clear
     - ci
+  coords:
+    description: Shows a player's coordinates and world
+    usage: /<command> (player)
+    aliases:
+    - location
+    - loc
+    - position
+    - pos
   delhome:
     description: Deletes a home.
     usage: /<command> [home (player)]
@@ -147,6 +155,9 @@ permissions:
   command.clearinventory:
     description: Clears your inventory
     default: op
+  command.coords:
+    description: Allows you to see your own coords
+    default: op
   command.delhome:
     description: Allows the player to delete a home.
     default: op
@@ -223,6 +234,9 @@ permissions:
 
   command.clearinventory.other:
     description: Allows the player to clear other players inventory.
+    default: op
+  command.coords.other:
+    description: Allows you to see the coords of another player.
     default: op
   command.delhome.other:
     description: Allows the player to delete other players' homes.

@@ -5,6 +5,7 @@ import net.pl3x.pl3xcraft.commands.CmdBack;
 import net.pl3x.pl3xcraft.commands.CmdBroadcast;
 import net.pl3x.pl3xcraft.commands.CmdBurn;
 import net.pl3x.pl3xcraft.commands.CmdClearInventory;
+import net.pl3x.pl3xcraft.commands.CmdCoords;
 import net.pl3x.pl3xcraft.commands.CmdDelHome;
 import net.pl3x.pl3xcraft.commands.CmdGamemode;
 import net.pl3x.pl3xcraft.commands.CmdHome;
@@ -65,6 +66,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("assign").setExecutor(new CmdAssign());
         getCommand("back").setExecutor(new CmdBack(this));
         getCommand("clearinventory").setExecutor(new CmdClearInventory());
+        getCommand("coords").setExecutor(new CmdCoords());
         getCommand("broadcast").setExecutor(new CmdBroadcast());
         getCommand("burn").setExecutor(new CmdBurn());
         getCommand("delhome").setExecutor(new CmdDelHome(this));

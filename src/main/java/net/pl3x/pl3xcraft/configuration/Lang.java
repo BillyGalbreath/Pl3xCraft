@@ -66,6 +66,14 @@ public class Lang {
     public static String PLAYER_INVENTORY_CLEARED;
     public static String INVENTORY_CLEARED_BY_OTHER;
     public static String INVENTORY_CLEARED;
+    public static String YOUR_COORDS;
+    public static String X_COORDS;
+    public static String Y_COORDS;
+    public static String Z_COORDS;
+    public static String PITCH_COORDS;
+    public static String YAW_COORDS;
+    public static String WORLD_COORDS;
+    public static String OTHER_PLAYER_COORDS;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -154,6 +162,15 @@ public class Lang {
         PLAYER_INVENTORY_CLEARED = config.getString("player-inventory-cleared", "&dYou have cleared the inventory of {playerCleared}.");
         INVENTORY_CLEARED_BY_OTHER = config.getString("inventory-clear-by-other","&dYour inventory has been cleared by {playerClearedBy}");
         INVENTORY_CLEARED = config.getString("inventory-cleared","&dYou have cleared your inventory.");
+
+        YOUR_COORDS = config.getString("your-coords","&d==============\n&d==&7Your Location\n&d==============");
+        X_COORDS = config.getString("x-coords","&dx: &7{getX}");
+        Y_COORDS = config.getString("y-coords","&dy: &7{getY}");
+        Z_COORDS = config.getString("z-coords","&dz: &7{getZ}");
+        PITCH_COORDS = config.getString("pitch-coords","&dpitch: &7{getPitch}");
+        YAW_COORDS = config.getString("yaw-coords","&dyaw: &7{getYaw}");
+        WORLD_COORDS = config.getString("world-coords","&dworld: &7{getWorld}");
+        OTHER_PLAYER_COORDS = config.getString("other-player-coords","&d==============\n&d==&7{otherPlayer}'s Location\n&d==============");
     }
 
     public static void send(CommandSender recipient, String message) {
