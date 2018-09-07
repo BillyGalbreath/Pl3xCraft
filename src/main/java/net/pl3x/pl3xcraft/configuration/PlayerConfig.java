@@ -13,6 +13,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -109,7 +110,8 @@ public class PlayerConfig extends YamlConfiguration {
     // Billys kay/value swap
     // ----> WORKS LEAVE IT!
     public List<String> getAssignCommand(Material material) {
-        return getConfigurationSection("assign").getStringList(material.name());
+        ConfigurationSection section = getConfigurationSection("assign");
+        return section == null ? Collections.EMPTY_LIST : section.getStringList(material.name());
     }
 
     // WORKS LEAVE IT!!
