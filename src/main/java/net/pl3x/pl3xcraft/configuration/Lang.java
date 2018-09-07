@@ -74,6 +74,9 @@ public class Lang {
     public static String YAW_COORDS;
     public static String WORLD_COORDS;
     public static String OTHER_PLAYER_COORDS;
+    public static String ABOVE_SEA_LEVEL;
+    public static String BELOW_SEA_LEVEL;
+    public static String AT_SEA_LEVEL;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -171,6 +174,10 @@ public class Lang {
         YAW_COORDS = config.getString("yaw-coords","&dyaw: &7{getYaw}");
         WORLD_COORDS = config.getString("world-coords","&dworld: &7{getWorld}");
         OTHER_PLAYER_COORDS = config.getString("other-player-coords","&d==============\n&d==&7{otherPlayer}'s Location\n&d==============");
+
+        ABOVE_SEA_LEVEL = config.getString("above-seat-level","&d{getPlayer}&7{aboveSeaLevel}&d block{sUp} above sea level.");
+        BELOW_SEA_LEVEL = config.getString("below-sea-level","&d{getPlayer}&7{belowSeaLevel}&d block{sDown} below sea level.");
+        AT_SEA_LEVEL = config.getString("at-sea-level","&d{getPlayer} at sea level.");
     }
 
     public static void send(CommandSender recipient, String message) {

@@ -47,6 +47,9 @@ commands:
     usage: /<command> [home (player)]
     aliases:
     - deletehome
+  depth:
+    description: Allows a player to see how far they are above/below sea level.
+    usage: /<command> (player)
   gmadventure:
     description: Set gamemode to adventure mode
     usage: /<command> (player)
@@ -161,6 +164,9 @@ permissions:
   command.delhome:
     description: Allows the player to delete a home.
     default: op
+  command.depth:
+    description: Allows a player to see how far they are above/below sea level
+    default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode
     default: op
@@ -240,6 +246,9 @@ permissions:
     default: op
   command.delhome.other:
     description: Allows the player to delete other players' homes.
+    default: op
+  command.depth.other:
+    description: Allows the player to see the depth of another player.
     default: op
   command.home.other:
     description: Allows the player to go to other players' homes.

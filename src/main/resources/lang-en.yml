@@ -87,3 +87,7 @@ pitch-coords: "&dpitch: &7{getPitch}"
 yaw-coords: "&dyaw: &7{getYaw}"
 world-coords: "&dworld: &7{getWorld}"
 other-player-coords: "&d==============\n&d==&7{otherPlayer}'s Location\n&d=============="
+
+above-sea-level: "&{getPlayer}&7{aboveSeaLevel}&d block{sUp} above sea level."
+below-sea-level: "&{getPlayer}&7{belowSeaLevel}&d block{sDown} below sea level."
+at-sea-level: "&d{getPlayer} at sea level."
