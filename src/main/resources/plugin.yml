@@ -50,6 +50,9 @@ commands:
   depth:
     description: Allows a player to see how far they are above/below sea level.
     usage: /<command> (player)
+  enchant:
+    description: Enchants the item in hand
+    usage: /<command> [enchantment/all] (level)
   gmadventure:
     description: Set gamemode to adventure mode
     usage: /<command> (player)
@@ -166,6 +169,9 @@ permissions:
     default: op
   command.depth:
     description: Allows a player to see how far they are above/below sea level
+    default: op
+  command.enchant:
+    description: Allows you to enchant items.
     default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode

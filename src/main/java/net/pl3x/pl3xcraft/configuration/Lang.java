@@ -77,6 +77,20 @@ public class Lang {
     public static String ABOVE_SEA_LEVEL;
     public static String BELOW_SEA_LEVEL;
     public static String AT_SEA_LEVEL;
+    public static String CAN_NOT_AIR;
+    public static String INVALID_NUMBER;
+    public static String LEVEL_BELOW_MIN;
+    public static String LEVEL_ABOVE_MAX;
+    public static String REMOVED_ALL_ENCHANTMENTS;
+    public static String ADDED_ALL_ENCHANTMENTS_TO_MAX;
+    public static String ADDED_ALL_ENCHANTMENTS_TO_30;
+    public static String ADDED_ALL_ENCHANTMENTS_TO_X;
+    public static String NOT_ENCHANTMENT;
+    public static String ENCHANTMENT_NOT_FOUND;
+    public static String ADD_X_ENCHANMENT;
+    public static String ADD_X_ENCHANMENT_TO_MAX;
+    public static String ADD_X_ENCHANMENT_TO_30;
+    public static String ADD_X_ENCHANMENT_TO_X;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -178,6 +192,21 @@ public class Lang {
         ABOVE_SEA_LEVEL = config.getString("above-seat-level","&d{getPlayer}&7{aboveSeaLevel}&d block{sUp} above sea level.");
         BELOW_SEA_LEVEL = config.getString("below-sea-level","&d{getPlayer}&7{belowSeaLevel}&d block{sDown} below sea level.");
         AT_SEA_LEVEL = config.getString("at-sea-level","&d{getPlayer} at sea level.");
+
+        CAN_NOT_AIR = config.getString("can-not-air","&dAir cannot be enchanted.");
+        INVALID_NUMBER = config.getString("invalid-number","&dThe level supplied was not a number.");
+        LEVEL_BELOW_MIN = config.getString("level-below-min","&dThe level cannot be below 0!");
+        LEVEL_ABOVE_MAX = config.getString("level-above-max","&dThe level cannot be above 30!");
+        REMOVED_ALL_ENCHANTMENTS = config.getString("removed-all-enchantments","&dRemoved all enchantments from {getItemName}.");
+        ADDED_ALL_ENCHANTMENTS_TO_MAX = config.getString("added-all-enchantments-to-max","&dAdded &7all&d enchantments to &7{getItemInhand} &dat their max levels.");
+        ADDED_ALL_ENCHANTMENTS_TO_30 = config.getString("added-all-enchantments-to-30","&dAdded &7all&d enchantments to &7{getItemInhand} &dat level 30.");
+        ADDED_ALL_ENCHANTMENTS_TO_X = config.getString("added-all-enchantments-to-X","&dAdded &7all&d enchantments to &7{getItemInhand} &dat level &7{getLevel}&d.");
+        NOT_ENCHANTMENT = config.getString("not-enchantment","&dNo such enchantment!");
+        ENCHANTMENT_NOT_FOUND = config.getString("enchantment-not-found", "&dThat &7{getItemInhand}&d does not contain &7{getEnchantment}&d.");
+        ADD_X_ENCHANMENT = config.getString("add-x-enchantment","&dAdded &7{getEnchantment}&d from &7{getItemInhand}&d.");
+        ADD_X_ENCHANMENT_TO_MAX = config.getString("add-x-enchantment-to-max","&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at level &7{getMaxLevel}&d.");
+        ADD_X_ENCHANMENT_TO_30 = config.getString("add-x-enchantment-30","&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at level 30.");
+        ADD_X_ENCHANMENT_TO_X = config.getString("add-x-enchantment-x","&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at level &7{getLevel}&d.");
     }
 
     public static void send(CommandSender recipient, String message) {
