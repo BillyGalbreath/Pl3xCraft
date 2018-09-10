@@ -17,6 +17,8 @@ public class Config {
     public static Sound SOUND_TO;
     public static Sound SOUND_FROM;
 
+    public static boolean UNSAFE_ENCHANTMENTS;
+
     public static void reload(Pl3xCraft plugin) {
         plugin.saveDefaultConfig();
         plugin.reloadConfig();
@@ -42,5 +44,7 @@ public class Config {
             Logger.warn("Invalid \"sound-from\" config value. Using \"ENTITY_ENDERMAN_TELEPORT\" instead.");
             SOUND_FROM = Sound.ENTITY_ENDERMAN_TELEPORT;
         }
+
+        UNSAFE_ENCHANTMENTS = config.getBoolean("unsafe-enchantments", false);
     }
 }

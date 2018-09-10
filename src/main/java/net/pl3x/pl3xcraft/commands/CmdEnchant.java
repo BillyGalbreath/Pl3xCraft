@@ -1,8 +1,8 @@
 package net.pl3x.pl3xcraft.commands;
 
+import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.util.ItemUtil;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -11,13 +11,19 @@ import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CmdEnchant implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+        if (args.length < 1){
+            return Arrays.stream(Enchantment.values())
+                            .filter(enchantment -> enchantment.getName().toLowerCase().startsWith(args[1].toLowerCase()))
+                            .map(Enchantment::getName)
+                            .collect(Collectors.toList());
+        }
         return null;
     }
 
@@ -35,7 +41,11 @@ public class CmdEnchant implements TabExecutor {
 
         if (args.length < 1){
             sendEnchantmentList(sender);
-            return true; // Might need to be false
+            Lang.send(sender, Lang.ENCHANTMENT_DESCRIPTION
+                    .replace("{getDescription}", cmd.getDescription()));
+            Lang.send(sender, Lang.ENCHANTMENT_USAGE
+                    .replace("{getUsage}", cmd.getUsage()));
+            return true;
         }
 
         Player player = (Player) sender;
@@ -77,6 +87,11 @@ public class CmdEnchant implements TabExecutor {
                 if (level == REMOVE){
                     for (Enchantment enchantment : Enchantment.values()){
                         if (!inHand.containsEnchantment(enchantment)){
+                            if (Config.UNSAFE_ENCHANTMENTS){
+                                inHand.addUnsafeEnchantment(enchantment, level);
+                            } else {
+                                inHand.addEnchantment(enchantment, level);
+                            }
                             continue;
                         }
                         inHand.removeEnchantment(enchantment);
@@ -85,19 +100,32 @@ public class CmdEnchant implements TabExecutor {
                             .replace("{getItemName}", ItemUtil.getItemName(inHand)));
                 } else if (level == MAX_LEVEL) {
                     for (Enchantment enchantment : Enchantment.values()){
-                        inHand.addUnsafeEnchantment(enchantment, enchantment.getMaxLevel());
+                        if (Config.UNSAFE_ENCHANTMENTS){
+                            inHand.addUnsafeEnchantment(enchantment, enchantment.getMaxLevel());
+                        } else {
+                            inHand.addEnchantment(enchantment, enchantment.getMaxLevel());
+                        }
                     }
                     Lang.send(sender, Lang.ADDED_ALL_ENCHANTMENTS_TO_MAX
                             .replace("{getItemInhand}",ItemUtil.getItemName(inHand)));
                 } else  if (level == MAX_INT){
                     for (Enchantment enchantment : Enchantment.values()){
-                        inHand.addUnsafeEnchantment(enchantment, 30);
+                        if (Config.UNSAFE_ENCHANTMENTS){
+                            inHand.addUnsafeEnchantment(enchantment, 30);
+                        } else {
+                            inHand.addEnchantment(enchantment, 30);
+                        }
                     }
                     Lang.send(sender, Lang.ADDED_ALL_ENCHANTMENTS_TO_30
                             .replace("{getItemInhand}",ItemUtil.getItemName(inHand)));
                 } else {
                     for (Enchantment enchantment : Enchantment.values()){
-                        inHand.addUnsafeEnchantment(enchantment, level);
+                        if (Config.UNSAFE_ENCHANTMENTS){
+                            inHand.addUnsafeEnchantment(enchantment, level);
+                        } else {
+                            inHand.addEnchantment(enchantment, level);
+                        }
+
                     }
                     Lang.send(sender, Lang.ADDED_ALL_ENCHANTMENTS_TO_X
                             .replace("{getItemInhand}", ItemUtil.getItemName(inHand))
@@ -143,18 +171,30 @@ public class CmdEnchant implements TabExecutor {
                     .replace("{getEnchantment}", addedEnchantment.getName().toLowerCase().replace("_", " "))
                     .replace("{getItemInhand}", ItemUtil.getItemName(inHand)));
         } else if (level == MAX_LEVEL) {
-            inHand.addUnsafeEnchantment(addedEnchantment, addedEnchantment.getMaxLevel());
+            if (Config.UNSAFE_ENCHANTMENTS){
+                inHand.addUnsafeEnchantment(addedEnchantment, addedEnchantment.getMaxLevel());
+            } else {
+                inHand.addEnchantment(addedEnchantment, addedEnchantment.getMaxLevel());
+            }
             Lang.send(sender, Lang.ADD_X_ENCHANMENT_TO_MAX
                     .replace("{getEnchantment}", addedEnchantment.getName().toLowerCase().replace("_", " "))
                     .replace("{getItemInhand}", ItemUtil.getItemName(inHand))
                     .replace("{getMaxLevel}", Integer.toString(addedEnchantment.getMaxLevel())));
         } else if (level == MAX_INT) {
-            inHand.addUnsafeEnchantment(addedEnchantment, 30);
+            if (Config.UNSAFE_ENCHANTMENTS){
+                inHand.addUnsafeEnchantment(addedEnchantment, 30);
+            } else {
+                inHand.addEnchantment(addedEnchantment, 30);
+            }
             Lang.send(sender, Lang.ADD_X_ENCHANMENT_TO_30
                     .replace("{getEnchantment}", addedEnchantment.getName().toLowerCase().replace("_", " "))
                     .replace("{getItemInhand}", ItemUtil.getItemName(inHand)));
         } else {
-            inHand.addUnsafeEnchantment(addedEnchantment, level);
+            if (Config.UNSAFE_ENCHANTMENTS){
+                inHand.addUnsafeEnchantment(addedEnchantment, level);
+            } else {
+                inHand.addEnchantment(addedEnchantment, level);
+            }
             Lang.send(sender, Lang.ADD_X_ENCHANMENT_TO_X
                     .replace("{getEnchantment}", addedEnchantment.getName().toLowerCase().replace("_", " "))
                     .replace("{getItemInhand}", ItemUtil.getItemName(inHand))
@@ -164,12 +204,10 @@ public class CmdEnchant implements TabExecutor {
     }
 
     private void sendEnchantmentList(CommandSender sender){
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Enchantment enchantment : Enchantment.values()){
-            stringBuilder.append("&7");
-            stringBuilder.append(enchantment.getName());
-            stringBuilder.append(enchantment != null ? "&d,  " : "");
-        }
-        Lang.send(sender, "&d===============\n&7Enchantment List\n&d===============\n" + stringBuilder.substring(0, stringBuilder.length() - 4) + "\n&d===============");
+        String enchantments = "&7" + String.join("&d, &7",
+                Arrays.stream(Enchantment.values())
+                    .map(Enchantment::getName)
+                    .collect(Collectors.toList()));
+        Lang.send(sender, "&d===============\n&8Enchantment List\n&d===============\n" + enchantments + "\n&d===============");
     }
 }

@@ -19,3 +19,6 @@ use-teleport-sounds: true
 # Sounds to play in world when teleporting
 sound-to: ENTITY_ENDERMAN_TELEPORT
 sound-from: ENTITY_ENDERMAN_TELEPORT
+
+# Allow unsafe enchantments
+unsafe-enchantments: false

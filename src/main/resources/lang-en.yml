@@ -88,10 +88,12 @@ yaw-coords: "&dyaw: &7{getYaw}"
 world-coords: "&dworld: &7{getWorld}"
 other-player-coords: "&d==============\n&d==&7{otherPlayer}'s Location\n&d=============="
 
+
+enchantment-description: "&8{getDescription}"
+enchantment-usage: "&d===============\n&7{getUsage}"
 above-sea-level: "&{getPlayer}&7{aboveSeaLevel}&d block{sUp} above sea level."
 below-sea-level: "&{getPlayer}&7{belowSeaLevel}&d block{sDown} below sea level."
 at-sea-level: "&d{getPlayer} at sea level."
-
 can-not-air: "Air cannot be enchanted."
 invalid-number: "&dThe level supplied was not a number."
 level-below-min: "&dThe level cannot be below 0!"

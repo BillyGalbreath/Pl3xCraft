@@ -81,6 +81,10 @@ public class Lang {
     public static String INVALID_NUMBER;
     public static String LEVEL_BELOW_MIN;
     public static String LEVEL_ABOVE_MAX;
+
+    public static String ENCHANTMENT_DESCRIPTION;
+    public static String ENCHANTMENT_USAGE;
+
     public static String REMOVED_ALL_ENCHANTMENTS;
     public static String ADDED_ALL_ENCHANTMENTS_TO_MAX;
     public static String ADDED_ALL_ENCHANTMENTS_TO_30;
@@ -193,6 +197,8 @@ public class Lang {
         BELOW_SEA_LEVEL = config.getString("below-sea-level","&d{getPlayer}&7{belowSeaLevel}&d block{sDown} below sea level.");
         AT_SEA_LEVEL = config.getString("at-sea-level","&d{getPlayer} at sea level.");
 
+        ENCHANTMENT_DESCRIPTION = config.getString("enchantment-description","&8{getDescription}");
+        ENCHANTMENT_USAGE = config.getString("enchantment-usage","&d===============\n&7{getUsage}");
         CAN_NOT_AIR = config.getString("can-not-air","&dAir cannot be enchanted.");
         INVALID_NUMBER = config.getString("invalid-number","&dThe level supplied was not a number.");
         LEVEL_BELOW_MIN = config.getString("level-below-min","&dThe level cannot be below 0!");
