@@ -53,6 +53,13 @@ commands:
   enchant:
     description: Enchants the item in hand
     usage: /<command> [enchantment/all] (level)
+  enchantingtable:
+    description: Opens an enchanting table anywhere.
+    usage: /<command>
+    aliases:
+    - enchantingt
+    - etable
+    - et
   gmadventure:
     description: Set gamemode to adventure mode
     usage: /<command> (player)
@@ -172,6 +179,9 @@ permissions:
     default: op
   command.enchant:
     description: Allows you to enchant items.
+    default: op
+  command.enchantingtable:
+    description: Allows you to open an enchanting table anywhere.
     default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode

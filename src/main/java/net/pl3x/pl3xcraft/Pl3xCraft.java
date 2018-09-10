@@ -9,6 +9,7 @@ import net.pl3x.pl3xcraft.commands.CmdCoords;
 import net.pl3x.pl3xcraft.commands.CmdDelHome;
 import net.pl3x.pl3xcraft.commands.CmdDepth;
 import net.pl3x.pl3xcraft.commands.CmdEnchant;
+import net.pl3x.pl3xcraft.commands.CmdEnchantingTable;
 import net.pl3x.pl3xcraft.commands.CmdGamemode;
 import net.pl3x.pl3xcraft.commands.CmdHome;
 import net.pl3x.pl3xcraft.commands.CmdHomes;
@@ -74,6 +75,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("delhome").setExecutor(new CmdDelHome(this));
         getCommand("depth").setExecutor(new CmdDepth());
         getCommand("enchant").setExecutor(new CmdEnchant());
+        getCommand("enchantingtable").setExecutor(new CmdEnchantingTable());
         getCommand("gmadventure").setExecutor(new CmdGamemode(GameMode.ADVENTURE));
         getCommand("gmcreative").setExecutor(new CmdGamemode(GameMode.CREATIVE));
         getCommand("gmspectator").setExecutor(new CmdGamemode(GameMode.SPECTATOR));

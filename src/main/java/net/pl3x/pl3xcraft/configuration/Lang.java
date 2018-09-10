@@ -95,6 +95,7 @@ public class Lang {
     public static String ADD_X_ENCHANMENT_TO_MAX;
     public static String ADD_X_ENCHANMENT_TO_30;
     public static String ADD_X_ENCHANMENT_TO_X;
+    public static String ENCHANTING_TABLE_OPENED;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -213,6 +214,8 @@ public class Lang {
         ADD_X_ENCHANMENT_TO_MAX = config.getString("add-x-enchantment-to-max","&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at level &7{getMaxLevel}&d.");
         ADD_X_ENCHANMENT_TO_30 = config.getString("add-x-enchantment-30","&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at level 30.");
         ADD_X_ENCHANMENT_TO_X = config.getString("add-x-enchantment-x","&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at level &7{getLevel}&d.");
+
+        ENCHANTING_TABLE_OPENED = config.getString("enchanting-table-opened", "&dYou have opened a portable enchanting table.");
     }
 
     public static void send(CommandSender recipient, String message) {
