@@ -110,3 +110,6 @@ add-x-enchantment-to-30: "&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at
 add-x-enchantment-to-x: "&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at level &7{getLevel}&d."
 
 enchanting-table-opened: "&dYou have opened a portable enchanting table."
+
+opened-other-player-enderchest: "&dYou opened {getPlayer}'s enderchest."
+opened-your-enderchest: "&dYou opened your enderchest."

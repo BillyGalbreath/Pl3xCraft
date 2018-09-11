@@ -95,7 +95,11 @@ public class Lang {
     public static String ADD_X_ENCHANMENT_TO_MAX;
     public static String ADD_X_ENCHANMENT_TO_30;
     public static String ADD_X_ENCHANMENT_TO_X;
+
     public static String ENCHANTING_TABLE_OPENED;
+
+    public static String OPENED_OTHER_PLAYER_ENDERCHEST;
+    public static String OPENED_YOUR_ENDERCHEST;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -216,6 +220,9 @@ public class Lang {
         ADD_X_ENCHANMENT_TO_X = config.getString("add-x-enchantment-x","&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at level &7{getLevel}&d.");
 
         ENCHANTING_TABLE_OPENED = config.getString("enchanting-table-opened", "&dYou have opened a portable enchanting table.");
+
+        OPENED_OTHER_PLAYER_ENDERCHEST = config.getString("opened-other-player-enderchest","&dYou opened {getPlayer}'s enderchest.");
+        OPENED_YOUR_ENDERCHEST = config.getString("opened-your-enderchest","&dYou opened your enderchest.");
     }
 
     public static void send(CommandSender recipient, String message) {

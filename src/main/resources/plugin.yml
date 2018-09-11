@@ -60,6 +60,13 @@ commands:
     - enchantingt
     - etable
     - et
+  enderchest:
+    description: Opens your enderchest anywhere.
+    usage: /<command> (player)
+    aliases:
+    - enderc
+    - echest
+    - ec
   gmadventure:
     description: Set gamemode to adventure mode
     usage: /<command> (player)
@@ -183,6 +190,9 @@ permissions:
   command.enchantingtable:
     description: Allows you to open an enchanting table anywhere.
     default: op
+  command.enderchest:
+    description: Allows you to open an enderchest anywhere.
+    default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode
     default: op
@@ -265,6 +275,9 @@ permissions:
     default: op
   command.depth.other:
     description: Allows the player to see the depth of another player.
+    default: op
+  command.enderchest.other:
+    description: Allows the player to see the enderchest of another player.
     default: op
   command.home.other:
     description: Allows the player to go to other players' homes.
