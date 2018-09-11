@@ -113,3 +113,7 @@ enchanting-table-opened: "&dYou have opened a portable enchanting table."
 
 opened-other-player-enderchest: "&dYou opened {getPlayer}'s enderchest."
 opened-your-enderchest: "&dYou opened your enderchest."
+
+you-feed-yourself: "&dYou just fed yourself."
+you-feed-player-x: "&dYou have fed {getFedPlayer}."
+player-x-feed-you: "&d{getPlayerFeeding} has fed you."

@@ -10,7 +10,7 @@ public class ItemUtil {
         return getItemName(itemStack.getType());
     }
 
-    public static String getItemName(@Nonnull  Material material) {
+    public static String getItemName(@Nonnull Material material) {
         return material.name().toLowerCase().replace("_", " ");
     }
 }

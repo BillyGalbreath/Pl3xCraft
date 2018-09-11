@@ -101,6 +101,10 @@ public class Lang {
     public static String OPENED_OTHER_PLAYER_ENDERCHEST;
     public static String OPENED_YOUR_ENDERCHEST;
 
+    public static String YOU_FEED_YOURSELF;
+    public static String YOU_FEED_PLAYER_X;
+    public static String PLAYER_X_FEED_YOU;
+
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
         File configFile = new File(plugin.getDataFolder(), langFile);
@@ -223,6 +227,10 @@ public class Lang {
 
         OPENED_OTHER_PLAYER_ENDERCHEST = config.getString("opened-other-player-enderchest","&dYou opened {getPlayer}'s enderchest.");
         OPENED_YOUR_ENDERCHEST = config.getString("opened-your-enderchest","&dYou opened your enderchest.");
+
+        YOU_FEED_YOURSELF = config.getString("you-feed-yourself","&dYou just fed yourself!");
+        YOU_FEED_PLAYER_X = config.getString("you-feed-player-x","&dYou have fed {getFedPlayer}.");
+        PLAYER_X_FEED_YOU = config.getString("player-x-feed-you","&d{getPlayerFeeding} has fed you.");
     }
 
     public static void send(CommandSender recipient, String message) {
