@@ -70,6 +70,9 @@ commands:
   feed:
     description: Increase your hunger or another players.
     usage: /<command> (player / amount) (otherPlayersAmount)
+  fly:
+    description: Toggles creative flymode for yourself or another player
+    usage: /<command> (player)
   gmadventure:
     description: Set gamemode to adventure mode
     usage: /<command> (player)
@@ -199,6 +202,9 @@ permissions:
   command.feed:
     description: Alows you to increase your hunger.
     default: op
+  command.fly:
+    description: Allows you to toggle creative flymode.
+    default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode
     default: op
@@ -288,6 +294,8 @@ permissions:
   command.feed.other:
     description: Allows the player to increase the hunger of another player.
     default: op
+  command.fly.other:
+    description: Allows the player to toggle creative flymode of another player.
   command.home.other:
     description: Allows the player to go to other players' homes.
     default: op

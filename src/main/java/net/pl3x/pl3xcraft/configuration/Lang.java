@@ -14,6 +14,7 @@ public class Lang {
     public static String PLAYER_NOT_FOUND;
     public static String NO_PLAYER_SPECIFIED;
     public static String PLAYER_NOT_ONLINE;
+    public static String PLAYER_EXEMPT;
     public static String GAMEMODE_SET;
     public static String GAMEMODE_SET_OTHER;
     public static String HOME_DOES_NOT_EXIST;
@@ -81,10 +82,8 @@ public class Lang {
     public static String INVALID_NUMBER;
     public static String LEVEL_BELOW_MIN;
     public static String LEVEL_ABOVE_MAX;
-
     public static String ENCHANTMENT_DESCRIPTION;
     public static String ENCHANTMENT_USAGE;
-
     public static String REMOVED_ALL_ENCHANTMENTS;
     public static String ADDED_ALL_ENCHANTMENTS_TO_MAX;
     public static String ADDED_ALL_ENCHANTMENTS_TO_30;
@@ -95,15 +94,15 @@ public class Lang {
     public static String ADD_X_ENCHANMENT_TO_MAX;
     public static String ADD_X_ENCHANMENT_TO_30;
     public static String ADD_X_ENCHANMENT_TO_X;
-
     public static String ENCHANTING_TABLE_OPENED;
-
     public static String OPENED_OTHER_PLAYER_ENDERCHEST;
     public static String OPENED_YOUR_ENDERCHEST;
-
     public static String YOU_FEED_YOURSELF;
     public static String YOU_FEED_PLAYER_X;
     public static String PLAYER_X_FEED_YOU;
+    public static String TOGGLED_FLIGHT_X_ON_PLAYERX;
+    public static String PLAYERX_TOGGLED_FLIGHT_X;
+    public static String TOGGLED_FLIGHT_X;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -118,6 +117,7 @@ public class Lang {
         PLAYER_NOT_FOUND = config.getString("player-not-found", "&4That player does not exist!");
         NO_PLAYER_SPECIFIED = config.getString("no-player-specified", "&4You must specify a player name!");
         PLAYER_NOT_ONLINE = config.getString("player-not-online", "&4That player is not online right now!");
+        PLAYER_EXEMPT = config.getString("player-exempt", "&dYou cannot use &7/{getCommand} &don &7{getPlayer}&d, they're exempt.");
 
         GAMEMODE_SET = config.getString("gamemode-set", "&dGamemode set to {gamemode}");
         GAMEMODE_SET_OTHER = config.getString("gamemode-set-other", "&dGamemode for {target} set to {gamemode}");
@@ -231,6 +231,10 @@ public class Lang {
         YOU_FEED_YOURSELF = config.getString("you-feed-yourself","&dYou just fed yourself!");
         YOU_FEED_PLAYER_X = config.getString("you-feed-player-x","&dYou have fed {getFedPlayer}.");
         PLAYER_X_FEED_YOU = config.getString("player-x-feed-you","&d{getPlayerFeeding} has fed you.");
+
+        TOGGLED_FLIGHT_X_ON_PLAYERX = config.getString("toggled-flight-x-on-playerx","&dToggled flight &7{flyStatus} &don &7{getPlayer}&7.");
+        PLAYERX_TOGGLED_FLIGHT_X = config.getString("playerx-toggled-flight-x","&7{getPlayer}&d toggled fly &7{flyStatus}&d.");
+        TOGGLED_FLIGHT_X = config.getString("toggled-flight-x","&dToggled fly &7{flyStatus}&d.");
     }
 
     public static void send(CommandSender recipient, String message) {
