@@ -73,6 +73,9 @@ commands:
   fly:
     description: Toggles creative flymode for yourself or another player
     usage: /<command> (player)
+  furnace:
+    description: Remotely manage a furnace you set.
+    usage: /<command> [set/show]
   gmadventure:
     description: Set gamemode to adventure mode
     usage: /<command> (player)
@@ -204,6 +207,9 @@ permissions:
     default: op
   command.fly:
     description: Allows you to toggle creative flymode.
+    default: op
+  command.furnace:
+    description: Allows you to remotely manage a furnace you set.
     default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode

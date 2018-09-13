@@ -103,6 +103,12 @@ public class Lang {
     public static String TOGGLED_FLIGHT_X_ON_PLAYERX;
     public static String PLAYERX_TOGGLED_FLIGHT_X;
     public static String TOGGLED_FLIGHT_X;
+    public static String NOT_FURNACE;
+    public static String FURNACE_SET;
+    public static String NO_FURNACE_SET;
+    public static String FURNACE_GONE;
+    public static String FURNACE_INVENTORY_OPENED;
+    public static String FURNACE_INFO;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -235,6 +241,13 @@ public class Lang {
         TOGGLED_FLIGHT_X_ON_PLAYERX = config.getString("toggled-flight-x-on-playerx","&dToggled flight &7{flyStatus} &don &7{getPlayer}&7.");
         PLAYERX_TOGGLED_FLIGHT_X = config.getString("playerx-toggled-flight-x","&7{getPlayer}&d toggled fly &7{flyStatus}&d.");
         TOGGLED_FLIGHT_X = config.getString("toggled-flight-x","&dToggled fly &7{flyStatus}&d.");
+
+        NOT_FURNACE = config.getString("not-furnace", "&4That is not a &dFurnace.");
+        FURNACE_SET = config.getString("furnace-set","&dYou have set a Furnace.");
+        NO_FURNACE_SET = config.getString("no-furnace-set","&4You must first set a &dFurnace&4.");
+        FURNACE_GONE = config.getString("furnace-gone", "&4 The &dFurnace&4 you set is no longer there.");
+        FURNACE_INVENTORY_OPENED = config.getString("furnace-inventory-opened","&dYou opened your set &7Furnace&d.");
+        FURNACE_INFO = config.getString("furnace-info","&d===============================\n&7{getDescription}\n&d===============================\n&7{getUsage}&d===============================");
     }
 
     public static void send(CommandSender recipient, String message) {
