@@ -15,6 +15,7 @@ public class Lang {
     public static String NO_PLAYER_SPECIFIED;
     public static String PLAYER_NOT_ONLINE;
     public static String PLAYER_EXEMPT;
+    public static String GET_INFO;
     public static String GAMEMODE_SET;
     public static String GAMEMODE_SET_OTHER;
     public static String HOME_DOES_NOT_EXIST;
@@ -124,6 +125,7 @@ public class Lang {
         NO_PLAYER_SPECIFIED = config.getString("no-player-specified", "&4You must specify a player name!");
         PLAYER_NOT_ONLINE = config.getString("player-not-online", "&4That player is not online right now!");
         PLAYER_EXEMPT = config.getString("player-exempt", "&dYou cannot use &7/{getCommand} &don &7{getPlayer}&d, they're exempt.");
+        GET_INFO = config.getString("get-info","&d===============================\n&7{getDescription}\n&d===============================\n&7{getUsage}&d===============================");
 
         GAMEMODE_SET = config.getString("gamemode-set", "&dGamemode set to {gamemode}");
         GAMEMODE_SET_OTHER = config.getString("gamemode-set-other", "&dGamemode for {target} set to {gamemode}");
@@ -247,7 +249,6 @@ public class Lang {
         NO_FURNACE_SET = config.getString("no-furnace-set","&4You must first set a &dFurnace&4.");
         FURNACE_GONE = config.getString("furnace-gone", "&4 The &dFurnace&4 you set is no longer there.");
         FURNACE_INVENTORY_OPENED = config.getString("furnace-inventory-opened","&dYou opened your set &7Furnace&d.");
-        FURNACE_INFO = config.getString("furnace-info","&d===============================\n&7{getDescription}\n&d===============================\n&7{getUsage}&d===============================");
     }
 
     public static void send(CommandSender recipient, String message) {
