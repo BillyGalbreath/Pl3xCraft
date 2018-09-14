@@ -15,6 +15,7 @@ import net.pl3x.pl3xcraft.commands.CmdFeed;
 import net.pl3x.pl3xcraft.commands.CmdFly;
 import net.pl3x.pl3xcraft.commands.CmdFurnace;
 import net.pl3x.pl3xcraft.commands.CmdGamemode;
+import net.pl3x.pl3xcraft.commands.CmdHarm;
 import net.pl3x.pl3xcraft.commands.CmdHome;
 import net.pl3x.pl3xcraft.commands.CmdHomes;
 import net.pl3x.pl3xcraft.commands.CmdJump;
@@ -84,6 +85,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("feed").setExecutor(new CmdFeed());
         getCommand("fly").setExecutor(new CmdFly());
         getCommand("furnace").setExecutor(new CmdFurnace());
+        getCommand("harm").setExecutor(new CmdHarm());
         getCommand("gmadventure").setExecutor(new CmdGamemode(GameMode.ADVENTURE));
         getCommand("gmcreative").setExecutor(new CmdGamemode(GameMode.CREATIVE));
         getCommand("gmspectator").setExecutor(new CmdGamemode(GameMode.SPECTATOR));

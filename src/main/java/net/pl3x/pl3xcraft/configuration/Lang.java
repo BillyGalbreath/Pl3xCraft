@@ -110,6 +110,8 @@ public class Lang {
     public static String FURNACE_GONE;
     public static String FURNACE_INVENTORY_OPENED;
     public static String FURNACE_INFO;
+    public static String HARMED_BY;
+    public static String YOU_HARMED;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -249,6 +251,9 @@ public class Lang {
         NO_FURNACE_SET = config.getString("no-furnace-set","&4You must first set a &dFurnace&4.");
         FURNACE_GONE = config.getString("furnace-gone", "&4 The &dFurnace&4 you set is no longer there.");
         FURNACE_INVENTORY_OPENED = config.getString("furnace-inventory-opened","&dYou opened your set &7Furnace&d.");
+
+        HARMED_BY = config.getString("harmed-by", "&7{getPlayer}&d has damaged &4{getHeartsAmount} {getHeart}&d of yours.");
+        YOU_HARMED = config.getString("you-harmed", "&dYou just harmed &7{getPlayer} &4{getHeartsAmount} {getHeart}&d.");
     }
 
     public static void send(CommandSender recipient, String message) {

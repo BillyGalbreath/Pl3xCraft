@@ -100,6 +100,9 @@ commands:
     aliases:
     - gamemodesurvival
     - gms
+  harm:
+    description: Deals damae to a player
+    usage: /<command> [player] (1 - 20)
   home:
     description: Teleports the player home.
     usage: /<command> (home (player))
@@ -211,6 +214,9 @@ permissions:
   command.furnace:
     description: Allows you to remotely manage a furnace you set.
     default: op
+  command.harm:
+    description: Allows you to harm a player
+    default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode
     default: op
@@ -314,6 +320,9 @@ permissions:
 
   command.burn.exempt:
     description: Makes it so other players cannot burn the player.
+    default: false
+  command.harm.exempt:
+    description: Makes it so other players cannot harm the player.
     default: false
   command.delhome.exempt:
     description: Makes it so other players cannot delete the player's homes.

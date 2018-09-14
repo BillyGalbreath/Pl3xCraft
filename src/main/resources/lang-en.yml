@@ -129,3 +129,6 @@ furnace-set: "&dYou have set a Furnace."
 no-furnace-set: "&4You must first set a &dFurnace&4."
 furnace-gone: "&4 The &dFurnace&4 you set is no longer there."
 furnace-inventory-opened: "&dYou opened your set &7Furnace&d."
+
+harmed-by: "&7{getPlayer}&d has damaged &4{getHeartsAmount} {getHeart}&d of yours."
+you-harmed: "&dYou just harmed &7{getPlayer} &4{getHeartsAmount} {getHeart}&d."
