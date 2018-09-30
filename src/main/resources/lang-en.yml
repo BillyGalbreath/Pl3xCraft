@@ -132,3 +132,9 @@ furnace-inventory-opened: "&dYou opened your set &7Furnace&d."
 
 harmed-by: "&7{getPlayer}&d has damaged &4{getHeartsAmount} {getHeart}&d of yours."
 you-harmed: "&dYou just harmed &7{getPlayer} &4{getHeartsAmount} {getHeart}&d."
+
+wearing-nothing: "&dYou are not wearing anything to remove."
+removed-helmet: "&dYou have removed your &7Hat&d/&7Helmet&d."
+nothing-in-hand: "&dTheres nothing in your hand to be set as your &7Hat&d/&7Helmet&d."
+cannot-wear-this-item: "&4You cannot wear this &7Item&4/&7Material&4 as a &7Hat&4/&7Helmet&4."
+helmet-set: "&7Hat&d/&7Helmet&d has been set, enjoy!"

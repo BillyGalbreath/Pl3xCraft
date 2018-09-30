@@ -112,6 +112,11 @@ public class Lang {
     public static String FURNACE_INFO;
     public static String HARMED_BY;
     public static String YOU_HARMED;
+    public static String WEARING_NOTHING;
+    public static String REMOVED_HELMET;
+    public static String NOTHING_IN_HAND;
+    public static String CANNOT_WEAR_THIS_ITEM;
+    public static String HELMET_SET;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -254,6 +259,12 @@ public class Lang {
 
         HARMED_BY = config.getString("harmed-by", "&7{getPlayer}&d has damaged &4{getHeartsAmount} {getHeart}&d of yours.");
         YOU_HARMED = config.getString("you-harmed", "&dYou just harmed &7{getPlayer} &4{getHeartsAmount} {getHeart}&d.");
+
+        WEARING_NOTHING = config.getString("wearing-nothing","&dYou are not wearing anything to remove.");
+        REMOVED_HELMET = config.getString("removed-helmet","&dYou have removed your &7Hat&d/&7Helmet&d.");
+        NOTHING_IN_HAND = config.getString("nothing-in-hand","&dTheres nothing in your hand to be set as your &7Hat&d/&7Helmet&d.");
+        CANNOT_WEAR_THIS_ITEM = config.getString("cannot-wear-this-item","&4You cannot wear this &7Item&4/&7Material&4 as a &7Hat&4/&7Helmet&4.");
+        HELMET_SET = config.getString("helmet-set","&7Hat&d/&7Helmet&d has been set, enjoy!");
     }
 
     public static void send(CommandSender recipient, String message) {

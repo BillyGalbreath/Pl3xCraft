@@ -103,6 +103,11 @@ commands:
   harm:
     description: Deals damae to a player
     usage: /<command> [player] (1 - 20)
+  hat:
+    description: Wear the Item/Block in your hand as a Hat/Helmet.
+    usage: /<command> (remove/off)
+    aliases:
+    - helmet
   home:
     description: Teleports the player home.
     usage: /<command> (home (player))
@@ -216,6 +221,9 @@ permissions:
     default: op
   command.harm:
     description: Allows you to harm a player
+    default: op
+  command.hat:
+    description: Allows you to wear an item/block as a ht/helmet.
     default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode
