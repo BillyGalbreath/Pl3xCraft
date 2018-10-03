@@ -108,6 +108,11 @@ commands:
     usage: /<command> (remove/off)
     aliases:
     - helmet
+  heal:
+    description: Heals yuorself or another palyer.
+    usage: /<command> (player)
+    aliases:
+    - health
   home:
     description: Teleports the player home.
     usage: /<command> (home (player))
@@ -225,6 +230,9 @@ permissions:
   command.hat:
     description: Allows you to wear an item/block as a ht/helmet.
     default: op
+  command.heal:
+    description: Allows you to heal yourself.
+    default: op
   command.gamemode.adventure:
     description: Allows player to set own gamemode to adventure mode
     default: op
@@ -316,6 +324,9 @@ permissions:
     default: op
   command.fly.other:
     description: Allows the player to toggle creative flymode of another player.
+  command.heal.other:
+    description: Allows the player to heal another player.
+    default: op
   command.home.other:
     description: Allows the player to go to other players' homes.
     default: op

@@ -138,3 +138,6 @@ removed-helmet: "&dYou have removed your &7Hat&d/&7Helmet&d."
 nothing-in-hand: "&dTheres nothing in your hand to be set as your &7Hat&d/&7Helmet&d."
 cannot-wear-this-item: "&4You cannot wear this &7Item&4/&7Material&4 as a &7Hat&4/&7Helmet&4."
 helmet-set: "&7Hat&d/&7Helmet&d has been set, enjoy!"
+
+health-set: "&dYour Health has been restored."
+health=set-other: "&7{target}&d Health has been restored."
