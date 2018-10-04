@@ -119,6 +119,7 @@ public class Lang {
     public static String HELMET_SET;
     public static String HEALTH_SET;
     public static String HEALTH_SET_OTHER;
+    public static String OPENED_PLAYER_INVENTORY;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -270,6 +271,8 @@ public class Lang {
 
         HEALTH_SET = config.getString("health-set","&dYour Health has been restored.");
         HEALTH_SET_OTHER = config.getString("health-set-other","&7{target}&d Health has been restored.");
+
+        OPENED_PLAYER_INVENTORY = config.getString("opened-player-inventory","&dYou have &2opened &7{player}{possessive} &dinventory.");
     }
 
     public static void send(CommandSender recipient, String message) {

@@ -141,3 +141,5 @@ helmet-set: "&7Hat&d/&7Helmet&d has been set, enjoy!"
 
 health-set: "&dYour Health has been restored."
 health=set-other: "&7{target}&d Health has been restored."
+
+opened-player-inventory: "&dYou have &2opened &7{player}{possessive} &dinventory."

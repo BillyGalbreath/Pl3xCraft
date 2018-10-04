@@ -121,6 +121,9 @@ commands:
     usage: /<command> (player)
     aliases:
     - listhomes
+  invmod:
+    description: Modifies other players; inventories.
+    usage: /<command> (player)
   jump:
     description: Go to block in line of sight
     usage: /<command>
@@ -263,6 +266,9 @@ permissions:
   command.homes:
     description: Allows the player to list homes.
     default: op
+  command.invmod:
+    description: Allows the player to modify another palyers inventory.
+    default: op
   command.jump:
     description: Go to block in line of sight
     default: op
@@ -352,6 +358,9 @@ permissions:
   command.homes.exempt:
     description: Makes it so other players cannot list the player's homes.
     default: false
+  command.invmod.exempt:
+    description: Makes it so other players cannot modify the player's inventory.
+    default: op
   command.sethome.exempt:
     description: Makes it so other players cannot set the player's homes.
     default: false
