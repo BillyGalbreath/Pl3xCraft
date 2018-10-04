@@ -127,6 +127,9 @@ commands:
   jump:
     description: Go to block in line of sight
     usage: /<command>
+  killall:
+    description: Kills all players online.
+    usage: /<command>
   sethome:
     description: Sets the player's home.
     usage: /<command> (home (player))
@@ -272,6 +275,9 @@ permissions:
   command.jump:
     description: Go to block in line of sight
     default: op
+  command.killall:
+    description: Allows the player to kill all players online.
+    default: op
   command.sethome:
     description: Allows the player to set a home.
     default: op
@@ -360,6 +366,9 @@ permissions:
     default: false
   command.invmod.exempt:
     description: Makes it so other players cannot modify the player's inventory.
+    default: op
+  command.killall.exempt:
+    description: Makes it so other players cannnot kill them while killall command is ran.
     default: op
   command.sethome.exempt:
     description: Makes it so other players cannot set the player's homes.

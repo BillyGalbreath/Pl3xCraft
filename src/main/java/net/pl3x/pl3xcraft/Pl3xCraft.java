@@ -22,6 +22,7 @@ import net.pl3x.pl3xcraft.commands.CmdHome;
 import net.pl3x.pl3xcraft.commands.CmdHomes;
 import net.pl3x.pl3xcraft.commands.CmdInvmod;
 import net.pl3x.pl3xcraft.commands.CmdJump;
+import net.pl3x.pl3xcraft.commands.CmdKillAll;
 import net.pl3x.pl3xcraft.commands.CmdPl3xCraft;
 import net.pl3x.pl3xcraft.commands.CmdSetHome;
 import net.pl3x.pl3xcraft.commands.CmdSetSpawn;
@@ -92,6 +93,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("hat").setExecutor(new CmdHat());
         getCommand("heal").setExecutor(new CmdHeal());
         getCommand("invmod").setExecutor(new CmdInvmod());
+        getCommand("killall").setExecutor(new CmdKillAll());
         getCommand("gmadventure").setExecutor(new CmdGamemode(GameMode.ADVENTURE));
         getCommand("gmcreative").setExecutor(new CmdGamemode(GameMode.CREATIVE));
         getCommand("gmspectator").setExecutor(new CmdGamemode(GameMode.SPECTATOR));

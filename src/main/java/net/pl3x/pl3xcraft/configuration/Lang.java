@@ -120,6 +120,8 @@ public class Lang {
     public static String HEALTH_SET;
     public static String HEALTH_SET_OTHER;
     public static String OPENED_PLAYER_INVENTORY;
+    public static String PLAYER_KILLED_YOU;
+    public static String KILLED_ALL_PLAYERS;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -273,6 +275,9 @@ public class Lang {
         HEALTH_SET_OTHER = config.getString("health-set-other","&7{target}&d Health has been restored.");
 
         OPENED_PLAYER_INVENTORY = config.getString("opened-player-inventory","&dYou have &2opened &7{player}{possessive} &dinventory.");
+
+        PLAYER_KILLED_YOU = config.getString("player-killed-you","&7{getPlayer}&d has killed you!");
+        KILLED_ALL_PLAYERS = config.getString("killed-all-players","&dYou killed all players on server.");
     }
 
     public static void send(CommandSender recipient, String message) {
