@@ -122,6 +122,9 @@ public class Lang {
     public static String OPENED_PLAYER_INVENTORY;
     public static String PLAYER_KILLED_YOU;
     public static String KILLED_ALL_PLAYERS;
+    public static String NICK_SET;
+    public static String NICK_REMOVED;
+    public static String NICK_REMOVED_OTHER;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -278,6 +281,10 @@ public class Lang {
 
         PLAYER_KILLED_YOU = config.getString("player-killed-you","&7{getPlayer}&d has killed you!");
         KILLED_ALL_PLAYERS = config.getString("killed-all-players","&dYou killed all players on server.");
+
+        NICK_SET = config.getString("nick-set","&dYou have set a &7nickname&d.");
+        NICK_REMOVED = config.getString("nick-removed","&dYour nickname has been removed!");
+        NICK_REMOVED_OTHER = config.getString("nick-removed-other","&dYou removed &7{getPlayer}{possessive}&d nickname!");
     }
 
     public static void send(CommandSender recipient, String message) {

@@ -18,10 +18,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.bukkit.entity.Player;
 
 public class PlayerConfig extends YamlConfiguration {
     private static final Map<OfflinePlayer, PlayerConfig> configs = new HashMap<>();
-    private List<String> assignTools = new ArrayList<>();
 
     public static PlayerConfig getConfig(OfflinePlayer player) {
         synchronized (configs) {
@@ -198,5 +198,34 @@ public class PlayerConfig extends YamlConfiguration {
 
     public void setRequest(Request request) {
         this.request = request;
+    }
+
+    public void setNick(Player player, String nick){
+        if (nick == null){
+            set("nickname", null);
+            save();
+            return;
+        }
+        if (Vault.hasPermission(player,"command.nick.color")){
+            nick = nick.replaceAll("(&([a-f0-9k-or]))","\u00A7");
+        } else {
+            nick = nick.replaceAll("(&([a-f0-9k-or]))","");
+        }
+        set("nickname", nick);
+        String newNick = nick;
+        if (nick.length() >= 17){
+            player.setPlayerListName(newNick.substring(0, 16));
+            save();
+            return;
+        }
+        player.setDisplayName(newNick);
+        save();
+    }
+
+    public void removeNick(Player player){
+        set("nickname", player.getName().trim());
+        player.setDisplayName( player.getName().trim() );
+        player.setPlayerListName( player.getName().trim() );
+        save();
     }
 }

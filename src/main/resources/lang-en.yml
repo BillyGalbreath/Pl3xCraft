@@ -146,3 +146,7 @@ opened-player-inventory: "&dYou have &2opened &7{player}{possessive} &dinventory
 
 player-killed-you: "&7{getPlayer}&d has killed you!"
 killed-all-players: "&dYou killed all players on server."
+
+nick-set: "&dYou have set a &7nickname&d."
+nick-removed: "&dYour nickname has been removed!"
+nick-removed-other: "&dYou removed &7{getPlayer}{possessive}&d nickname!"

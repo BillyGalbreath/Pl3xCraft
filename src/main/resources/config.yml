@@ -22,3 +22,6 @@ sound-from: ENTITY_ENDERMAN_TELEPORT
 
 # Allow unsafe enchantments
 unsafe-enchantments: false
+
+# Allow nicknames to be set
+allow-nick: true

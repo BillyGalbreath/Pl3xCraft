@@ -130,6 +130,9 @@ commands:
   killall:
     description: Kills all players online.
     usage: /<command>
+  nick:
+    description: Sets a nickname.
+    usage: /<command>
   sethome:
     description: Sets the player's home.
     usage: /<command> (home (player))
@@ -278,6 +281,9 @@ permissions:
   command.killall:
     description: Allows the player to kill all players online.
     default: op
+  command.nick:
+    description: Allows the player to set a nickname.
+    default: op
   command.sethome:
     description: Allows the player to set a home.
     default: op
@@ -348,6 +354,9 @@ permissions:
   command.sethome.other:
     description: Allows the player to set other players' homes.
     default: op
+  command.nick.other:
+    description: Allows the player to set other players' nickname.
+    default: op
 
   command.burn.exempt:
     description: Makes it so other players cannot burn the player.
@@ -369,6 +378,9 @@ permissions:
     default: op
   command.killall.exempt:
     description: Makes it so other players cannnot kill them while killall command is ran.
+    default: op
+  command.nick.exempt:
+    description: Makes it so other players cannot set their nickname.
     default: op
   command.sethome.exempt:
     description: Makes it so other players cannot set the player's homes.
