@@ -1,6 +1,7 @@
 package net.pl3x.pl3xcraft.commands;
 
 import java.util.List;
+import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
 import org.bukkit.Bukkit;
@@ -29,6 +30,11 @@ public class CmdNick implements TabExecutor {
 
         if (!sender.hasPermission("command.nick" + (target != sender ? ".other" : ""))){
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
+            return true;
+        }
+
+        if (!Config.ALLOW_NICK){
+            Lang.send(sender, Lang.NICK_NOT_ALLOWED);
             return true;
         }
 

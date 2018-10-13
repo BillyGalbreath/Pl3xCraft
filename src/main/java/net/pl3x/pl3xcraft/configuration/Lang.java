@@ -125,6 +125,7 @@ public class Lang {
     public static String NICK_SET;
     public static String NICK_REMOVED;
     public static String NICK_REMOVED_OTHER;
+    public static String NICK_NOT_ALLOWED;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -285,6 +286,7 @@ public class Lang {
         NICK_SET = config.getString("nick-set","&dYou have set a &7nickname&d.");
         NICK_REMOVED = config.getString("nick-removed","&dYour nickname has been removed!");
         NICK_REMOVED_OTHER = config.getString("nick-removed-other","&dYou removed &7{getPlayer}{possessive}&d nickname!");
+        NICK_NOT_ALLOWED = config.getString("nick-not-allowed", "&dNicknames are &4disabled&d in configs at this time.");
     }
 
     public static void send(CommandSender recipient, String message) {
