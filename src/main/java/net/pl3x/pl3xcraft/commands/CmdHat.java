@@ -1,6 +1,5 @@
 package net.pl3x.pl3xcraft.commands;
 
-import com.sun.org.apache.regexp.internal.RE;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import org.bukkit.Material;
 import org.bukkit.command.Command;

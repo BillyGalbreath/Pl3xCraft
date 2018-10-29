@@ -25,6 +25,7 @@ import net.pl3x.pl3xcraft.commands.CmdJump;
 import net.pl3x.pl3xcraft.commands.CmdKillAll;
 import net.pl3x.pl3xcraft.commands.CmdNick;
 import net.pl3x.pl3xcraft.commands.CmdPl3xCraft;
+import net.pl3x.pl3xcraft.commands.CmdRepair;
 import net.pl3x.pl3xcraft.commands.CmdSetHome;
 import net.pl3x.pl3xcraft.commands.CmdSetSpawn;
 import net.pl3x.pl3xcraft.commands.CmdSpawn;
@@ -103,6 +104,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("jump").setExecutor(new CmdJump(this));
         getCommand("killall").setExecutor(new CmdKillAll());
         getCommand("nick").setExecutor(new CmdNick());
+        getCommand("repair").setExecutor(new CmdRepair());
         getCommand("sethome").setExecutor(new CmdSetHome(this));
         getCommand("setspawn").setExecutor(new CmdSetSpawn());
         getCommand("spawn").setExecutor(new CmdSpawn(this));

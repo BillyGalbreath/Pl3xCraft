@@ -25,3 +25,6 @@ unsafe-enchantments: false
 
 # Allow nicknames to be set
 allow-nick: true
+
+# Allow items to be repaired
+allow-repair: true

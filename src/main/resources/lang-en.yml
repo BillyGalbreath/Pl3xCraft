@@ -151,3 +151,8 @@ nick-set: "&dYou have set a &7nickname&d."
 nick-removed: "&dYour nickname has been removed!"
 nick-removed-other: "&dYou removed &7{getPlayer}{possessive}&d nickname!"
 nick-not-allowed: "&dNicknames are &4disabled&d in configs at this time."
+
+repair-not-allowed: "&dItem repair is &4not&d allowed at this time."
+items-repaired: "&dYou have repaired item: &7{getItem}&d."
+items-repaired-other: "&7{getPlayer}&d has repaired item: &7{getItem}&d for you."
+no-repair-needed: "&dThere is nothing to be repaired!"

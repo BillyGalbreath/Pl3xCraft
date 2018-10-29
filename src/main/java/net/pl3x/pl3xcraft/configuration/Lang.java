@@ -126,6 +126,10 @@ public class Lang {
     public static String NICK_REMOVED;
     public static String NICK_REMOVED_OTHER;
     public static String NICK_NOT_ALLOWED;
+    public static String REPAIR_NOT_ALLOWED;
+    public static String ITEMS_REPAIRED;
+    public static String ITEMS_REPAIRED_OTHER;
+    public static String NO_REPAIR_NEEDED;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -287,6 +291,11 @@ public class Lang {
         NICK_REMOVED = config.getString("nick-removed","&dYour nickname has been removed!");
         NICK_REMOVED_OTHER = config.getString("nick-removed-other","&dYou removed &7{getPlayer}{possessive}&d nickname!");
         NICK_NOT_ALLOWED = config.getString("nick-not-allowed", "&dNicknames are &4disabled&d in configs at this time.");
+
+        REPAIR_NOT_ALLOWED = config.getString("repair-not-allowed", "&dItem repair is &4not&d allowed at this time.");
+        ITEMS_REPAIRED = config.getString("items-repaired", "&dYou have repaired item: &7{getItem}&d.");
+        ITEMS_REPAIRED_OTHER = config.getString("items-repaired-other", "&7{getPlayer}&d has repaired item: &7{getItem}&d for you.");
+        NO_REPAIR_NEEDED = config.getString("no-repair-needed", "&dThere is nothing to be repaired!");
     }
 
     public static void send(CommandSender recipient, String message) {

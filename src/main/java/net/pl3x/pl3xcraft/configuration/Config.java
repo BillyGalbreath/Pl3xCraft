@@ -21,6 +21,8 @@ public class Config {
 
     public static boolean ALLOW_NICK;
 
+    public static boolean ALLOW_REPAIR;
+
     public static void reload(Pl3xCraft plugin) {
         plugin.saveDefaultConfig();
         plugin.reloadConfig();
@@ -50,5 +52,7 @@ public class Config {
         UNSAFE_ENCHANTMENTS = config.getBoolean("unsafe-enchantments", false);
 
         ALLOW_NICK = config.getBoolean("allow-nick", true);
+
+        ALLOW_REPAIR = config.getBoolean("allow-repair", true);
     }
 }
