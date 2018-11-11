@@ -130,6 +130,7 @@ public class Lang {
     public static String ITEMS_REPAIRED;
     public static String ITEMS_REPAIRED_OTHER;
     public static String NO_REPAIR_NEEDED;
+    public static String NO_REPAIR_AIR;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -296,6 +297,7 @@ public class Lang {
         ITEMS_REPAIRED = config.getString("items-repaired", "&dYou have repaired item: &7{getItem}&d.");
         ITEMS_REPAIRED_OTHER = config.getString("items-repaired-other", "&7{getPlayer}&d has repaired item: &7{getItem}&d for you.");
         NO_REPAIR_NEEDED = config.getString("no-repair-needed", "&dThere is nothing to be repaired!");
+        NO_REPAIR_AIR = config.getString("no-repair-air", "&dYou cannot repair air!");
     }
 
     public static void send(CommandSender recipient, String message) {

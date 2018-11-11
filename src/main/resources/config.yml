@@ -28,3 +28,8 @@ allow-nick: true
 
 # Allow items to be repaired
 allow-repair: true
+
+# Selects the repair hand
+# True = Repair item in main hand
+# false = Repair item in off hand
+repair-main-hand: false

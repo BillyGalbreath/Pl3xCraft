@@ -22,6 +22,7 @@ public class Config {
     public static boolean ALLOW_NICK;
 
     public static boolean ALLOW_REPAIR;
+    public static boolean REPAIR_MAIN_HAND;
 
     public static void reload(Pl3xCraft plugin) {
         plugin.saveDefaultConfig();
@@ -54,5 +55,6 @@ public class Config {
         ALLOW_NICK = config.getBoolean("allow-nick", true);
 
         ALLOW_REPAIR = config.getBoolean("allow-repair", true);
+        REPAIR_MAIN_HAND = config.getBoolean("repair-main-hand", false);
     }
 }

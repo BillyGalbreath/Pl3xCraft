@@ -133,6 +133,9 @@ commands:
   nick:
     description: Sets a nickname.
     usage: /<command>
+  repair:
+    description: Repairs the item in your hand or another palyers.
+    usage: /<command> (all (player (all)) )
   sethome:
     description: Sets the player's home.
     usage: /<command> (home (player))
@@ -284,6 +287,9 @@ permissions:
   command.nick:
     description: Allows the player to set a nickname.
     default: op
+  command.repair:
+    description: Allows the player to repair a item(s) in their hand
+    default: op
   command.sethome:
     description: Allows the player to set a home.
     default: op
@@ -357,6 +363,9 @@ permissions:
   command.nick.other:
     description: Allows the player to set other players' nickname.
     default: op
+  command.repair.other:
+    description: Allows the player to repair other players' item(s).
+    default: op
 
   command.burn.exempt:
     description: Makes it so other players cannot burn the player.
@@ -381,6 +390,9 @@ permissions:
     default: op
   command.nick.exempt:
     description: Makes it so other players cannot set their nickname.
+    default: op
+  command repair.exempt:
+    description: Makes it so other players cannot repair thier item(s).
     default: op
   command.sethome.exempt:
     description: Makes it so other players cannot set the player's homes.
