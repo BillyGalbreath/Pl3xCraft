@@ -131,6 +131,8 @@ public class Lang {
     public static String ITEMS_REPAIRED_OTHER;
     public static String NO_REPAIR_NEEDED;
     public static String NO_REPAIR_AIR;
+    public static String REPAIR_ALL_ITEMS;
+    public static String REPAIR_ALL_ITEMS_OTHER;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -295,9 +297,11 @@ public class Lang {
 
         REPAIR_NOT_ALLOWED = config.getString("repair-not-allowed", "&dItem repair is &4not&d allowed at this time.");
         ITEMS_REPAIRED = config.getString("items-repaired", "&dYou have repaired item: &7{getItem}&d.");
-        ITEMS_REPAIRED_OTHER = config.getString("items-repaired-other", "&7{getPlayer}&d has repaired item: &7{getItem}&d for you.");
+        ITEMS_REPAIRED_OTHER = config.getString("items-repaired-other", "&7{getPlayer}{possessive}&d has repaired item: &7{getItem}&d for you.");
         NO_REPAIR_NEEDED = config.getString("no-repair-needed", "&dThere is nothing to be repaired!");
-        NO_REPAIR_AIR = config.getString("no-repair-air", "&dYou cannot repair air!");
+        NO_REPAIR_AIR = config.getString("no-repair-air", "&dNothing in your inventory, you cannot repair air!");
+        REPAIR_ALL_ITEMS = config.getString("repair-all-items","&dAll your items have been repaired!");
+        REPAIR_ALL_ITEMS_OTHER = config.getString("repair-all-items-other","&dYou have repaired all of {getPlayer}{possessive} items!");
     }
 
     public static void send(CommandSender recipient, String message) {

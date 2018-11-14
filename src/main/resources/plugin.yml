@@ -135,7 +135,7 @@ commands:
     usage: /<command>
   repair:
     description: Repairs the item in your hand or another palyers.
-    usage: /<command> (all (player (all)) )
+    usage: /<command> (all/player (all) )
   sethome:
     description: Sets the player's home.
     usage: /<command> (home (player))
