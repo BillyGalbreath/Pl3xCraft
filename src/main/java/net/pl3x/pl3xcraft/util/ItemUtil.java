@@ -3,10 +3,8 @@ package net.pl3x.pl3xcraft.util;
 import net.pl3x.pl3xcraft.configuration.Config;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-
 import javax.annotation.Nonnull;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -59,22 +57,22 @@ public class ItemUtil {
 
     public static void repairAllItems(Player player){
         ItemStack[] playerInventory = player.getInventory().getContents();
-
         Arrays.stream(playerInventory)
-                .filter(unWantedItems -> !unWantedItems.equals(null) && !unWantedItems.equals(Material.AIR) && (unWantedItems instanceof Damageable) )
-                .forEach(wantedItems -> {
-                    //if (!(wantedItems instanceof Damageable)) { return; }
-                    Damageable damagedItem = (Damageable) wantedItems;
-                    damagedItem.setDamage(0);
-                    ItemStack repairedItem = new ItemStack(wantedItems);
-                    repairedItem.addEnchantments(wantedItems.getEnchantments());
-                    ItemMeta repairedMeta = wantedItems.getItemMeta();
-                    if (wantedItems.hasItemMeta()){
-                        if (wantedItems.getItemMeta().hasDisplayName()) { repairedMeta.setDisplayName(wantedItems.getItemMeta().getDisplayName()); }
-                        if (wantedItems.getItemMeta().hasLore()) { repairedMeta.setLore(wantedItems.getItemMeta().getLore()); }
+                .filter(items -> items != null && items.hasItemMeta())
+                .forEach(items -> {
+                    ItemStack repairedItem = new ItemStack(items);
+                    repairedItem.addEnchantments(items.getEnchantments());
+                    ItemMeta repairedMeta = items.getItemMeta();
+                    if (repairedMeta instanceof Damageable) {
+                        Damageable damagedItem = (Damageable) repairedMeta;
+                        damagedItem.setDamage(0);
+                        if (items.hasItemMeta()){
+                            if (items.getItemMeta().hasDisplayName()) { repairedMeta.setDisplayName(items.getItemMeta().getDisplayName()); }
+                            if (items.getItemMeta().hasLore()) { repairedMeta.setLore(items.getItemMeta().getLore()); }
+                        }
+                        items.setItemMeta(repairedMeta);
                     }
-                    wantedItems.setItemMeta(repairedMeta);
                 });
-        player.updateInventory();
+        player.getInventory().setContents(playerInventory);
     }
 }

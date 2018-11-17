@@ -1,12 +1,9 @@
 package net.pl3x.pl3xcraft.commands;
 
-import java.util.Arrays;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.util.ItemUtil;
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -38,8 +35,7 @@ public class CmdRepair implements TabExecutor {
             return true;
         }
 
-        Player target = args.length > 0 ? org.bukkit.Bukkit.getPlayer(args[0]) : (Player) sender;
-
+        Player target = args.length > 0 && !args[0].equalsIgnoreCase("all") ? org.bukkit.Bukkit.getPlayer(args[0]) : (Player) sender;
 
         if (!sender.hasPermission("command.repair" + (target != sender ? ".other" : "")) ) {
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
@@ -51,16 +47,7 @@ public class CmdRepair implements TabExecutor {
             return true;
         }
 
-        ItemStack[] playerInventory = target.getInventory().getContents();
-        ItemStack inHand = (!Config.REPAIR_MAIN_HAND) ? target.getInventory().getItemInOffHand() : target.getInventory().getItemInMainHand();
-        String itemsDamaged = "";
-
-        if (playerInventory.equals(Material.AIR)){
-            Lang.send(sender, Lang.NO_REPAIR_AIR);
-            return true;
-        }
-
-        if (args.length > 0 && args[0].equals(target)){ //  /repair Dwd_madmac
+        if (args.length > 0 && args[0].equals(target) ){ //  /repair Dwd_madmac
             if (target.hasPermission("command.repair.exempt")){
                 Lang.send(sender, Lang.PLAYER_EXEMPT
                         .replace("{getCommand}", cmd.getName())
@@ -81,26 +68,9 @@ public class CmdRepair implements TabExecutor {
                 return true;
             }
 
-            /* ** Java 7 For Loop ** *
-            for (ItemStack aPlayerInventory : playerInventory){
-                if (aPlayerInventory != null && aPlayerInventory.getType() != Material.AIR && aPlayerInventory.getDurability() != ((short) 0) ){
-                    aPlayerInventory.setDurability((short) 0);
-                    aPlayerInventory.setItemMeta(null);
-                }
-             */
-            // Java 8 For Lambda
-            // .setDurability() is Depricated
-            /*
-            Arrays.stream(playerInventory)
-                    .filter(unwantedPlayerInventory -> !unwantedPlayerInventory.equals(null) && !unwantedPlayerInventory.equals(Material.AIR) && !unwantedPlayerInventory.equals(0) )
-                    .forEach(aPlayerInventory -> aPlayerInventory.setDurability((short) 0) );
-            /*
-            Arrays.stream(playerInventory)
-                    .filter(unwantedPlayerInventory -> !unwantedPlayerInventory.equals(null) && !unwantedPlayerInventory.equals(Material.AIR) && !unwantedPlayerInventory.equals(0) )
-                    .forEach(aPlayerInventory -> aPlayerInventory.setItemMeta(null) );
-            */
             ItemUtil.repairItem(target);
 
+            String itemsDamaged = "";
             if (!itemsDamaged.equals("")){
                 Lang.send(sender, Lang.ITEMS_REPAIRED
                         .replace("{getItem}", itemsDamaged) );
@@ -122,6 +92,7 @@ public class CmdRepair implements TabExecutor {
         }
 
         ItemUtil.repairItem(target);
+        ItemStack inHand = (!Config.REPAIR_MAIN_HAND) ? target.getInventory().getItemInOffHand() : target.getInventory().getItemInMainHand();
         Lang.send(sender, Lang.ITEMS_REPAIRED
                 .replace("{getItem}", ItemUtil.getItemName(inHand)) );
 
