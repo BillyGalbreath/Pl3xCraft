@@ -127,6 +127,12 @@ commands:
   jump:
     description: Go to block in line of sight
     usage: /<command>
+  kickme:
+    description: Kicks the player when command typed.
+    usage: /<command>
+    aliases:
+    - login
+    - nope
   killall:
     description: Kills all players online.
     usage: /<command>
@@ -384,6 +390,9 @@ permissions:
     default: false
   command.invmod.exempt:
     description: Makes it so other players cannot modify the player's inventory.
+    default: op
+  command.kickme.exempt:
+    description: Makes it so that the player typing this command wont get kicked.
     default: op
   command.killall.exempt:
     description: Makes it so other players cannnot kill them while killall command is ran.

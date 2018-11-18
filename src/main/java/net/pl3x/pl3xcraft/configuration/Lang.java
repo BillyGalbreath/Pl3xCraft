@@ -133,6 +133,8 @@ public class Lang {
     public static String NO_REPAIR_AIR;
     public static String REPAIR_ALL_ITEMS;
     public static String REPAIR_ALL_ITEMS_OTHER;
+    public static String KICK_ME;
+    public static String KICK_ME_EXEMPT;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -302,6 +304,9 @@ public class Lang {
         NO_REPAIR_AIR = config.getString("no-repair-air", "&dNothing in your inventory, you cannot repair air!");
         REPAIR_ALL_ITEMS = config.getString("repair-all-items","&dAll your items have been repaired!");
         REPAIR_ALL_ITEMS_OTHER = config.getString("repair-all-items-other","&dYou have repaired all of {getPlayer}{possessive} items!");
+
+        KICK_ME = config.getString("kick-me", "No, Just NO! Go some crack somewhere else!");
+        KICK_ME_EXEMPT = config.getString("kick-me-exempt", "&dThis would have kicked you, if you was not exempt! Watch out!");
     }
 
     public static void send(CommandSender recipient, String message) {

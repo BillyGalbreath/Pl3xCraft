@@ -159,3 +159,6 @@ no-repair-needed: "&dThere is nothing to be repaired!"
 no-repair-air: "&dNothing in your inventory, you cannot repair air!"
 repair-all-items: "&dAll your items have been repaired!"
 repair-all-items-other: "&dYou have repaired all of {getPlayer}{possessive} items!"
+
+kick-me: "No, Just NO! Go some crack somewhere else!"
+kick-me-exempt: "&dThis would have kicked you, if you was not exempt! Watch out!"
