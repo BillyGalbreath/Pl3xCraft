@@ -5,16 +5,16 @@ import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 
 public class ChatUtil {
-    public static String checkColorPerms(OfflinePlayer player, String str) {
+    public static String checkColorPerms(OfflinePlayer player, String node, String str) {
         if (str != null) {
             str = ChatColor.translateAlternateColorCodes('&', str);
-            if (!Vault.hasPermission(player, "command.nick.color")) {
+            if (!Vault.hasPermission(player, node + ".color")) {
                 str = str.replaceAll("(?i)\u00A7[0-9a-f]", "");
             }
-            if (!Vault.hasPermission(player, "command.nick.style")) {
+            if (!Vault.hasPermission(player, node + ".style")) {
                 str = str.replaceAll("(?i)\u00A7[l-o]", "");
             }
-            if (!Vault.hasPermission(player, "command.nick.magic")) {
+            if (!Vault.hasPermission(player, node + ".magic")) {
                 str = str.replaceAll("(?i)\u00A7[k]", "");
             }
         }

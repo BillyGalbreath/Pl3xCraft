@@ -31,7 +31,7 @@ public class CmdFlip implements TabExecutor {
 
         String message = args.length == 0 ? "(╯°□°）╯︵ ┻━┻" : flip(String.join(" ", args));
 
-        player.chat(ChatUtil.checkColorPerms(player, message));
+        player.chat(ChatUtil.checkColorPerms(player, "chat", message));
         return true;
     }
 

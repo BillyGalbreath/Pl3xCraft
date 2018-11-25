@@ -206,6 +206,6 @@ public class PlayerConfig extends YamlConfiguration {
     }
 
     public String getNick() {
-        return ChatUtil.checkColorPerms(player, getString("nickname"));
+        return ChatUtil.checkColorPerms(player, "command.nick", getString("nickname"));
     }
 }

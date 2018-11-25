@@ -206,6 +206,9 @@ commands:
   top:
     description: Go to the highest block at current position
     usage: /<command>
+  unflip:
+    description: Unflip a table
+    usage: /<command>
 
 permissions:
   command.pl3xcraft:
