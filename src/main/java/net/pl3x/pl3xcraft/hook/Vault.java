@@ -17,6 +17,6 @@ public class Vault {
     }
 
     public static boolean hasPermission(OfflinePlayer target, String node) {
-        return permission.playerHas(null, target, node);
+        return target.isOnline() ? target.getPlayer().hasPermission(node) : permission.playerHas(null, target, node);
     }
 }

@@ -3,8 +3,8 @@ package net.pl3x.pl3xcraft.configuration;
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.request.Request;
+import net.pl3x.pl3xcraft.util.ChatUtil;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -19,7 +19,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import org.bukkit.entity.Player;
 
 public class PlayerConfig extends YamlConfiguration {
     private static final Map<OfflinePlayer, PlayerConfig> configs = new HashMap<>();
@@ -207,19 +206,6 @@ public class PlayerConfig extends YamlConfiguration {
     }
 
     public String getNick() {
-        String nick = getString("nickname");
-        if (nick != null) {
-            nick = ChatColor.translateAlternateColorCodes('&', nick);
-            if (!Vault.hasPermission(player, "command.nick.color")) {
-                nick = nick.replaceAll("(?i)\u00A7[0-9a-f]", "");
-            }
-            if (!Vault.hasPermission(player, "command.nick.style")) {
-                nick = nick.replaceAll("(?i)\u00A7[l-o]", "");
-            }
-            if (!Vault.hasPermission(player, "command.nick.magic")) {
-                nick = nick.replaceAll("(?i)\u00A7[k]", "");
-            }
-        }
-        return nick;
+        return ChatUtil.checkColorPerms(player, getString("nickname"));
     }
 }

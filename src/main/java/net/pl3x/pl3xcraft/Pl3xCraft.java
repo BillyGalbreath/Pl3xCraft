@@ -12,6 +12,7 @@ import net.pl3x.pl3xcraft.commands.CmdEnchant;
 import net.pl3x.pl3xcraft.commands.CmdEnchantingTable;
 import net.pl3x.pl3xcraft.commands.CmdEnderChest;
 import net.pl3x.pl3xcraft.commands.CmdFeed;
+import net.pl3x.pl3xcraft.commands.CmdFlip;
 import net.pl3x.pl3xcraft.commands.CmdFly;
 import net.pl3x.pl3xcraft.commands.CmdFurnace;
 import net.pl3x.pl3xcraft.commands.CmdGamemode;
@@ -27,8 +28,10 @@ import net.pl3x.pl3xcraft.commands.CmdKillAll;
 import net.pl3x.pl3xcraft.commands.CmdNick;
 import net.pl3x.pl3xcraft.commands.CmdPl3xCraft;
 import net.pl3x.pl3xcraft.commands.CmdRepair;
+import net.pl3x.pl3xcraft.commands.CmdRussia;
 import net.pl3x.pl3xcraft.commands.CmdSetHome;
 import net.pl3x.pl3xcraft.commands.CmdSetSpawn;
+import net.pl3x.pl3xcraft.commands.CmdShrug;
 import net.pl3x.pl3xcraft.commands.CmdSpawn;
 import net.pl3x.pl3xcraft.commands.CmdTeleportAccept;
 import net.pl3x.pl3xcraft.commands.CmdTeleportDeny;
@@ -37,6 +40,7 @@ import net.pl3x.pl3xcraft.commands.CmdTeleportRequestAll;
 import net.pl3x.pl3xcraft.commands.CmdTeleportRequestHere;
 import net.pl3x.pl3xcraft.commands.CmdTeleportToggle;
 import net.pl3x.pl3xcraft.commands.CmdTop;
+import net.pl3x.pl3xcraft.commands.CmdUnflip;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
@@ -90,6 +94,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("enchantingtable").setExecutor(new CmdEnchantingTable());
         getCommand("enderchest").setExecutor(new CmdEnderChest());
         getCommand("feed").setExecutor(new CmdFeed());
+        getCommand("flip").setExecutor(new CmdFlip());
         getCommand("fly").setExecutor(new CmdFly());
         getCommand("furnace").setExecutor(new CmdFurnace());
         getCommand("gmadventure").setExecutor(new CmdGamemode(GameMode.ADVENTURE));
@@ -107,8 +112,10 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("killall").setExecutor(new CmdKillAll());
         getCommand("nick").setExecutor(new CmdNick());
         getCommand("repair").setExecutor(new CmdRepair());
+        getCommand("russia").setExecutor(new CmdRussia());
         getCommand("sethome").setExecutor(new CmdSetHome(this));
         getCommand("setspawn").setExecutor(new CmdSetSpawn());
+        getCommand("shrug").setExecutor(new CmdShrug());
         getCommand("spawn").setExecutor(new CmdSpawn(this));
         getCommand("teleportaccept").setExecutor(new CmdTeleportAccept(this));
         getCommand("teleportdeny").setExecutor(new CmdTeleportDeny(this));
@@ -117,6 +124,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("teleportrequesthere").setExecutor(new CmdTeleportRequestHere(this));
         getCommand("teleporttoggle").setExecutor(new CmdTeleportToggle(this));
         getCommand("top").setExecutor(new CmdTop(this));
+        getCommand("unflip").setExecutor(new CmdUnflip());
 
         Logger.info(getName() + " v" + getDescription().getVersion() + " enabled!");
     }

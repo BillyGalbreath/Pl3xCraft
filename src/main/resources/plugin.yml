@@ -70,6 +70,9 @@ commands:
   feed:
     description: Increase your hunger or another players.
     usage: /<command> (player / amount) (otherPlayersAmount)
+  flip:
+    description: Flip a table, or some text
+    usage: /<command> (text)
   fly:
     description: Toggles creative flymode for yourself or another player
     usage: /<command> (player)
@@ -142,6 +145,9 @@ commands:
   repair:
     description: Repairs the item in your hand or another palyers.
     usage: /<command> (all/player (all) )
+  russia:
+    description: In mother Russia, table flips you
+    usage: /<command>
   sethome:
     description: Sets the player's home.
     usage: /<command> (home (player))
@@ -156,6 +162,11 @@ commands:
     aliases:
     - hub
     - server
+  shrug:
+    description: Shrug in chat
+    usage: /<command> (text)
+    aliases:
+    - idk
   teleportaccept:
     description: Accept teleport request
     usage: /<command>
@@ -236,6 +247,9 @@ permissions:
   command.feed:
     description: Alows you to increase your hunger.
     default: op
+  command.flip:
+    description: Allows you to flip a table or text
+    default: op
   command.fly:
     description: Allows you to toggle creative flymode.
     default: op
@@ -296,6 +310,9 @@ permissions:
   command.repair:
     description: Allows the player to repair a item(s) in their hand
     default: op
+  command.russia:
+    description: Allows the player to use russia command
+    default: op
   command.sethome:
     description: Allows the player to set a home.
     default: op
@@ -306,6 +323,9 @@ permissions:
   command.setspawn:
     description: Allows the player to set the server spawn.
     default: op
+  command.shrug:
+    description: Allows the player to shrug in chat
+    default: true
   command.spawn:
     description: Allows the player to teleport to the server spawn
     default: true
@@ -332,6 +352,9 @@ permissions:
     default: op
   command.top:
     description: Go to highest block at current position
+    default: op
+  command.unflip:
+    description: Allows you to unflip a table
     default: op
 
   command.clearinventory.other:
