@@ -4,6 +4,7 @@ import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.request.Request;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -200,32 +201,25 @@ public class PlayerConfig extends YamlConfiguration {
         this.request = request;
     }
 
-    public void setNick(Player player, String nick){
-        if (nick == null){
-            set("nickname", null);
-            save();
-            return;
-        }
-        if (Vault.hasPermission(player,"command.nick.color")){
-            nick = nick.replaceAll("(&([a-f0-9k-or]))","\u00A7");
-        } else {
-            nick = nick.replaceAll("(&([a-f0-9k-or]))","");
-        }
+    public void setNick(String nick) {
         set("nickname", nick);
-        String newNick = nick;
-        if (nick.length() >= 17){
-            player.setPlayerListName(newNick.substring(0, 16));
-            save();
-            return;
-        }
-        player.setDisplayName(newNick);
         save();
     }
 
-    public void removeNick(Player player){
-        set("nickname", player.getName().trim());
-        player.setDisplayName( player.getName().trim() );
-        player.setPlayerListName( player.getName().trim() );
-        save();
+    public String getNick() {
+        String nick = getString("nickname");
+        if (nick != null) {
+            nick = ChatColor.translateAlternateColorCodes('&', nick);
+            if (!Vault.hasPermission(player, "command.nick.color")) {
+                nick = nick.replaceAll("(?i)\u00A7[0-9a-f]", "");
+            }
+            if (!Vault.hasPermission(player, "command.nick.style")) {
+                nick = nick.replaceAll("(?i)\u00A7[l-o]", "");
+            }
+            if (!Vault.hasPermission(player, "command.nick.magic")) {
+                nick = nick.replaceAll("(?i)\u00A7[k]", "");
+            }
+        }
+        return nick;
     }
 }

@@ -147,10 +147,12 @@ opened-player-inventory: "&dYou have &2opened &7{player}{possessive} &dinventory
 player-killed-you: "&7{getPlayer}&d has killed you!"
 killed-all-players: "&dYou killed all players on server."
 
-nick-set: "&dYou have set a &7nickname&d."
-nick-removed: "&dYour nickname has been removed!"
-nick-removed-other: "&dYou removed &7{getPlayer}{possessive}&d nickname!"
-nick-not-allowed: "&dNicknames are &4disabled&d in configs at this time."
+nick-set-self: "&dYour nickname is now &7{nick}"
+nick-set-other: "&dYou set &7{player}&d's nickname to &7{nick}"
+nick-set-by-other: "&dYour nickname was set to &7{nick} &dby &7{player}"
+nick-removed-self: "&dYour nickname has been removed"
+nick-removed-other: "&dYou removed &7{player}&d's nickname"
+nick-removed-by-other: "&dYour nickname was removed by &7{player}"
 
 repair-not-allowed: "&dItem repair is &4not&d allowed at this time."
 items-repaired: "&dYou have repaired item: &7{getItem}&d."

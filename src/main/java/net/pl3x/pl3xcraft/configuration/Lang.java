@@ -122,10 +122,12 @@ public class Lang {
     public static String OPENED_PLAYER_INVENTORY;
     public static String PLAYER_KILLED_YOU;
     public static String KILLED_ALL_PLAYERS;
-    public static String NICK_SET;
-    public static String NICK_REMOVED;
+    public static String NICK_SET_SELF;
+    public static String NICK_SET_OTHER;
+    public static String NICK_SET_BY_OTHER;
+    public static String NICK_REMOVED_SELF;
     public static String NICK_REMOVED_OTHER;
-    public static String NICK_NOT_ALLOWED;
+    public static String NICK_REMOVED_BY_OTHER;
     public static String REPAIR_NOT_ALLOWED;
     public static String ITEMS_REPAIRED;
     public static String ITEMS_REPAIRED_OTHER;
@@ -292,10 +294,12 @@ public class Lang {
         PLAYER_KILLED_YOU = config.getString("player-killed-you","&7{getPlayer}&d has killed you!");
         KILLED_ALL_PLAYERS = config.getString("killed-all-players","&dYou killed all players on server.");
 
-        NICK_SET = config.getString("nick-set","&dYou have set a &7nickname&d.");
-        NICK_REMOVED = config.getString("nick-removed","&dYour nickname has been removed!");
-        NICK_REMOVED_OTHER = config.getString("nick-removed-other","&dYou removed &7{getPlayer}{possessive}&d nickname!");
-        NICK_NOT_ALLOWED = config.getString("nick-not-allowed", "&dNicknames are &4disabled&d in configs at this time.");
+        NICK_SET_SELF = config.getString("nick-set-self", "&dYour nickname is now &7{nick}");
+        NICK_SET_OTHER = config.getString("nick-set-other", "&dYou set &7{player}&d's nickname to &7{nick}");
+        NICK_SET_BY_OTHER = config.getString("nick-set-by-other", "&dYour nickname was set to &7{nick} &dby &7{player}");
+        NICK_REMOVED_SELF = config.getString("nick-removed-self", "&dYour nickname has been removed");
+        NICK_REMOVED_OTHER = config.getString("nick-removed-other", "&dYou removed &7{player}&d's nickname");
+        NICK_REMOVED_BY_OTHER = config.getString("nick-removed-by-other", "&dYour nickname was removed by &7{player}");
 
         REPAIR_NOT_ALLOWED = config.getString("repair-not-allowed", "&dItem repair is &4not&d allowed at this time.");
         ITEMS_REPAIRED = config.getString("items-repaired", "&dYou have repaired item: &7{getItem}&d.");

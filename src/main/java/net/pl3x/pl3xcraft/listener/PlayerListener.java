@@ -74,8 +74,10 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
+        PlayerConfig config = PlayerConfig.getConfig(player);
 
         player.setGameMode(GameMode.SURVIVAL);
+        player.setDisplayName(config.getNick());
 
         Location spawn = Data.getInstance().getSpawn();
         if (spawn != null && !player.hasPlayedBefore()) {
