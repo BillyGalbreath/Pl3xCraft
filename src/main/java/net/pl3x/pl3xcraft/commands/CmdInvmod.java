@@ -41,8 +41,8 @@ public class CmdInvmod implements TabExecutor {
 
         if (target.hasPermission("command.invmod.exempt")){
             Lang.send(sender, Lang.PLAYER_EXEMPT
-                    .replace("{getCommand}", cmd.getName())
-                    .replace("{getPlayer}", target.getDisplayName()));
+                    .replace("{command}", cmd.getName())
+                    .replace("{player}", target.getDisplayName()));
             return true;
         }
 

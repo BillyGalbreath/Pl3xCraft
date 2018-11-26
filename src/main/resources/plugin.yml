@@ -68,8 +68,8 @@ commands:
     - echest
     - ec
   feed:
-    description: Increase your hunger or another players.
-    usage: /<command> (player / amount) (otherPlayersAmount)
+    description: Refill hunger and saturation
+    usage: /<command> (player)
   flip:
     description: Flip a table, or some text
     usage: /<command> (text)

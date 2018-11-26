@@ -16,23 +16,32 @@ public class Lang {
     public static String PLAYER_NOT_ONLINE;
     public static String PLAYER_EXEMPT;
     public static String GET_INFO;
+
     public static String CHAT_FORMAT;
+
     public static String NO_MESSAGE_SPECIFIED;
+
     public static String TARGET_MUTED;
     public static String TARGET_UNMUTED;
     public static String EXEMPT_MUTE;
     public static String YOU_ARE_MUTED;
+
     public static String ME_FORMAT;
     public static String ME_DISCORD_FORMAT;
+
     public static String TELL_SENDER;
     public static String TELL_TARGET;
     public static String TELL_SPY;
+
     public static String REPLY_NO_TARGET;
+
     public static String SPY_MODE_TOGGLED;
     public static String SPY_MODE_TOGGLED_TARGET;
     public static String SPY_PREFIX;
+
     public static String GAMEMODE_SET;
     public static String GAMEMODE_SET_OTHER;
+
     public static String HOME_DOES_NOT_EXIST;
     public static String INVALID_HOME_NAME;
     public static String SPECIFY_HOME;
@@ -113,9 +122,11 @@ public class Lang {
     public static String ENCHANTING_TABLE_OPENED;
     public static String OPENED_OTHER_PLAYER_ENDERCHEST;
     public static String OPENED_YOUR_ENDERCHEST;
-    public static String YOU_FEED_YOURSELF;
-    public static String YOU_FEED_PLAYER_X;
-    public static String PLAYER_X_FEED_YOU;
+
+    public static String FEED_SELF;
+    public static String FEED_OTHER;
+    public static String FEED_NOTICE;
+
     public static String TOGGLED_FLIGHT_X_ON_PLAYERX;
     public static String PLAYERX_TOGGLED_FLIGHT_X;
     public static String TOGGLED_FLIGHT_X;
@@ -132,17 +143,22 @@ public class Lang {
     public static String NOTHING_IN_HAND;
     public static String CANNOT_WEAR_THIS_ITEM;
     public static String HELMET_SET;
-    public static String HEALTH_SET;
-    public static String HEALTH_SET_OTHER;
+
+    public static String HEAL_SELF;
+    public static String HEAL_OTHER;
+    public static String HEAL_NOTICE;
+
     public static String OPENED_PLAYER_INVENTORY;
     public static String PLAYER_KILLED_YOU;
     public static String KILLED_ALL_PLAYERS;
+
     public static String NICK_SET_SELF;
     public static String NICK_SET_OTHER;
     public static String NICK_SET_BY_OTHER;
     public static String NICK_REMOVED_SELF;
     public static String NICK_REMOVED_OTHER;
     public static String NICK_REMOVED_BY_OTHER;
+
     public static String REPAIR_NOT_ALLOWED;
     public static String ITEMS_REPAIRED;
     public static String ITEMS_REPAIRED_OTHER;
@@ -166,7 +182,7 @@ public class Lang {
         PLAYER_NOT_FOUND = config.getString("player-not-found", "&4That player does not exist!");
         NO_PLAYER_SPECIFIED = config.getString("no-player-specified", "&4You must specify a player name!");
         PLAYER_NOT_ONLINE = config.getString("player-not-online", "&4That player is not online right now!");
-        PLAYER_EXEMPT = config.getString("player-exempt", "&dYou cannot use &7/{getCommand} &don &7{getPlayer}&d, they're exempt.");
+        PLAYER_EXEMPT = config.getString("player-exempt", "&dYou cannot use &7/{command} &don &7{player}&d, they're exempt.");
         GET_INFO = config.getString("get-info", "&d===============================\n&7{getDescription}\n&d===============================\n&7{getUsage}&d===============================");
 
         CHAT_FORMAT = config.getString("chat-format", "&r{prefix}&r&7{sender}&r{suffix}&r&e:&r&7&o {message}");
@@ -299,9 +315,9 @@ public class Lang {
         OPENED_OTHER_PLAYER_ENDERCHEST = config.getString("opened-other-player-enderchest", "&dYou opened {getPlayer}'s enderchest.");
         OPENED_YOUR_ENDERCHEST = config.getString("opened-your-enderchest", "&dYou opened your enderchest.");
 
-        YOU_FEED_YOURSELF = config.getString("you-feed-yourself", "&dYou just fed yourself!");
-        YOU_FEED_PLAYER_X = config.getString("you-feed-player-x", "&dYou have fed {getFedPlayer}.");
-        PLAYER_X_FEED_YOU = config.getString("player-x-feed-you", "&d{getPlayerFeeding} has fed you.");
+        FEED_SELF = config.getString("feed-self", "&dYou just fed yourself");
+        FEED_OTHER = config.getString("feed-other", "&dYou have fed {player}");
+        FEED_NOTICE = config.getString("feed-notice", "&d{player} has fed you");
 
         TOGGLED_FLIGHT_X_ON_PLAYERX = config.getString("toggled-flight-x-on-playerx", "&dToggled flight &7{flyStatus} &don &7{getPlayer}&7.");
         PLAYERX_TOGGLED_FLIGHT_X = config.getString("playerx-toggled-flight-x", "&7{getPlayer}&d toggled fly &7{flyStatus}&d.");
@@ -322,8 +338,9 @@ public class Lang {
         CANNOT_WEAR_THIS_ITEM = config.getString("cannot-wear-this-item", "&4You cannot wear this &7Item&4/&7Material&4 as a &7Hat&4/&7Helmet&4.");
         HELMET_SET = config.getString("helmet-set", "&7Hat&d/&7Helmet&d has been set, enjoy!");
 
-        HEALTH_SET = config.getString("health-set", "&dYour Health has been restored.");
-        HEALTH_SET_OTHER = config.getString("health-set-other", "&7{target}&d Health has been restored.");
+        HEAL_SELF = config.getString("heal-self", "&dYour health has been restored");
+        HEAL_OTHER = config.getString("heal-other", "&7{player}&d's health has been restored");
+        HEAL_NOTICE = config.getString("heal-notice", "&7{player}&d has restored your health");
 
         OPENED_PLAYER_INVENTORY = config.getString("opened-player-inventory", "&dYou have &2opened &7{player}{possessive} &dinventory.");
 

@@ -65,8 +65,8 @@ public class CmdHarm implements TabExecutor {
 
         if (otherPlayer.hasPermission("command.harm.exempt")){
             Lang.send(sender, Lang.PLAYER_EXEMPT
-                    .replace("{getCommand}", cmd.getName())
-                    .replace("{getPlayer}", otherPlayer.getDisplayName()));
+                    .replace("{command}", cmd.getName())
+                    .replace("{player}", otherPlayer.getDisplayName()));
             return true;
         }
 

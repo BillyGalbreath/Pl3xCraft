@@ -25,8 +25,8 @@ public class CmdKillAll implements TabExecutor {
                 .filter(player -> player.hasPermission("command.killall.exempt"))
                 .forEach(player ->
                         Lang.send(sender, Lang.PLAYER_EXEMPT
-                                .replace("{getCommand}", cmd.getName() )
-                                .replace("{getPlayer}", player.getDisplayName() ))
+                                .replace("{command}", cmd.getName() )
+                                .replace("{player}", player.getDisplayName() ))
                         );
 
         Bukkit.getOnlinePlayers().stream()

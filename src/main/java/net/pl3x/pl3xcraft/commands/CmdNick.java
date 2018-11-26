@@ -82,17 +82,7 @@ public class CmdNick implements TabExecutor {
         }
 
         // check other's exempt permission
-        boolean targetExempt;
-        if (target.isOnline()) {
-            // target is online, use Bukkit's permissions system
-            targetExempt = target.getPlayer().hasPermission("command.nick.exempt");
-        } else {
-            // target is offline, try Vault's offline permissions system
-            // this might not work with LuckPerms
-            targetExempt = Vault.hasPermission(target, "command.nick.exempt");
-        }
-
-        if (targetExempt) {
+        if (Vault.hasPermission(target, "command.nick.exempt")) {
             Lang.send(sender, Lang.PLAYER_EXEMPT
                     .replace("{command}", cmd.getName())
                     .replace("{player}", target.getName()));

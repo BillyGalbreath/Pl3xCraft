@@ -50,8 +50,8 @@ public class CmdRepair implements TabExecutor {
         if (args.length > 0 && args[0].equals(target) ){ //  /repair Dwd_madmac
             if (target.hasPermission("command.repair.exempt")){
                 Lang.send(sender, Lang.PLAYER_EXEMPT
-                        .replace("{getCommand}", cmd.getName())
-                        .replace("{getPlayer}", target.getDisplayName()));
+                        .replace("{command}", cmd.getName())
+                        .replace("{player}", target.getDisplayName()));
                 return true;
             }
 

@@ -3,7 +3,7 @@ player-command: "&4This command is only available to players!"
 player-not-found: "&4That player does not exist!"
 no-player-specified: "&4You must specify a player name!"
 player-not-online: "&4That player is not online right now!"
-player-exempt: "&dYou cannot use &7/{getCommand} &don &7{getPlayer}&d, they're exempt."
+player-exempt: "&dYou cannot use &7/{command} &don &7{player}&d, they're exempt!"
 get-info: "&d===============================\n&7{getDescription}\n&d===============================\n&7{getUsage}&d==============================="
 
 gamemode-set: "&dGamemode set to {gamemode}"
@@ -116,9 +116,9 @@ enchanting-table-opened: "&dYou have opened a portable enchanting table."
 opened-other-player-enderchest: "&dYou opened {getPlayer}'s enderchest."
 opened-your-enderchest: "&dYou opened your enderchest."
 
-you-feed-yourself: "&dYou just fed yourself."
-you-feed-player-x: "&dYou have fed {getFedPlayer}."
-player-x-feed-you: "&d{getPlayerFeeding} has fed you."
+feed-self: "&dYou just fed yourself"
+feed-other: "&dYou have fed {player}"
+feed-notice: "&d{player} has fed you"
 
 toggled-flight-x-on-playerx: "&dToggled flight &7{flyStatus} &don &7{getPlayer}&7."
 playerx-toggled-flight-x: "&7{getPlayer}&d toggled fly &7{flyStatus}&d."
@@ -139,8 +139,9 @@ nothing-in-hand: "&dTheres nothing in your hand to be set as your &7Hat&d/&7Helm
 cannot-wear-this-item: "&4You cannot wear this &7Item&4/&7Material&4 as a &7Hat&4/&7Helmet&4."
 helmet-set: "&7Hat&d/&7Helmet&d has been set, enjoy!"
 
-health-set: "&dYour Health has been restored."
-health=set-other: "&7{target}&d Health has been restored."
+heal-self: "&dYour health has been restored"
+heal-other: "&7{player}&d's health has been restored"
+heal-notice: "&7{player}&d has restored your health"
 
 opened-player-inventory: "&dYou have &2opened &7{player}{possessive} &dinventory."
 
