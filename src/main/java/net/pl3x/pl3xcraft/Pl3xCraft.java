@@ -25,27 +25,34 @@ import net.pl3x.pl3xcraft.commands.CmdInvmod;
 import net.pl3x.pl3xcraft.commands.CmdJump;
 import net.pl3x.pl3xcraft.commands.CmdKickMe;
 import net.pl3x.pl3xcraft.commands.CmdKillAll;
+import net.pl3x.pl3xcraft.commands.CmdMe;
+import net.pl3x.pl3xcraft.commands.CmdMute;
 import net.pl3x.pl3xcraft.commands.CmdNick;
 import net.pl3x.pl3xcraft.commands.CmdPl3xCraft;
 import net.pl3x.pl3xcraft.commands.CmdRepair;
+import net.pl3x.pl3xcraft.commands.CmdReply;
 import net.pl3x.pl3xcraft.commands.CmdRussia;
 import net.pl3x.pl3xcraft.commands.CmdSetHome;
 import net.pl3x.pl3xcraft.commands.CmdSetSpawn;
 import net.pl3x.pl3xcraft.commands.CmdShrug;
 import net.pl3x.pl3xcraft.commands.CmdSpawn;
+import net.pl3x.pl3xcraft.commands.CmdSpy;
 import net.pl3x.pl3xcraft.commands.CmdTeleportAccept;
 import net.pl3x.pl3xcraft.commands.CmdTeleportDeny;
 import net.pl3x.pl3xcraft.commands.CmdTeleportRequest;
 import net.pl3x.pl3xcraft.commands.CmdTeleportRequestAll;
 import net.pl3x.pl3xcraft.commands.CmdTeleportRequestHere;
 import net.pl3x.pl3xcraft.commands.CmdTeleportToggle;
+import net.pl3x.pl3xcraft.commands.CmdTell;
 import net.pl3x.pl3xcraft.commands.CmdTop;
 import net.pl3x.pl3xcraft.commands.CmdUnflip;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
+import net.pl3x.pl3xcraft.hook.DiscordSRVHook;
 import net.pl3x.pl3xcraft.hook.Vault;
+import net.pl3x.pl3xcraft.listener.ChatListener;
 import net.pl3x.pl3xcraft.listener.MOTDListener;
 import net.pl3x.pl3xcraft.listener.PlayerListener;
 import org.bukkit.Bukkit;
@@ -57,6 +64,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Pl3xCraft extends JavaPlugin {
     private static Pl3xCraft instance;
+    private static DiscordSRVHook discordSRVHook;
 
     public Pl3xCraft() {
         instance = this;
@@ -78,6 +86,16 @@ public class Pl3xCraft extends JavaPlugin {
             return;
         }
 
+        if (!Vault.setupChat()) {
+            Logger.error("Vault could not register chat service!");
+            return;
+        }
+
+        if (getServer().getPluginManager().isPluginEnabled("DiscordSRV")) {
+            discordSRVHook = new DiscordSRVHook();
+        }
+
+        getServer().getPluginManager().registerEvents(new ChatListener(), this);
         getServer().getPluginManager().registerEvents(new MOTDListener(this), this);
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
 
@@ -110,19 +128,24 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("jump").setExecutor(new CmdJump(this));
         getCommand("kickme").setExecutor(new CmdKickMe());
         getCommand("killall").setExecutor(new CmdKillAll());
+        getCommand("me").setExecutor(new CmdMe());
+        getCommand("mute").setExecutor(new CmdMute());
         getCommand("nick").setExecutor(new CmdNick());
         getCommand("repair").setExecutor(new CmdRepair());
+        getCommand("reply").setExecutor(new CmdReply());
         getCommand("russia").setExecutor(new CmdRussia());
         getCommand("sethome").setExecutor(new CmdSetHome(this));
         getCommand("setspawn").setExecutor(new CmdSetSpawn());
         getCommand("shrug").setExecutor(new CmdShrug());
         getCommand("spawn").setExecutor(new CmdSpawn(this));
+        getCommand("spy").setExecutor(new CmdSpy());
         getCommand("teleportaccept").setExecutor(new CmdTeleportAccept(this));
         getCommand("teleportdeny").setExecutor(new CmdTeleportDeny(this));
         getCommand("teleportrequest").setExecutor(new CmdTeleportRequest(this));
         getCommand("teleportrequestall").setExecutor(new CmdTeleportRequestAll(this));
         getCommand("teleportrequesthere").setExecutor(new CmdTeleportRequestHere(this));
         getCommand("teleporttoggle").setExecutor(new CmdTeleportToggle(this));
+        getCommand("tell").setExecutor(new CmdTell());
         getCommand("top").setExecutor(new CmdTop(this));
         getCommand("unflip").setExecutor(new CmdUnflip());
 
@@ -146,5 +169,9 @@ public class Pl3xCraft extends JavaPlugin {
 
     public static Pl3xCraft getPlugin() {
         return instance;
+    }
+
+    public static DiscordSRVHook getDiscordSRVHook() {
+        return discordSRVHook;
     }
 }

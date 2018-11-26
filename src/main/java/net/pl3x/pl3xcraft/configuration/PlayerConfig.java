@@ -11,6 +11,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ public class PlayerConfig extends YamlConfiguration {
     private final Object saveLock = new Object();
     private final OfflinePlayer player;
     private Request request;
+    private Player replyTarget;
 
     private PlayerConfig(OfflinePlayer player) {
         super();
@@ -207,5 +209,41 @@ public class PlayerConfig extends YamlConfiguration {
 
     public String getNick() {
         return ChatUtil.checkColorPerms(player, "command.nick", getString("nickname"));
+    }
+
+    public boolean isMuted() {
+        return !Vault.hasPermission(player, "exempt.mute") && // player is exempt from being muted
+                getBoolean("muted", false);
+    }
+
+    public void setMuted(boolean isMuted) {
+        assert !Vault.hasPermission(player, "exempt.mute") : "Cannot mute an exempt player!";
+        set("muted", isMuted);
+        save();
+    }
+
+    public boolean isSpying() {
+        return Vault.hasPermission(player, "command.spy") && // not allowed to spy
+                getBoolean("spy-mode", false);
+    }
+
+    public void setSpying(boolean isSpying) {
+        assert !isSpying || !Vault.hasPermission(player, "command.spy") : "Cannot enable spy on that player!";
+        set("spy-mode", isSpying);
+        save();
+    }
+
+    public void setReplyTarget(Player target) {
+        replyTarget = target;
+    }
+
+    public void removeReplyTarget(Player target) {
+        if (replyTarget == target) {
+            replyTarget = null;
+        }
+    }
+
+    public Player getReplyTarget() {
+        return replyTarget;
     }
 }

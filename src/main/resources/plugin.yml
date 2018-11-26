@@ -139,12 +139,30 @@ commands:
   killall:
     description: Kills all players online.
     usage: /<command>
+  me:
+    description: Describes an action in the context of the player
+    usage: /<command> [action]
+    aliases:
+    - action
+    - describe
+  mute:
+    description: Mute a player from speaking
+    permission: command.mute
+    usage: /<command> [player] (channel)
+    aliases:
+    - silence
   nick:
     description: Sets a nickname.
     usage: /<command>
   repair:
     description: Repairs the item in your hand or another palyers.
     usage: /<command> (all/player (all) )
+  reply:
+    description: Reply back to last private message
+    permission: command.reply
+    usage: /<command> [message]
+    aliases:
+    - r
   russia:
     description: In mother Russia, table flips you
     usage: /<command>
@@ -162,6 +180,12 @@ commands:
     aliases:
     - hub
     - server
+  spy:
+    description: Toggle spy mode
+    permission: command.spy
+    usage: /<command> (player)
+    aliases:
+    - socialspy
   shrug:
     description: Shrug in chat
     usage: /<command> (text)
@@ -203,6 +227,22 @@ commands:
     aliases:
     - tpt
     - tptoggle
+  tell:
+    description: Send a private message
+    permission: command.tell
+    usage: /<command> [player] [message]
+    aliases:
+    - whisper
+    - w
+    - privatemessage
+    - prvtmsg
+    - pm
+    - msg
+    - send
+    - m
+    - t
+    - emsg
+    - tell
   top:
     description: Go to the highest block at current position
     usage: /<command>
@@ -307,11 +347,20 @@ permissions:
   command.killall:
     description: Allows the player to kill all players online.
     default: op
+  command.me:
+    description: Describe an action
+    default: op
+  command.mute:
+    description: Mute a player
+    default: op
   command.nick:
     description: Allows the player to set a nickname.
     default: op
   command.repair:
     description: Allows the player to repair a item(s) in their hand
+    default: op
+  command.reply:
+    description: Allow shortcut replying to private messages
     default: op
   command.russia:
     description: Allows the player to use russia command
@@ -332,6 +381,12 @@ permissions:
   command.spawn:
     description: Allows the player to teleport to the server spawn
     default: true
+  command.spy:
+    description: Toggle chat spy mode
+    default: op
+  command.spy.others:
+    description: Toggle chat spy mode for other players
+    default: op
   command.teleport.override:
     description: Overrides teleport request toggle setting
     default: op
@@ -423,6 +478,9 @@ permissions:
   command.killall.exempt:
     description: Makes it so other players cannnot kill them while killall command is ran.
     default: op
+  command.mute.exempt:
+    description: Cannot be muted
+    default: false
   command.nick.exempt:
     description: Makes it so other players cannot set their nickname.
     default: op

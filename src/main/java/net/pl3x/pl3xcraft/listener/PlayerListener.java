@@ -6,6 +6,7 @@ import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -92,7 +93,11 @@ public class PlayerListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerQuit(PlayerQuitEvent event) {
-        CmdBack.setPreviousLocation(event.getPlayer(), null);
+        Player player = event.getPlayer();
+        CmdBack.setPreviousLocation(player, null);
+        Bukkit.getOnlinePlayers().stream()
+                .filter(online -> online != player)
+                .forEach(online -> PlayerConfig.getConfig(online).removeReplyTarget(player));
         PlayerConfig.remove(event.getPlayer());
     }
 
