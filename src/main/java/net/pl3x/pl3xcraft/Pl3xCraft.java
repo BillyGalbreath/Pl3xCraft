@@ -106,7 +106,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("coords").setExecutor(new CmdCoords());
         getCommand("broadcast").setExecutor(new CmdBroadcast());
         getCommand("burn").setExecutor(new CmdBurn());
-        getCommand("delhome").setExecutor(new CmdDelHome(this));
+        getCommand("delhome").setExecutor(new CmdDelHome());
         getCommand("depth").setExecutor(new CmdDepth());
         getCommand("enchant").setExecutor(new CmdEnchant());
         getCommand("enchantingtable").setExecutor(new CmdEnchantingTable());
@@ -119,8 +119,8 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("gmcreative").setExecutor(new CmdGamemode(GameMode.CREATIVE));
         getCommand("gmspectator").setExecutor(new CmdGamemode(GameMode.SPECTATOR));
         getCommand("gmsurvival").setExecutor(new CmdGamemode(GameMode.SURVIVAL));
-        getCommand("home").setExecutor(new CmdHome(this));
-        getCommand("homes").setExecutor(new CmdHomes(this));
+        getCommand("home").setExecutor(new CmdHome());
+        getCommand("homes").setExecutor(new CmdHomes());
         getCommand("harm").setExecutor(new CmdHarm());
         getCommand("hat").setExecutor(new CmdHat());
         getCommand("heal").setExecutor(new CmdHeal());
