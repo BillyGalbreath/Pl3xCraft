@@ -10,6 +10,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -38,14 +39,26 @@ public class CmdSetHome implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        // Execute this command in another thread
+        // This is for LuckPerms to handle OfflinePlayer permission checks
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                execute(sender, cmd, label, args);
+            }
+        }.runTaskAsynchronously(Pl3xCraft.getPlugin());
+        return true;
+    }
+
+    private void execute(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
             Lang.send(sender, Lang.PLAYER_COMMAND);
-            return true;
+            return;
         }
 
         if (!sender.hasPermission("command.sethome")) {
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
-            return true;
+            return;
         }
 
         Player player = (Player) sender;
@@ -53,33 +66,32 @@ public class CmdSetHome implements TabExecutor {
         String home = (args.length > 0) ? args[0] : "home";
         if (home.equalsIgnoreCase("bed")) {
             Lang.send(sender, Lang.INVALID_HOME_NAME);
-            return true;
+            return;
         }
 
         int limit;
         if (args.length > 1) {
             if (!sender.hasPermission("command.sethome.other")) {
                 Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
-                return true;
+                return;
             }
 
-            //noinspection deprecation (fucking bukkit)
             OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
             if (target == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
-                return true;
+                return;
             }
 
             if (Vault.hasPermission(target, "command.sethome.exempt")) {
                 Lang.send(sender, Lang.HOME_SET_EXEMPT);
-                return true;
+                return;
             }
 
             config = PlayerConfig.getConfig(target);
 
             if (config == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
-                return true;
+                return;
             }
 
             limit = config.getHomesLimit();
@@ -92,12 +104,11 @@ public class CmdSetHome implements TabExecutor {
         if (limit >= 0 && count >= limit) {
             Lang.send(sender, Lang.HOME_SET_MAX
                     .replace("{limit}", Integer.toString(limit)));
-            return true;
+            return;
         }
 
         config.setHome(home, player.getLocation());
         Lang.send(sender, Lang.HOME_SET
                 .replace("{home}", home));
-        return true;
     }
 }

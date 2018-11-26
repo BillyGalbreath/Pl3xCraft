@@ -16,6 +16,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,12 +25,6 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class CmdHomes implements TabExecutor {
-    private final Pl3xCraft plugin;
-
-    public CmdHomes(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 1) {
@@ -42,39 +37,50 @@ public class CmdHomes implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        // Execute this command in another thread
+        // This is for LuckPerms to handle OfflinePlayer permission checks
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                execute(sender, cmd, label, args);
+            }
+        }.runTaskAsynchronously(Pl3xCraft.getPlugin());
+        return true;
+    }
+
+    private void execute(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
             Lang.send(sender, Lang.PLAYER_COMMAND);
-            return true;
+            return;
         }
 
         if (!sender.hasPermission("command.homes")) {
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
-            return true;
+            return;
         }
 
         PlayerConfig config;
         if (args.length > 0) {
             if (!sender.hasPermission("command.homes.other")) {
                 Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
-                return true;
+                return;
             }
 
-            //noinspection deprecation (fucking bukkit)
             OfflinePlayer target = Bukkit.getOfflinePlayer(args[0]);
             if (target == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
-                return true;
+                return;
             }
 
             if (Vault.hasPermission(target, "command.homes.exempt")) {
                 Lang.send(sender, Lang.HOME_LIST_EXEMPT);
-                return true;
+                return;
             }
 
             config = PlayerConfig.getConfig(target);
             if (config == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
-                return true;
+                return;
             }
         } else {
             config = PlayerConfig.getConfig((Player) sender);
@@ -111,6 +117,5 @@ public class CmdHomes implements TabExecutor {
         }
 
         sender.sendMessage(homeList.toArray(new BaseComponent[0]));
-        return true;
     }
 }

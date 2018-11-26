@@ -10,17 +10,12 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CmdDelHome implements TabExecutor {
-    private final Pl3xCraft plugin;
-
-    public CmdDelHome(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
@@ -38,40 +33,51 @@ public class CmdDelHome implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+        // Execute this command in another thread
+        // This is for LuckPerms to handle OfflinePlayer permission checks
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                execute(sender, cmd, label, args);
+            }
+        }.runTaskAsynchronously(Pl3xCraft.getPlugin());
+        return true;
+    }
+
+    private void execute(CommandSender sender, Command cmd, String label, String[] args) {
         if (!(sender instanceof Player)) {
             Lang.send(sender, Lang.PLAYER_COMMAND);
-            return true;
+            return;
         }
 
         if (!sender.hasPermission("command.delhome")) {
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
-            return true;
+            return;
         }
 
         PlayerConfig config;
         if (args.length > 1) {
             if (!sender.hasPermission("command.delhome.other")) {
                 Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
-                return true;
+                return;
             }
 
-            //noinspection deprecation (fucking bukkit)
             OfflinePlayer target = Bukkit.getOfflinePlayer(args[1]);
             if (target == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
-                return true;
+                return;
             }
 
             if (Vault.hasPermission(target, "command.delhome.exempt")) {
                 Lang.send(sender, Lang.HOME_DELETE_EXEMPT);
-                return true;
+                return;
             }
 
             config = PlayerConfig.getConfig(target);
 
             if (config == null) {
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
-                return true;
+                return;
             }
         } else {
             config = PlayerConfig.getConfig((Player) sender);
@@ -80,12 +86,11 @@ public class CmdDelHome implements TabExecutor {
         String home = (args.length > 0) ? args[0] : "home";
         if (config.getHome(home) == null) {
             Lang.send(sender, Lang.HOME_DOES_NOT_EXIST);
-            return true;
+            return;
         }
 
         config.setHome(home, null);
         Lang.send(sender, Lang.HOME_DELETED
                 .replace("{home}", home));
-        return true;
     }
 }
