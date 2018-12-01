@@ -46,9 +46,10 @@ public class CmdSpawn implements TabExecutor {
         new TeleportSounds(player.getLocation(), spawn)
                 .runTaskLater(plugin, 1);
 
-        player.teleport(spawn);
+        player.teleportAsync(spawn).thenAccept(result ->
+                Lang.send(sender, Lang.SPAWN));
 
-        Lang.send(sender, Lang.SPAWN);
+
         return true;
     }
 }

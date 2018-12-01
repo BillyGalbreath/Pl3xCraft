@@ -85,9 +85,9 @@ public class PlayerListener implements Listener {
             new BukkitRunnable() {
                 public void run() {
                     // do not give a reason so we dont log the /back location
-                    event.getPlayer().teleport(spawn, null);
+                    event.getPlayer().teleportAsync(spawn, null);
                 }
-            }.runTaskLater(plugin, 10);
+            }.runTaskLater(plugin, 5);
         }
     }
 

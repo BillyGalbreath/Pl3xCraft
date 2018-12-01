@@ -54,8 +54,8 @@ public class CmdJump implements TabExecutor {
         new TeleportSounds(targetLoc, player.getLocation())
                 .runTaskLater(plugin, 1);
 
-        player.teleport(targetLoc);
-        Lang.send(sender, Lang.TELEPORTING_JUMP);
+        player.teleportAsync(targetLoc).thenAccept(result ->
+                Lang.send(sender, Lang.TELEPORTING_JUMP));
         return true;
     }
 }

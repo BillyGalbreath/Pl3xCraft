@@ -18,6 +18,6 @@ public class TpaRequest extends Request {
             return;
         }
         playTeleportSounds();
-        getRequester().teleport(getTarget());
+        getRequester().teleportAsync(getTarget().getLocation());
     }
 }
