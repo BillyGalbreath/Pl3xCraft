@@ -5,6 +5,7 @@ description: ${project.artifactId} Paper Plugin
 author: BillyGalbreath
 api-version: 1.13
 softdepend:
+- DiscordSRV
 - Vault
 
 commands:
