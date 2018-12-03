@@ -2,8 +2,15 @@ package net.pl3x.pl3xcraft.configuration;
 
 import net.pl3x.pl3xcraft.Logger;
 import net.pl3x.pl3xcraft.Pl3xCraft;
+import org.bukkit.Bukkit;
 import org.bukkit.Sound;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Config {
     public static boolean COLOR_LOGS;
@@ -23,6 +30,8 @@ public class Config {
 
     public static boolean ALLOW_REPAIR;
     public static boolean REPAIR_MAIN_HAND;
+
+    public static Map<String, String> CANNED_RESPONSES = new HashMap<>();
 
     public static void reload(Pl3xCraft plugin) {
         plugin.saveDefaultConfig();
@@ -56,5 +65,20 @@ public class Config {
 
         ALLOW_REPAIR = config.getBoolean("allow-repair", true);
         REPAIR_MAIN_HAND = config.getBoolean("repair-main-hand", false);
+
+        CANNED_RESPONSES.clear();
+        ConfigurationSection responses = config.getConfigurationSection("canned-responses");
+        for (String command : responses.getKeys(false)) {
+            CANNED_RESPONSES.put(command, responses.getString(command, ""));
+            Map<String, Command> knownCommands = Bukkit.getCommandMap().getKnownCommands();
+            if (!knownCommands.containsKey(command)) {
+                Bukkit.getCommandMap().getKnownCommands().put(command, new Command(command) {
+                    @Override
+                    public boolean execute(CommandSender sender, String commandLabel, String[] args) {
+                        return false;
+                    }
+                });
+            }
+        }
     }
 }

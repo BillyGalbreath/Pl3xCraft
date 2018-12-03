@@ -18,6 +18,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -134,6 +135,21 @@ public class PlayerListener implements Listener {
         Chest chest = (Chest) event.getBlock().getState();
         if (chest.hasLootTable()) {
             Lang.send(event.getPlayer(), Lang.CANNOT_BREAK_LOOT_CHESTS);
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onCannedResponse(PlayerCommandPreprocessEvent event) {
+        if (event.getMessage().contains(" ")) {
+            return; // do not process commands with arguments
+        }
+
+        String command = event.getMessage().substring(1); // remove leading slash
+
+        String response = Config.CANNED_RESPONSES.get(command);
+        if (response != null && !response.isEmpty()) {
+            Lang.send(event.getPlayer(), response);
             event.setCancelled(true);
         }
     }
