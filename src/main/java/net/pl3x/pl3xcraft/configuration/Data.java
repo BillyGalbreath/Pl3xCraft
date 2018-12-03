@@ -26,7 +26,7 @@ public class Data extends YamlConfiguration {
 
     public Data() {
         super();
-        file = new File(Pl3xCraft.getPlugin().getDataFolder(), "data.yml");
+        file = new File(Pl3xCraft.getInstance().getDataFolder(), "data.yml");
         if (!file.exists()) {
             try {
                 //noinspection ResultOfMethodCallIgnored

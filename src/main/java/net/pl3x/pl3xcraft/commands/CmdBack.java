@@ -14,12 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class CmdBack implements TabExecutor {
-    private final Pl3xCraft plugin;
     private static final HashMap<UUID, Location> backdb = new HashMap<>();
-
-    public CmdBack(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
@@ -47,7 +42,7 @@ public class CmdBack implements TabExecutor {
         }
 
         new TeleportSounds(back, player.getLocation())
-                .runTaskLater(plugin, 1);
+                .runTaskLater(Pl3xCraft.getInstance(), 1);
 
         player.teleportAsync(back).thenAccept(result ->
                 Lang.send(sender, Lang.TELEPORTING_BACK));

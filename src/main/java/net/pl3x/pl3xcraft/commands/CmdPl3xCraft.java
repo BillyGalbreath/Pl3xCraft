@@ -12,15 +12,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class CmdPl3xCraft implements TabExecutor {
-    private final Pl3xCraft plugin;
-
-    public CmdPl3xCraft(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length == 1 && "reload".startsWith(args[0].toLowerCase())) {
+        if (args.length == 1 && "reload".startsWith(args[0].toLowerCase()) && sender.hasPermission("command.pl3xcraft")) {
             return Collections.singletonList("reload");
         }
         return null;
@@ -33,6 +27,7 @@ public class CmdPl3xCraft implements TabExecutor {
             return true;
         }
 
+        Pl3xCraft plugin = Pl3xCraft.getInstance();
         String response = "&d" + plugin.getName() + " v" + plugin.getDescription().getVersion();
 
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {

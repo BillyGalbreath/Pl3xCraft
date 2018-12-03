@@ -53,7 +53,7 @@ public class CmdDepth implements TabExecutor {
             return true;
         }
 
-        Player otherPlayerDepth = Pl3xCraft.getPlugin().getServer().getPlayer(args[0]);
+        Player otherPlayerDepth = Pl3xCraft.getInstance().getServer().getPlayer(args[0]);
         final int depth = otherPlayerDepth.getLocation().getBlockY() - 63;
 
         if (depth > 0) {

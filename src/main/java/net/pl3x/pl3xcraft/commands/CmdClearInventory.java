@@ -32,7 +32,7 @@ public class CmdClearInventory implements TabExecutor {
                 Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
                 return true;
             }
-            Player player = Pl3xCraft.getPlugin().getServer().getPlayer(args[0]);
+            Player player = Pl3xCraft.getInstance().getServer().getPlayer(args[0]);
             if (player == null){
                 Lang.send(sender, Lang.PLAYER_NOT_FOUND);
                 return true;

@@ -48,7 +48,7 @@ public class CmdCoords implements TabExecutor {
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
             return true;
         }
-        Player otherPlayer = Pl3xCraft.getPlugin().getServer().getPlayer(args[0]);
+        Player otherPlayer = Pl3xCraft.getInstance().getServer().getPlayer(args[0]);
         Location location = otherPlayer.getLocation();
 
         Lang.send(player, Lang.OTHER_PLAYER_COORDS

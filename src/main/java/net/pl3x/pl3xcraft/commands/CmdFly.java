@@ -35,7 +35,7 @@ public class CmdFly implements TabExecutor {
                 return true;
             }
 
-            Player otherPlayer = Pl3xCraft.getPlugin().getServer().getPlayer(args[0]);
+            Player otherPlayer = Pl3xCraft.getInstance().getServer().getPlayer(args[0]);
 
             if (otherPlayer.hasPermission("command.fly.exempt")){
                 Lang.send(sender, Lang.PLAYER_EXEMPT

@@ -15,12 +15,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class CmdJump implements TabExecutor {
-    private final Pl3xCraft plugin;
-
-    public CmdJump(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         return null;
@@ -52,7 +46,7 @@ public class CmdJump implements TabExecutor {
         targetLoc.add(0.5, 1, 0.5);
 
         new TeleportSounds(targetLoc, player.getLocation())
-                .runTaskLater(plugin, 1);
+                .runTaskLater(Pl3xCraft.getInstance(), 1);
 
         player.teleportAsync(targetLoc).thenAccept(result ->
                 Lang.send(sender, Lang.TELEPORTING_JUMP));

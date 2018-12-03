@@ -24,7 +24,7 @@ public class CmdBurn implements TabExecutor {
         if (args.length == 0) {
             return false;
         }
-        Player playerBurned = Pl3xCraft.getPlugin().getServer().getPlayer(args[0]);
+        Player playerBurned = Pl3xCraft.getInstance().getServer().getPlayer(args[0]);
         if ((playerBurned == null)) {
             Lang.send(sender, Lang.PLAYER_NOT_FOUND);
             return true;

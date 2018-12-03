@@ -42,7 +42,7 @@ public class CmdHome implements TabExecutor {
             public void run() {
                 execute(sender, cmd, label, args);
             }
-        }.runTaskAsynchronously(Pl3xCraft.getPlugin());
+        }.runTaskAsynchronously(Pl3xCraft.getInstance());
         return true;
     }
 
@@ -128,7 +128,7 @@ public class CmdHome implements TabExecutor {
         }
 
         new TeleportSounds(homeLoc, player.getLocation())
-                .runTaskLater(Pl3xCraft.getPlugin(), 1);
+                .runTaskLater(Pl3xCraft.getInstance(), 1);
 
         String homeName = home;
         player.teleportAsync(homeLoc).thenAccept(result ->

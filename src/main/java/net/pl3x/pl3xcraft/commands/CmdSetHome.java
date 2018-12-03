@@ -16,12 +16,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CmdSetHome implements TabExecutor {
-    private final Pl3xCraft plugin;
-
-    public CmdSetHome(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
@@ -46,7 +40,7 @@ public class CmdSetHome implements TabExecutor {
             public void run() {
                 execute(sender, cmd, label, args);
             }
-        }.runTaskAsynchronously(Pl3xCraft.getPlugin());
+        }.runTaskAsynchronously(Pl3xCraft.getInstance());
         return true;
     }
 

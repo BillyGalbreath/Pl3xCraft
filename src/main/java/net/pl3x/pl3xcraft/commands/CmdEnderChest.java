@@ -34,7 +34,7 @@ public class CmdEnderChest implements TabExecutor {
                 return true;
             }
 
-            Player otherPlayer = Pl3xCraft.getPlugin().getServer().getPlayer(args[0]);
+            Player otherPlayer = Pl3xCraft.getInstance().getServer().getPlayer(args[0]);
             player.openInventory(otherPlayer.getEnderChest());
             Lang.send(sender, Lang.OPENED_OTHER_PLAYER_ENDERCHEST
                     .replace("{getPlayer}", otherPlayer.getDisplayName()));

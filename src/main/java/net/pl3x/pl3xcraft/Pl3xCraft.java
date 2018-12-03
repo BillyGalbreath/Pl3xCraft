@@ -55,6 +55,7 @@ import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.listener.ChatListener;
 import net.pl3x.pl3xcraft.listener.MOTDListener;
 import net.pl3x.pl3xcraft.listener.PlayerListener;
+import net.pl3x.pl3xcraft.listener.VillagerListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -96,12 +97,13 @@ public class Pl3xCraft extends JavaPlugin {
         }
 
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
-        getServer().getPluginManager().registerEvents(new MOTDListener(this), this);
-        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
+        getServer().getPluginManager().registerEvents(new MOTDListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+        getServer().getPluginManager().registerEvents(new VillagerListener(), this);
 
-        getCommand("pl3xcraft").setExecutor(new CmdPl3xCraft(this));
+        getCommand("pl3xcraft").setExecutor(new CmdPl3xCraft());
         getCommand("assign").setExecutor(new CmdAssign());
-        getCommand("back").setExecutor(new CmdBack(this));
+        getCommand("back").setExecutor(new CmdBack());
         getCommand("clearinventory").setExecutor(new CmdClearInventory());
         getCommand("coords").setExecutor(new CmdCoords());
         getCommand("broadcast").setExecutor(new CmdBroadcast());
@@ -125,7 +127,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("hat").setExecutor(new CmdHat());
         getCommand("heal").setExecutor(new CmdHeal());
         getCommand("invmod").setExecutor(new CmdInvmod());
-        getCommand("jump").setExecutor(new CmdJump(this));
+        getCommand("jump").setExecutor(new CmdJump());
         getCommand("kickme").setExecutor(new CmdKickMe());
         getCommand("killall").setExecutor(new CmdKillAll());
         getCommand("me").setExecutor(new CmdMe());
@@ -134,19 +136,19 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("repair").setExecutor(new CmdRepair());
         getCommand("reply").setExecutor(new CmdReply());
         getCommand("russia").setExecutor(new CmdRussia());
-        getCommand("sethome").setExecutor(new CmdSetHome(this));
+        getCommand("sethome").setExecutor(new CmdSetHome());
         getCommand("setspawn").setExecutor(new CmdSetSpawn());
         getCommand("shrug").setExecutor(new CmdShrug());
-        getCommand("spawn").setExecutor(new CmdSpawn(this));
+        getCommand("spawn").setExecutor(new CmdSpawn());
         getCommand("spy").setExecutor(new CmdSpy());
-        getCommand("teleportaccept").setExecutor(new CmdTeleportAccept(this));
-        getCommand("teleportdeny").setExecutor(new CmdTeleportDeny(this));
-        getCommand("teleportrequest").setExecutor(new CmdTeleportRequest(this));
-        getCommand("teleportrequestall").setExecutor(new CmdTeleportRequestAll(this));
-        getCommand("teleportrequesthere").setExecutor(new CmdTeleportRequestHere(this));
-        getCommand("teleporttoggle").setExecutor(new CmdTeleportToggle(this));
+        getCommand("teleportaccept").setExecutor(new CmdTeleportAccept());
+        getCommand("teleportdeny").setExecutor(new CmdTeleportDeny());
+        getCommand("teleportrequest").setExecutor(new CmdTeleportRequest());
+        getCommand("teleportrequestall").setExecutor(new CmdTeleportRequestAll());
+        getCommand("teleportrequesthere").setExecutor(new CmdTeleportRequestHere());
+        getCommand("teleporttoggle").setExecutor(new CmdTeleportToggle());
         getCommand("tell").setExecutor(new CmdTell());
-        getCommand("top").setExecutor(new CmdTop(this));
+        getCommand("top").setExecutor(new CmdTop());
         getCommand("unflip").setExecutor(new CmdUnflip());
 
         Logger.info(getName() + " v" + getDescription().getVersion() + " enabled!");
@@ -167,7 +169,7 @@ public class Pl3xCraft extends JavaPlugin {
         return true;
     }
 
-    public static Pl3xCraft getPlugin() {
+    public static Pl3xCraft getInstance() {
         return instance;
     }
 

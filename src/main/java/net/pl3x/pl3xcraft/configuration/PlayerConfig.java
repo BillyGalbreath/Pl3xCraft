@@ -51,7 +51,7 @@ public class PlayerConfig extends YamlConfiguration {
     private PlayerConfig(OfflinePlayer player) {
         super();
         this.player = player;
-        this.file = new File(Pl3xCraft.getPlugin().getDataFolder(),
+        this.file = new File(Pl3xCraft.getInstance().getDataFolder(),
                 "userdata" + File.separator + player.getUniqueId() + ".yml");
         reload();
     }

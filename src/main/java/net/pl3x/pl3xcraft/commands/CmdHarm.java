@@ -1,6 +1,5 @@
 package net.pl3x.pl3xcraft.commands;
 
-import com.sun.org.apache.bcel.internal.generic.LAND;
 import java.util.List;
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.configuration.Lang;
@@ -34,7 +33,7 @@ public class CmdHarm implements TabExecutor {
             return true;
         }
 
-        Player otherPlayer = Pl3xCraft.getPlugin().getServer().getPlayer(args[0]);
+        Player otherPlayer = Pl3xCraft.getInstance().getServer().getPlayer(args[0]);
 
         if (otherPlayer == null){
             Lang.send(sender, Lang.PLAYER_NOT_FOUND);

@@ -37,7 +37,7 @@ public class CmdNick implements TabExecutor {
             public void run() {
                 execute(sender, cmd, label, args);
             }
-        }.runTaskAsynchronously(Pl3xCraft.getPlugin());
+        }.runTaskAsynchronously(Pl3xCraft.getInstance());
         return true;
     }
 

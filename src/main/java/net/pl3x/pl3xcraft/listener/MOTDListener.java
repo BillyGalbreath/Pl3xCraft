@@ -13,12 +13,6 @@ import java.io.File;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MOTDListener implements Listener {
-    private final Pl3xCraft plugin;
-
-    public MOTDListener(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @EventHandler
     public void onServerPing(ServerListPingEvent event) {
         String motd = Data.getInstance().getRandomMOTD();
@@ -26,7 +20,7 @@ public class MOTDListener implements Listener {
             event.setMotd(ChatColor.translateAlternateColorCodes('&', motd));
         }
 
-        File dir = new File(plugin.getDataFolder(), "server-icon");
+        File dir = new File(Pl3xCraft.getInstance().getDataFolder(), "server-icon");
         if (!dir.exists()) {
             // noinspection ResultOfMethodCallIgnored
             dir.mkdirs();

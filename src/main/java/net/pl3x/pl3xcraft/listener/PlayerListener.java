@@ -27,12 +27,9 @@ import java.util.List;
 import java.util.Set;
 
 public class PlayerListener implements Listener {
-    private final Pl3xCraft plugin;
     private final Set<PlayerTeleportEvent.TeleportCause> backAllowCauses = new HashSet<>();
 
-    public PlayerListener(Pl3xCraft plugin) {
-        this.plugin = plugin;
-
+    public PlayerListener() {
         backAllowCauses.add(PlayerTeleportEvent.TeleportCause.PLUGIN);
         backAllowCauses.add(PlayerTeleportEvent.TeleportCause.COMMAND);
         backAllowCauses.add(PlayerTeleportEvent.TeleportCause.UNKNOWN);
@@ -87,7 +84,7 @@ public class PlayerListener implements Listener {
                     // do not give a reason so we dont log the /back location
                     event.getPlayer().teleportAsync(spawn, null);
                 }
-            }.runTaskLater(plugin, 5);
+            }.runTaskLater(Pl3xCraft.getInstance(), 5);
         }
     }
 

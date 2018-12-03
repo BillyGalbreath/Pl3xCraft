@@ -14,12 +14,6 @@ import java.util.List;
 import java.util.UUID;
 
 public class CmdTeleportRequestAll implements TabExecutor {
-    private final Pl3xCraft plugin;
-
-    public CmdTeleportRequestAll(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         return null;
@@ -57,7 +51,7 @@ public class CmdTeleportRequestAll implements TabExecutor {
             }
 
             // Create new request
-            targetConfig.setRequest(new TpaHereRequest(plugin, (Player) sender, target));
+            targetConfig.setRequest(new TpaHereRequest(Pl3xCraft.getInstance(), (Player) sender, target));
         }
 
         Lang.send(sender, Lang.TELEPORT_REQUESTALL_REQUESTER);

@@ -14,12 +14,6 @@ import org.bukkit.entity.Player;
 import java.util.List;
 
 public class CmdSpawn implements TabExecutor {
-    private final Pl3xCraft plugin;
-
-    public CmdSpawn(Pl3xCraft plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         return null;
@@ -44,7 +38,7 @@ public class CmdSpawn implements TabExecutor {
         }
 
         new TeleportSounds(player.getLocation(), spawn)
-                .runTaskLater(plugin, 1);
+                .runTaskLater(Pl3xCraft.getInstance(), 1);
 
         player.teleportAsync(spawn).thenAccept(result ->
                 Lang.send(sender, Lang.SPAWN));
