@@ -21,6 +21,8 @@ public class Lang {
 
     public static String NO_MESSAGE_SPECIFIED;
 
+    public static String CANNOT_BREAK_LOOT_CHESTS;
+
     public static String TARGET_MUTED;
     public static String TARGET_UNMUTED;
     public static String EXEMPT_MUTE;
@@ -188,6 +190,8 @@ public class Lang {
         CHAT_FORMAT = config.getString("chat-format", "&r{prefix}&r&7{sender}&r{suffix}&r&e:&r&7&o {message}");
 
         NO_MESSAGE_SPECIFIED = config.getString("no-message-specified", "&4You must specify a message!");
+
+        CANNOT_BREAK_LOOT_CHESTS = config.getString("cannot-break-loot-chests", "&cYou are not allowed to break loot chests\n&cThese chests will restock after some time");
 
         TARGET_MUTED = config.getString("target-muted", "&7{target} &dmuted.");
         TARGET_UNMUTED = config.getString("target-unmuted", "&7{target} &dunmuted.");
