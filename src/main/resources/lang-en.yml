@@ -165,3 +165,8 @@ repair-all-items-other: "&dYou have repaired all of {getPlayer}{possessive} item
 
 kick-me: "No, Just NO! Go some crack somewhere else!"
 kick-me-exempt: "&dThis would have kicked you, if you was not exempt! Watch out!"
+
+player-online: "&7{getPlayer} &dis currently online!"
+no-player-found: "&7{getPlayer}&d does not exist on our servers database."
+no-recorded-time: "&dThere is no recorded time for &7{getPlayer}&d."
+player-last-seen: "&7{getPlayer}&d was last seen online &7{getTime}&d ago."

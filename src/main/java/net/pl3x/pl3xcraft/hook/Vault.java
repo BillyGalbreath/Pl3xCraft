@@ -2,6 +2,7 @@ package net.pl3x.pl3xcraft.hook;
 
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
+import net.pl3x.pl3xcraft.Logger;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -20,9 +21,12 @@ public class Vault {
     }
 
     public static boolean setupChat() {
-        RegisteredServiceProvider<Chat> chatProvider = Bukkit.getServicesManager().getRegistration(Chat.class);
+        RegisteredServiceProvider<Chat> chatProvider = Bukkit.getServer().getServicesManager().getRegistration(net.milkbowl.vault.chat.Chat.class);
         if (chatProvider != null) {
             chat = chatProvider.getProvider();
+        } else {
+            Logger.error("Chat provider is equal to null!");
+            return false;
         }
         return chat != null;
     }
