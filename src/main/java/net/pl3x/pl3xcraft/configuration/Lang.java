@@ -171,6 +171,11 @@ public class Lang {
     public static String KICK_ME;
     public static String KICK_ME_EXEMPT;
 
+    public static String PLAYER_ONLINE;
+    public static String NO_PLAYER_FOUND;
+    public static String NO_RECORDED_TIME;
+    public static String PLAYER_LAST_SEEN;
+
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
         File configFile = new File(plugin.getDataFolder(), langFile);
@@ -368,6 +373,12 @@ public class Lang {
 
         KICK_ME = config.getString("kick-me", "No, Just NO! Go some crack somewhere else!");
         KICK_ME_EXEMPT = config.getString("kick-me-exempt", "&dThis would have kicked you, if you was not exempt! Watch out!");
+
+
+        PLAYER_ONLINE = config.getString("player-online", "&7{getPlayer} &dis currently online!");
+        NO_PLAYER_FOUND = config.getString("no-player-found", "&7{getPlayer}&d does not exist on our servers database.");
+        NO_RECORDED_TIME = config.getString("no-recorded-time", "&dThere is no recorded time for &7{getPlayer}&d.");
+        PLAYER_LAST_SEEN = config.getString("player-last-seen", "&7{getPlayer}&d was last seen online &7{getTime}&d ago.");
     }
 
     public static void send(CommandSender recipient, String message) {

@@ -18,9 +18,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -94,11 +94,21 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
+        PlayerConfig playerConfig = PlayerConfig.getConfig(player);
+
         CmdBack.setPreviousLocation(player, null);
+        playerConfig.setSeen(System.currentTimeMillis());
         Bukkit.getOnlinePlayers().stream()
                 .filter(online -> online != player)
                 .forEach(online -> PlayerConfig.getConfig(online).removeReplyTarget(player));
         PlayerConfig.remove(event.getPlayer());
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void onPlayerKick(PlayerKickEvent event){
+        Player player = event.getPlayer();
+        PlayerConfig playerConfig = PlayerConfig.getConfig(player);
+        playerConfig.setSeen(System.currentTimeMillis());
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
@@ -138,7 +148,7 @@ public class PlayerListener implements Listener {
             event.setCancelled(true);
         }
     }
-
+ /*
     @EventHandler
     public void onCannedResponse(PlayerCommandPreprocessEvent event) {
         if (event.getMessage().contains(" ")) {
@@ -153,4 +163,5 @@ public class PlayerListener implements Listener {
             event.setCancelled(true);
         }
     }
+    */
 }

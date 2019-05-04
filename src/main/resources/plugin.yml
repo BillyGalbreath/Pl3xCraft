@@ -167,6 +167,11 @@ commands:
   russia:
     description: In mother Russia, table flips you
     usage: /<command>
+  seen:
+    description: Shows when a player was last online.
+    usage: /<command> [player]
+    aliases:
+      - lastseen
   sethome:
     description: Sets the player's home.
     usage: /<command> (home (player))
@@ -365,6 +370,9 @@ permissions:
     default: op
   command.russia:
     description: Allows the player to use russia command
+    default: op
+  command.seen:
+    description: Allows the player to see when another player was last online.
     default: op
   command.sethome:
     description: Allows the player to set a home.

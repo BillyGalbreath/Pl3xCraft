@@ -31,7 +31,7 @@ public class Config {
     public static boolean ALLOW_REPAIR;
     public static boolean REPAIR_MAIN_HAND;
 
-    public static Map<String, String> CANNED_RESPONSES = new HashMap<>();
+    /*public static Map<String, String> CANNED_RESPONSES = new HashMap<>();*/
 
     public static void reload(Pl3xCraft plugin) {
         plugin.saveDefaultConfig();
@@ -66,6 +66,7 @@ public class Config {
         ALLOW_REPAIR = config.getBoolean("allow-repair", true);
         REPAIR_MAIN_HAND = config.getBoolean("repair-main-hand", false);
 
+        /*
         CANNED_RESPONSES.clear();
         ConfigurationSection responses = config.getConfigurationSection("canned-responses");
         for (String command : responses.getKeys(false)) {
@@ -80,5 +81,6 @@ public class Config {
                 });
             }
         }
+        */
     }
 }

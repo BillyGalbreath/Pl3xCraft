@@ -1,5 +1,6 @@
 package net.pl3x.pl3xcraft.configuration;
 
+import net.pl3x.pl3xcraft.Logger;
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.request.Request;
@@ -92,6 +93,16 @@ public class PlayerConfig extends YamlConfiguration {
         float pitch = (float) getDouble("home." + name + ".pitch");
         float yaw = (float) getDouble("home." + name + ".yaw");
         return new Location(world, x, y, z, yaw, pitch);
+    }
+
+    public void setSeen(Long date){
+        if (date == null){
+            set("seen.", null);
+            save();
+            return;
+        }
+        set("seen", date);
+        save();
     }
 
     public void setHome(String name, Location location) {

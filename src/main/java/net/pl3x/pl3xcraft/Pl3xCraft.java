@@ -32,6 +32,7 @@ import net.pl3x.pl3xcraft.commands.CmdPl3xCraft;
 import net.pl3x.pl3xcraft.commands.CmdRepair;
 import net.pl3x.pl3xcraft.commands.CmdReply;
 import net.pl3x.pl3xcraft.commands.CmdRussia;
+import net.pl3x.pl3xcraft.commands.CmdSeen;
 import net.pl3x.pl3xcraft.commands.CmdSetHome;
 import net.pl3x.pl3xcraft.commands.CmdSetSpawn;
 import net.pl3x.pl3xcraft.commands.CmdShrug;
@@ -88,7 +89,7 @@ public class Pl3xCraft extends JavaPlugin {
         }
 
         if (!Vault.setupChat()) {
-            Logger.error("Vault could not register chat service!");
+            Logger.error("Vault could not register chat service! Do you have a permissions plugin installed?");
             return;
         }
 
@@ -136,6 +137,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("repair").setExecutor(new CmdRepair());
         getCommand("reply").setExecutor(new CmdReply());
         getCommand("russia").setExecutor(new CmdRussia());
+        getCommand("seen").setExecutor(new CmdSeen());
         getCommand("sethome").setExecutor(new CmdSetHome());
         getCommand("setspawn").setExecutor(new CmdSetSpawn());
         getCommand("shrug").setExecutor(new CmdShrug());
