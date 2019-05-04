@@ -176,6 +176,8 @@ public class Lang {
     public static String NO_RECORDED_TIME;
     public static String PLAYER_LAST_SEEN;
 
+    public static String WORKBENCH_OPEN;
+
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
         File configFile = new File(plugin.getDataFolder(), langFile);
@@ -379,6 +381,8 @@ public class Lang {
         NO_PLAYER_FOUND = config.getString("no-player-found", "&7{getPlayer}&d does not exist on our servers database.");
         NO_RECORDED_TIME = config.getString("no-recorded-time", "&dThere is no recorded time for &7{getPlayer}&d.");
         PLAYER_LAST_SEEN = config.getString("player-last-seen", "&7{getPlayer}&d was last seen online &7{getTime}&d ago.");
+
+        WORKBENCH_OPEN = config.getString("workbench-open", "&7Pl3xCraft &dhas opened a workbench for you, enjoy!");
     }
 
     public static void send(CommandSender recipient, String message) {

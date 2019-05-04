@@ -47,6 +47,7 @@ import net.pl3x.pl3xcraft.commands.CmdTeleportToggle;
 import net.pl3x.pl3xcraft.commands.CmdTell;
 import net.pl3x.pl3xcraft.commands.CmdTop;
 import net.pl3x.pl3xcraft.commands.CmdUnflip;
+import net.pl3x.pl3xcraft.commands.CmdWorkbench;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
@@ -152,6 +153,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("tell").setExecutor(new CmdTell());
         getCommand("top").setExecutor(new CmdTop());
         getCommand("unflip").setExecutor(new CmdUnflip());
+        getCommand("workbench").setExecutor(new CmdWorkbench());
 
         Logger.info(getName() + " v" + getDescription().getVersion() + " enabled!");
     }
