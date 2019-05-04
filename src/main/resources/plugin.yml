@@ -255,6 +255,9 @@ commands:
   unflip:
     description: Unflip a table
     usage: /<command>
+  workbench:
+    description: Opens a workbench anywhere
+    usage: /<command>
 
 permissions:
   command.pl3xcraft:
@@ -422,6 +425,9 @@ permissions:
     default: op
   command.unflip:
     description: Allows you to unflip a table
+    default: op
+  command.workench:
+    description: Allows you to open a workbench anywhere
     default: op
 
   command.clearinventory.other:
