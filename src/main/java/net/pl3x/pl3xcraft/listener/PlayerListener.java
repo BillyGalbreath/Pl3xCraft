@@ -105,7 +105,7 @@ public class PlayerListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
-    public void onPlayerKick(PlayerKickEvent event){
+    public void onPlayerKick(PlayerKickEvent event) {
         Player player = event.getPlayer();
         PlayerConfig playerConfig = PlayerConfig.getConfig(player);
         playerConfig.setSeen(System.currentTimeMillis());
@@ -148,20 +148,4 @@ public class PlayerListener implements Listener {
             event.setCancelled(true);
         }
     }
- /*
-    @EventHandler
-    public void onCannedResponse(PlayerCommandPreprocessEvent event) {
-        if (event.getMessage().contains(" ")) {
-            return; // do not process commands with arguments
-        }
-
-        String command = event.getMessage().substring(1); // remove leading slash
-
-        String response = Config.CANNED_RESPONSES.get(command);
-        if (response != null && !response.isEmpty()) {
-            Lang.send(event.getPlayer(), response);
-            event.setCancelled(true);
-        }
-    }
-    */
 }

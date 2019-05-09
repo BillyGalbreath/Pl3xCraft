@@ -9,7 +9,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Config {
@@ -30,8 +29,6 @@ public class Config {
 
     public static boolean ALLOW_REPAIR;
     public static boolean REPAIR_MAIN_HAND;
-
-    /*public static Map<String, String> CANNED_RESPONSES = new HashMap<>();*/
 
     public static void reload(Pl3xCraft plugin) {
         plugin.saveDefaultConfig();
@@ -66,21 +63,24 @@ public class Config {
         ALLOW_REPAIR = config.getBoolean("allow-repair", true);
         REPAIR_MAIN_HAND = config.getBoolean("repair-main-hand", false);
 
-        /*
-        CANNED_RESPONSES.clear();
         ConfigurationSection responses = config.getConfigurationSection("canned-responses");
-        for (String command : responses.getKeys(false)) {
-            CANNED_RESPONSES.put(command, responses.getString(command, ""));
-            Map<String, Command> knownCommands = Bukkit.getCommandMap().getKnownCommands();
-            if (!knownCommands.containsKey(command)) {
-                Bukkit.getCommandMap().getKnownCommands().put(command, new Command(command) {
-                    @Override
-                    public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-                        return false;
-                    }
-                });
+        if (responses != null) {
+            for (String command : responses.getKeys(false)) {
+                String response = responses.getString(command, "");
+                Map<String, Command> knownCommands = Bukkit.getCommandMap().getKnownCommands();
+                if (!knownCommands.containsKey(command)) {
+                    Logger.debug("Registering canned response '" + command + "'");
+                    Bukkit.getCommandMap().getKnownCommands().put(command, new Command(command) {
+                        @Override
+                        public boolean execute(CommandSender sender, String commandLabel, String[] args) {
+                            Lang.send(sender, response);
+                            return false;
+                        }
+                    });
+                } else {
+                    Logger.warn("Cannot register canned-response '" + command + "' (command is already registered)");
+                }
             }
         }
-        */
     }
 }

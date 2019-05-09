@@ -33,3 +33,7 @@ allow-repair: true
 # True = Repair item in main hand
 # false = Repair item in off hand
 repair-main-hand: false
+
+canned-responses:
+  website: "http://www.example.com"
+  rules: "1) Don't swear\n2) Don't uwu"
