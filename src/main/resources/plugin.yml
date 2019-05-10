@@ -140,6 +140,15 @@ commands:
   killall:
     description: Kills all players online.
     usage: /<command>
+  list:
+    description: Lists all users on the server.
+    usage: /<command>
+    aliases:
+      - listplayers
+      - players
+      - playing
+      - online
+      - who
   me:
     description: Describes an action in the context of the player
     usage: /<command> [action]
@@ -355,6 +364,9 @@ permissions:
     default: op
   command.killall:
     description: Allows the player to kill all players online.
+    default: op
+  command.list:
+    description: Lists all users on the server.
     default: op
   command.me:
     description: Describe an action
