@@ -162,6 +162,7 @@ public class Lang {
     public static String NICK_REMOVED_BY_OTHER;
 
     public static String REPAIR_NOT_ALLOWED;
+
     public static String ITEMS_REPAIRED;
     public static String ITEMS_REPAIRED_OTHER;
     public static String NO_REPAIR_NEEDED;
@@ -177,6 +178,9 @@ public class Lang {
     public static String PLAYER_LAST_SEEN;
 
     public static String WORKBENCH_OPEN;
+
+    public static String PLAYERS_ONLINE_NUM_TITLE;
+    public static String PLAYERS_ONLINE_GROUP_LIST;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -383,6 +387,9 @@ public class Lang {
         PLAYER_LAST_SEEN = config.getString("player-last-seen", "&7{getPlayer}&d was last seen online &7{getTime}&d ago.");
 
         WORKBENCH_OPEN = config.getString("workbench-open", "&7Pl3xCraft &dhas opened a workbench for you, enjoy!");
+
+        PLAYERS_ONLINE_NUM_TITLE = config.getString("players-online-num-title", "&dThere are currently &7{getPlayerSize}&d out of &7{getMaxPlayers} &dplayers online&7:");
+        PLAYERS_ONLINE_GROUP_LIST= config.getString("players-online-group-list", "&6{getOnline}");
     }
 
     public static void send(CommandSender recipient, String message) {

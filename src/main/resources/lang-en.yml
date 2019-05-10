@@ -172,3 +172,6 @@ no-recorded-time: "&dThere is no recorded time for &7{getPlayer}&d."
 player-last-seen: "&7{getPlayer}&d was last seen online &7{getTime}&d ago."
 
 workbench-open: "&7Pl3xCraft &dhas opened a workbench for you, enjoy!"
+
+players-online-num-title: "&dThere are currently &7{getPlayerSize}&d out of &7{getMaxPlayers} &dplayers online&7:"
+players-online-group-list: "&6{getOnline}"

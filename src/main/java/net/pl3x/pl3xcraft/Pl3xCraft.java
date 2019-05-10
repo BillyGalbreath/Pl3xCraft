@@ -25,6 +25,7 @@ import net.pl3x.pl3xcraft.commands.CmdInvmod;
 import net.pl3x.pl3xcraft.commands.CmdJump;
 import net.pl3x.pl3xcraft.commands.CmdKickMe;
 import net.pl3x.pl3xcraft.commands.CmdKillAll;
+import net.pl3x.pl3xcraft.commands.CmdList;
 import net.pl3x.pl3xcraft.commands.CmdMe;
 import net.pl3x.pl3xcraft.commands.CmdMute;
 import net.pl3x.pl3xcraft.commands.CmdNick;
@@ -132,6 +133,7 @@ public class Pl3xCraft extends JavaPlugin {
         getCommand("jump").setExecutor(new CmdJump());
         getCommand("kickme").setExecutor(new CmdKickMe());
         getCommand("killall").setExecutor(new CmdKillAll());
+        getCommand("list").setExecutor(new CmdList());
         getCommand("me").setExecutor(new CmdMe());
         getCommand("mute").setExecutor(new CmdMute());
         getCommand("nick").setExecutor(new CmdNick());
