@@ -182,6 +182,8 @@ public class Lang {
     public static String PLAYERS_ONLINE_NUM_TITLE;
     public static String PLAYERS_ONLINE_GROUP_LIST;
 
+    public static String COOLDOWN_TIMER_LEFT;
+
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
         File configFile = new File(plugin.getDataFolder(), langFile);
@@ -390,6 +392,8 @@ public class Lang {
 
         PLAYERS_ONLINE_NUM_TITLE = config.getString("players-online-num-title", "&dThere are currently &7{getPlayerSize}&d out of &7{getMaxPlayers} &dplayers online&7:");
         PLAYERS_ONLINE_GROUP_LIST= config.getString("players-online-group-list", "&6{getOnline}");
+
+        COOLDOWN_TIMER_LEFT = config.getString("cooldown-timer-left", "&dYou must wait &7{getCooldownSeconds}&d seconds before using &7{GetCommand}&d again.");
     }
 
     public static void send(CommandSender recipient, String message) {

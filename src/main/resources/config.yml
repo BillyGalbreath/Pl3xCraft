@@ -37,3 +37,14 @@ repair-main-hand: false
 canned-responses:
   website: "http://www.example.com"
   rules: "1) Don't swear\n2) Don't uwu"
+
+# COOLDOWN PREFERENCES
+#
+# Cooldown Language file (for translations)
+language-cooldown-file: lang-cooldown.yml
+#
+# Turn Cooldown Mode on or off
+cooldown-mode: true
+#
+# Me Command
+me-cooldown-seconds: 4000

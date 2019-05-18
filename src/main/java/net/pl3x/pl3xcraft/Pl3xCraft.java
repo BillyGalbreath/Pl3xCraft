@@ -52,6 +52,7 @@ import net.pl3x.pl3xcraft.commands.CmdWorkbench;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
+import net.pl3x.pl3xcraft.configuration.LangCooldown;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
 import net.pl3x.pl3xcraft.hook.DiscordSRVHook;
 import net.pl3x.pl3xcraft.hook.Vault;
@@ -78,6 +79,7 @@ public class Pl3xCraft extends JavaPlugin {
     public void onEnable() {
         Config.reload(this);
         Lang.reload(this);
+        LangCooldown.reload(this);
         Data.getInstance();
 
         if (!Bukkit.getPluginManager().isPluginEnabled("Vault")) {

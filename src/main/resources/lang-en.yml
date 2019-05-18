@@ -175,3 +175,5 @@ workbench-open: "&7Pl3xCraft &dhas opened a workbench for you, enjoy!"
 
 players-online-num-title: "&dThere are currently &7{getPlayerSize}&d out of &7{getMaxPlayers} &dplayers online&7:"
 players-online-group-list: "&6{getOnline}"
+
+cooldown-timer-left: "&dYou must wait &7{getCooldownSeconds}&d seconds before using &7*/me*&d again."
