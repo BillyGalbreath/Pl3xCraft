@@ -5,6 +5,13 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
+/*
+ *
+ * TODO: Global config setting
+ * TODO: Add cooldown to all applicable commands
+ *
+ * */
+
 public class LangCooldown {
 
     public static String COOLDOWN_TIMER_LEFT;
