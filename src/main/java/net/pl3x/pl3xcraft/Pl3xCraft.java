@@ -54,7 +54,7 @@ import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.LangCooldown;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
-import net.pl3x.pl3xcraft.hook.DiscordSRVHook;
+import net.pl3x.pl3xcraft.hook.DiscordHook;
 import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.listener.ChatListener;
 import net.pl3x.pl3xcraft.listener.MOTDListener;
@@ -69,7 +69,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Pl3xCraft extends JavaPlugin {
     private static Pl3xCraft instance;
-    private static DiscordSRVHook discordSRVHook;
+    private static DiscordHook discordHook;
 
     public Pl3xCraft() {
         instance = this;
@@ -97,8 +97,8 @@ public class Pl3xCraft extends JavaPlugin {
             return;
         }
 
-        if (getServer().getPluginManager().isPluginEnabled("DiscordSRV")) {
-            discordSRVHook = new DiscordSRVHook();
+        if (getServer().getPluginManager().isPluginEnabled("Discord4Bukkit")) {
+            discordHook = new DiscordHook();
         }
 
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
@@ -181,7 +181,7 @@ public class Pl3xCraft extends JavaPlugin {
         return instance;
     }
 
-    public static DiscordSRVHook getDiscordSRVHook() {
-        return discordSRVHook;
+    public static DiscordHook getDiscordHook() {
+        return discordHook;
     }
 }

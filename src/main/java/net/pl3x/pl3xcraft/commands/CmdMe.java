@@ -69,8 +69,8 @@ public class CmdMe implements TabExecutor {
                 .replace("{sender}", sender.getName().equals("CONSOLE") ? "Console" : sender.getName())
                 .replace("{message}", String.join(" ", Arrays.asList(args)))));
 
-        if (Pl3xCraft.getDiscordSRVHook() != null) {
-            Pl3xCraft.getDiscordSRVHook().sendToDiscord(Lang.ME_DISCORD_FORMAT
+        if (Pl3xCraft.getDiscordHook() != null) {
+            Pl3xCraft.getDiscordHook().sendToDiscord(Lang.ME_DISCORD_FORMAT
                     .replace("{sender}", sender.getName().equals("CONSOLE") ? "Console" : sender.getName())
                     .replace("{message}", String.join(" ", Arrays.asList(args))));
         }

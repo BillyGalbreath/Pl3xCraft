@@ -23,24 +23,20 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.discordsrv</groupId>
-            <artifactId>discordsrv</artifactId>
-            <version>1.16.6</version>
+            <groupId>net.pl3x.bukkit.discord4bukkit</groupId>
+            <artifactId>Discord4Bukkit</artifactId>
+            <version>0.1</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
     <repositories>
         <repository>
-            <id>paper-repo</id>
-            <url>https://repo.destroystokyo.com/repository/maven-public/</url>
+            <id>purpur-repo</id>
+            <url>https://ci.pl3x.net/plugin/repository/everything/</url>
         </repository>
         <repository>
             <id>vault-repo</id>
             <url>http://nexus.hc.to/content/repositories/pub_releases</url>
-        </repository>
-        <repository>
-            <id>Scarsz-Nexus</id>
-            <url>https://nexus.scarsz.me/content/groups/public/</url>
         </repository>
     </repositories>
     <build>
