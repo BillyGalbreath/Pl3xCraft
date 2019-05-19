@@ -505,6 +505,9 @@ permissions:
   command.killall.exempt:
     description: Makes it so other players cannnot kill them while killall command is ran.
     default: op
+  command.me.exempt:
+    description: Makes it so you do not receive a cooldown.
+    default: op
   command.mute.exempt:
     description: Cannot be muted
     default: false
