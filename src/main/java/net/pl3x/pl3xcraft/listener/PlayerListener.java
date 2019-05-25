@@ -1,12 +1,9 @@
 package net.pl3x.pl3xcraft.listener;
 
-import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.commands.CmdBack;
 import net.pl3x.pl3xcraft.configuration.Config;
-import net.pl3x.pl3xcraft.configuration.Data;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -23,7 +20,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashSet;
 import java.util.List;
@@ -75,20 +71,8 @@ public class PlayerListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player player = event.getPlayer();
-        PlayerConfig config = PlayerConfig.getConfig(player);
-
         player.setGameMode(GameMode.SURVIVAL);
-        player.setDisplayName(config.getNick());
-
-        Location spawn = Data.getInstance().getSpawn();
-        if (spawn != null && !player.hasPlayedBefore()) {
-            new BukkitRunnable() {
-                public void run() {
-                    // do not give a reason so we dont log the /back location
-                    event.getPlayer().teleportAsync(spawn, null);
-                }
-            }.runTaskLater(Pl3xCraft.getInstance(), 5);
-        }
+        player.setFallDistance(-1024F); // do not fall to death on login
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
@@ -98,9 +82,6 @@ public class PlayerListener implements Listener {
 
         CmdBack.setPreviousLocation(player, null);
         playerConfig.setSeen(System.currentTimeMillis());
-        Bukkit.getOnlinePlayers().stream()
-                .filter(online -> online != player)
-                .forEach(online -> PlayerConfig.getConfig(online).removeReplyTarget(player));
         PlayerConfig.remove(event.getPlayer());
     }
 

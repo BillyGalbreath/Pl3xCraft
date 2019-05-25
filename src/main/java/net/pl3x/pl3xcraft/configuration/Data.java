@@ -55,33 +55,6 @@ public class Data extends YamlConfiguration {
         }
     }
 
-    public Location getSpawn() {
-        World world = Bukkit.getWorld(getString("spawn.world", ""));
-        if (world == null) {
-            return null;
-        }
-        try {
-            double x = getDouble("spawn.x");
-            double y = getDouble("spawn.y");
-            double z = getDouble("spawn.z");
-            double pitch = getDouble("spawn.pitch");
-            double yaw = getDouble("spawn.yaw");
-            return new Location(world, x, y, z, (float) yaw, (float) pitch);
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    public void setSpawn(Location location) {
-        set("spawn.world", location.getWorld().getName());
-        set("spawn.x", location.getX());
-        set("spawn.y", location.getY());
-        set("spawn.z", location.getZ());
-        set("spawn.pitch", location.getPitch());
-        set("spawn.yaw", location.getYaw());
-        save();
-    }
-
     public String getRandomMOTD() {
         List<String> motds = getStringList("motds");
         if (motds == null || motds.isEmpty()) {

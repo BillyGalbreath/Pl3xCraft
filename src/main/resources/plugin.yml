@@ -24,11 +24,6 @@ commands:
   burn:
     description: Sets a player on fire
     usage: /<command> [player] (seconds)
-  broadcast:
-    description: Broadcasts a message to all players
-    usage: /<command> [message]
-    aliases:
-    - say
   clearinventory:
     description: Clears your inventory
     usage: /<command> (player)
@@ -71,9 +66,6 @@ commands:
   feed:
     description: Refill hunger and saturation
     usage: /<command> (player)
-  flip:
-    description: Flip a table, or some text
-    usage: /<command> (text)
   fly:
     description: Toggles creative flymode for yourself or another player
     usage: /<command> (player)
@@ -149,33 +141,9 @@ commands:
       - playing
       - online
       - who
-  me:
-    description: Describes an action in the context of the player
-    usage: /<command> [action]
-    aliases:
-    - action
-    - describe
-  mute:
-    description: Mute a player from speaking
-    permission: command.mute
-    usage: /<command> [player] (channel)
-    aliases:
-    - silence
-  nick:
-    description: Sets a nickname.
-    usage: /<command>
   repair:
     description: Repairs the item in your hand or another palyers.
     usage: /<command> (all/player (all) )
-  reply:
-    description: Reply back to last private message
-    permission: command.reply
-    usage: /<command> [message]
-    aliases:
-    - r
-  russia:
-    description: In mother Russia, table flips you
-    usage: /<command>
   seen:
     description: Shows when a player was last online.
     usage: /<command> [player]
@@ -186,26 +154,6 @@ commands:
     usage: /<command> (home (player))
     aliases:
     - homeset
-  setspawn:
-    description: Sets the server spawn point
-    usage: /<command>
-  spawn:
-    description: Teleport to the server spawn point
-    usage: /<command>
-    aliases:
-    - hub
-    - server
-  spy:
-    description: Toggle spy mode
-    permission: command.spy
-    usage: /<command> (player)
-    aliases:
-    - socialspy
-  shrug:
-    description: Shrug in chat
-    usage: /<command> (text)
-    aliases:
-    - idk
   teleportaccept:
     description: Accept teleport request
     usage: /<command>
@@ -261,9 +209,6 @@ commands:
   top:
     description: Go to the highest block at current position
     usage: /<command>
-  unflip:
-    description: Unflip a table
-    usage: /<command>
   workbench:
     description: Opens a workbench anywhere
     usage: /<command>
@@ -277,9 +222,6 @@ permissions:
     default: op
   command.back:
     description: Go back to previous location
-    default: op
-  command.broadcast:
-    description: Broadcast message
     default: op
   command.burn:
     description: Sets a player on fire
@@ -307,9 +249,6 @@ permissions:
     default: op
   command.feed:
     description: Alows you to increase your hunger.
-    default: op
-  command.flip:
-    description: Allows you to flip a table or text
     default: op
   command.fly:
     description: Allows you to toggle creative flymode.
@@ -368,23 +307,8 @@ permissions:
   command.list:
     description: Lists all users on the server.
     default: op
-  command.me:
-    description: Describe an action
-    default: op
-  command.mute:
-    description: Mute a player
-    default: op
-  command.nick:
-    description: Allows the player to set a nickname.
-    default: op
   command.repair:
     description: Allows the player to repair a item(s) in their hand
-    default: op
-  command.reply:
-    description: Allow shortcut replying to private messages
-    default: op
-  command.russia:
-    description: Allows the player to use russia command
     default: op
   command.seen:
     description: Allows the player to see when another player was last online.
@@ -396,21 +320,6 @@ permissions:
       command.sethome.limit.1:
         description: Allows the player to set 1 home.
         default: true
-  command.setspawn:
-    description: Allows the player to set the server spawn.
-    default: op
-  command.shrug:
-    description: Allows the player to shrug in chat
-    default: true
-  command.spawn:
-    description: Allows the player to teleport to the server spawn
-    default: true
-  command.spy:
-    description: Toggle chat spy mode
-    default: op
-  command.spy.others:
-    description: Toggle chat spy mode for other players
-    default: op
   command.teleport.override:
     description: Overrides teleport request toggle setting
     default: op
@@ -434,9 +343,6 @@ permissions:
     default: op
   command.top:
     description: Go to highest block at current position
-    default: op
-  command.unflip:
-    description: Allows you to unflip a table
     default: op
   command.workench:
     description: Allows you to open a workbench anywhere
@@ -474,9 +380,6 @@ permissions:
   command.sethome.other:
     description: Allows the player to set other players' homes.
     default: op
-  command.nick.other:
-    description: Allows the player to set other players' nickname.
-    default: op
   command.repair.other:
     description: Allows the player to repair other players' item(s).
     default: op
@@ -504,15 +407,6 @@ permissions:
     default: op
   command.killall.exempt:
     description: Makes it so other players cannnot kill them while killall command is ran.
-    default: op
-  command.me.exempt:
-    description: Makes it so you do not receive a cooldown.
-    default: op
-  command.mute.exempt:
-    description: Cannot be muted
-    default: false
-  command.nick.exempt:
-    description: Makes it so other players cannot set their nickname.
     default: op
   command repair.exempt:
     description: Makes it so other players cannot repair thier item(s).

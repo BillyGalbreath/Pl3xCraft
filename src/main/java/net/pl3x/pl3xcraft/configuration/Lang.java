@@ -17,29 +17,7 @@ public class Lang {
     public static String PLAYER_EXEMPT;
     public static String GET_INFO;
 
-    public static String CHAT_FORMAT;
-
-    public static String NO_MESSAGE_SPECIFIED;
-
     public static String CANNOT_BREAK_LOOT_CHESTS;
-
-    public static String TARGET_MUTED;
-    public static String TARGET_UNMUTED;
-    public static String EXEMPT_MUTE;
-    public static String YOU_ARE_MUTED;
-
-    public static String ME_FORMAT;
-    public static String ME_DISCORD_FORMAT;
-
-    public static String TELL_SENDER;
-    public static String TELL_TARGET;
-    public static String TELL_SPY;
-
-    public static String REPLY_NO_TARGET;
-
-    public static String SPY_MODE_TOGGLED;
-    public static String SPY_MODE_TOGGLED_TARGET;
-    public static String SPY_PREFIX;
 
     public static String GAMEMODE_SET;
     public static String GAMEMODE_SET_OTHER;
@@ -66,8 +44,6 @@ public class Lang {
     public static String NO_TARGET_BLOCK;
     public static String BACK_DEATH_HINT;
     public static String NO_BACK_LOCATION;
-    public static String SPAWN;
-    public static String SPAWN_SET;
     public static String TELEPORTING_BACK;
     public static String TELEPORTING_JUMP;
     public static String TELEPORTING_TOP;
@@ -90,7 +66,6 @@ public class Lang {
     public static String PLAYER_CANT_BURN;
     public static String PLAYER_HAS_BURNED_YOU;
     public static String YOU_BURNED_PLAYER;
-    public static String BROADCAST_TITLE;
     public static String PLAYER_INVENTORY_CLEARED;
     public static String INVENTORY_CLEARED_BY_OTHER;
     public static String INVENTORY_CLEARED;
@@ -154,19 +129,11 @@ public class Lang {
     public static String PLAYER_KILLED_YOU;
     public static String KILLED_ALL_PLAYERS;
 
-    public static String NICK_SET_SELF;
-    public static String NICK_SET_OTHER;
-    public static String NICK_SET_BY_OTHER;
-    public static String NICK_REMOVED_SELF;
-    public static String NICK_REMOVED_OTHER;
-    public static String NICK_REMOVED_BY_OTHER;
-
     public static String REPAIR_NOT_ALLOWED;
 
     public static String ITEMS_REPAIRED;
     public static String ITEMS_REPAIRED_OTHER;
     public static String NO_REPAIR_NEEDED;
-    public static String NO_REPAIR_AIR;
     public static String REPAIR_ALL_ITEMS;
     public static String REPAIR_ALL_ITEMS_OTHER;
     public static String KICK_ME;
@@ -181,8 +148,6 @@ public class Lang {
 
     public static String PLAYERS_ONLINE_NUM_TITLE;
     public static String PLAYERS_ONLINE_GROUP_LIST;
-
-    public static String COOLDOWN_TIMER_LEFT;
 
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
@@ -200,28 +165,7 @@ public class Lang {
         PLAYER_EXEMPT = config.getString("player-exempt", "&dYou cannot use &7/{command} &don &7{player}&d, they're exempt.");
         GET_INFO = config.getString("get-info", "&d===============================\n&7{getDescription}\n&d===============================\n&7{getUsage}&d===============================");
 
-        CHAT_FORMAT = config.getString("chat-format", "&r{prefix}&r&7{sender}&r{suffix}&r&e:&r&7&o {message}");
-
-        NO_MESSAGE_SPECIFIED = config.getString("no-message-specified", "&4You must specify a message!");
-
         CANNOT_BREAK_LOOT_CHESTS = config.getString("cannot-break-loot-chests", "&cYou are not allowed to break loot chests\n&cThese chests will restock after some time");
-
-        TARGET_MUTED = config.getString("target-muted", "&7{target} &dmuted.");
-        TARGET_UNMUTED = config.getString("target-unmuted", "&7{target} &dunmuted.");
-        EXEMPT_MUTE = config.getString("exempt-mute", "&7{target} &4 cannot be muted!");
-        YOU_ARE_MUTED = config.getString("you-are-muted", "&4You are muted.");
-
-        ME_FORMAT = config.getString("me-format", "&6&o* {sender} {message}");
-        ME_DISCORD_FORMAT = config.getString("me-discord-format", "***{sender}*** *{message}*");
-
-        TELL_SENDER = config.getString("tell-sender", "&e[&7Me &d-> &7{target}&e] &7{message}");
-        TELL_TARGET = config.getString("tell-target", "&e[&7Me &d<- &7{sender}&e] &7{message}");
-        TELL_SPY = config.getString("tell-spy", "&e[&7{sender} &d-> &7{target}&e] &7{message}");
-        REPLY_NO_TARGET = config.getString("reply-no-target", "&4No one to reply to!");
-
-        SPY_MODE_TOGGLED = config.getString("spy-mode-toggled", "Spy mode toggled &7{toggle}&d.");
-        SPY_MODE_TOGGLED_TARGET = config.getString("spy-mode-toggled-target", "Spy mode toggled &7{toggle} &dfor &7{target}&d.");
-        SPY_PREFIX = config.getString("spy-prefix", "&e[&6Spy&e]");
 
         GAMEMODE_SET = config.getString("gamemode-set", "&dGamemode set to {gamemode}");
         GAMEMODE_SET_OTHER = config.getString("gamemode-set-other", "&dGamemode for {target} set to {gamemode}");
@@ -257,9 +201,6 @@ public class Lang {
         BACK_DEATH_HINT = config.getString("back-death-hint", "&dType &7/back &dto go back to where you died.");
         NO_BACK_LOCATION = config.getString("no-back-location", "&4No back location found!");
 
-        SPAWN = config.getString("spawn", "&dTeleported to spawn");
-        SPAWN_SET = config.getString("spawn-set", "&dSpawn point set");
-
         TELEPORTING_BACK = config.getString("teleporting-back", "&dTeleporting back to previous location.");
         TELEPORTING_JUMP = config.getString("teleporting-jump", "&dJumped to block.");
         TELEPORTING_TOP = config.getString("teleporting-top", "&dTeleporting to highest block.");
@@ -290,8 +231,6 @@ public class Lang {
         PLAYER_CANT_BURN = config.getString("player-cant-burn", "&dYou cannot burn that player.");
         PLAYER_HAS_BURNED_YOU = config.getString("player-has-burned-you", "&dYou have just been burned by {playerBurner}.");
         YOU_BURNED_PLAYER = config.getString("you-burned-player", "&dYou just burned {burnedPlayer}.");
-
-        BROADCAST_TITLE = config.getString("broadcast-title", "&2[&dBroadcast&2]&7 {message}");
 
         PLAYER_INVENTORY_CLEARED = config.getString("player-inventory-cleared", "&dYou have cleared the inventory of {playerCleared}.");
         INVENTORY_CLEARED_BY_OTHER = config.getString("inventory-clear-by-other", "&dYour inventory has been cleared by {playerClearedBy}");
@@ -364,24 +303,15 @@ public class Lang {
         PLAYER_KILLED_YOU = config.getString("player-killed-you", "&7{getPlayer}&d has killed you!");
         KILLED_ALL_PLAYERS = config.getString("killed-all-players", "&dYou killed all players on server.");
 
-        NICK_SET_SELF = config.getString("nick-set-self", "&dYour nickname is now &7{nick}");
-        NICK_SET_OTHER = config.getString("nick-set-other", "&dYou set &7{player}&d's nickname to &7{nick}");
-        NICK_SET_BY_OTHER = config.getString("nick-set-by-other", "&dYour nickname was set to &7{nick} &dby &7{player}");
-        NICK_REMOVED_SELF = config.getString("nick-removed-self", "&dYour nickname has been removed");
-        NICK_REMOVED_OTHER = config.getString("nick-removed-other", "&dYou removed &7{player}&d's nickname");
-        NICK_REMOVED_BY_OTHER = config.getString("nick-removed-by-other", "&dYour nickname was removed by &7{player}");
-
         REPAIR_NOT_ALLOWED = config.getString("repair-not-allowed", "&dItem repair is &4not&d allowed at this time.");
         ITEMS_REPAIRED = config.getString("items-repaired", "&dYou have repaired item: &7{getItem}&d.");
         ITEMS_REPAIRED_OTHER = config.getString("items-repaired-other", "&7{getPlayer}{possessive}&d has repaired item: &7{getItem}&d for you.");
         NO_REPAIR_NEEDED = config.getString("no-repair-needed", "&dThere is nothing to be repaired!");
-        NO_REPAIR_AIR = config.getString("no-repair-air", "&dNothing in your inventory, you cannot repair air!");
         REPAIR_ALL_ITEMS = config.getString("repair-all-items", "&dAll your items have been repaired!");
         REPAIR_ALL_ITEMS_OTHER = config.getString("repair-all-items-other", "&dYou have repaired all of {getPlayer}{possessive} items!");
 
         KICK_ME = config.getString("kick-me", "No, Just NO! Go some crack somewhere else!");
         KICK_ME_EXEMPT = config.getString("kick-me-exempt", "&dThis would have kicked you, if you was not exempt! Watch out!");
-
 
         PLAYER_ONLINE = config.getString("player-online", "&7{getPlayer} &dis currently online!");
         NO_PLAYER_FOUND = config.getString("no-player-found", "&7{getPlayer}&d does not exist on our servers database.");
@@ -391,9 +321,7 @@ public class Lang {
         WORKBENCH_OPEN = config.getString("workbench-open", "&7Pl3xCraft &dhas opened a workbench for you, enjoy!");
 
         PLAYERS_ONLINE_NUM_TITLE = config.getString("players-online-num-title", "&dThere are currently &7{getPlayerSize}&d out of &7{getMaxPlayers} &dplayers online&7:");
-        PLAYERS_ONLINE_GROUP_LIST= config.getString("players-online-group-list", "&6{getOnline}");
-
-        COOLDOWN_TIMER_LEFT = config.getString("cooldown-timer-left", "&dYou must wait &7{getCooldownSeconds}&d seconds before using &7{GetCommand}&d again.");
+        PLAYERS_ONLINE_GROUP_LIST = config.getString("players-online-group-list", "&6{getOnline}");
     }
 
     public static void send(CommandSender recipient, String message) {
@@ -408,11 +336,5 @@ public class Lang {
         for (String part : message.split("\n")) {
             recipient.sendMessage(part);
         }
-    }
-
-    public static boolean isEmpty(String message) {
-        return message == null ||
-                message.isEmpty() ||
-                ChatColor.stripColor(ChatColor.translateAlternateColorCodes('&', message)).isEmpty();
     }
 }

@@ -1,10 +1,8 @@
 package net.pl3x.pl3xcraft.configuration;
 
-import net.pl3x.pl3xcraft.Logger;
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.request.Request;
-import net.pl3x.pl3xcraft.util.ChatUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -95,8 +93,8 @@ public class PlayerConfig extends YamlConfiguration {
         return new Location(world, x, y, z, yaw, pitch);
     }
 
-    public void setSeen(Long date){
-        if (date == null){
+    public void setSeen(Long date) {
+        if (date == null) {
             set("seen.", null);
             save();
             return;
@@ -211,50 +209,5 @@ public class PlayerConfig extends YamlConfiguration {
 
     public void setRequest(Request request) {
         this.request = request;
-    }
-
-    public void setNick(String nick) {
-        set("nickname", nick);
-        save();
-    }
-
-    public String getNick() {
-        return ChatUtil.checkColorPerms(player, "command.nick", getString("nickname"));
-    }
-
-    public boolean isMuted() {
-        return !Vault.hasPermission(player, "exempt.mute") && // player is exempt from being muted
-                getBoolean("muted", false);
-    }
-
-    public void setMuted(boolean isMuted) {
-        assert !Vault.hasPermission(player, "exempt.mute") : "Cannot mute an exempt player!";
-        set("muted", isMuted);
-        save();
-    }
-
-    public boolean isSpying() {
-        return Vault.hasPermission(player, "command.spy") && // not allowed to spy
-                getBoolean("spy-mode", false);
-    }
-
-    public void setSpying(boolean isSpying) {
-        assert !isSpying || !Vault.hasPermission(player, "command.spy") : "Cannot enable spy on that player!";
-        set("spy-mode", isSpying);
-        save();
-    }
-
-    public void setReplyTarget(Player target) {
-        replyTarget = target;
-    }
-
-    public void removeReplyTarget(Player target) {
-        if (replyTarget == target) {
-            replyTarget = null;
-        }
-    }
-
-    public Player getReplyTarget() {
-        return replyTarget;
     }
 }

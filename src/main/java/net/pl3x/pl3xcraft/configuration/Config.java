@@ -25,14 +25,8 @@ public class Config {
 
     public static boolean UNSAFE_ENCHANTMENTS;
 
-    public static boolean ALLOW_NICK;
-
     public static boolean ALLOW_REPAIR;
     public static boolean REPAIR_MAIN_HAND;
-
-    public static String LANGUAGE_COOLDOWN_FILE;
-    public static boolean COOLDOWN_MODE;
-    public static int ME_COOLDOWN_SECONDS;
 
     public static void reload(Pl3xCraft plugin) {
         plugin.saveDefaultConfig();
@@ -62,8 +56,6 @@ public class Config {
 
         UNSAFE_ENCHANTMENTS = config.getBoolean("unsafe-enchantments", false);
 
-        ALLOW_NICK = config.getBoolean("allow-nick", true);
-
         ALLOW_REPAIR = config.getBoolean("allow-repair", true);
         REPAIR_MAIN_HAND = config.getBoolean("repair-main-hand", false);
 
@@ -86,9 +78,5 @@ public class Config {
                 }
             }
         }
-
-        LANGUAGE_COOLDOWN_FILE = config.getString("language-cooldown-file", "lang-cooldown.yml");
-        COOLDOWN_MODE = config.getBoolean("cooldown-mode", true);
-        ME_COOLDOWN_SECONDS = config.getInt("me-cooldown-seconds", 4000);
     }
 }
