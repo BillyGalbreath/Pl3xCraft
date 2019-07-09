@@ -10,28 +10,28 @@ softdepend:
 
 commands:
   pl3xcraft:
-    description: Reload configs
+    description: Reload configs.
     usage: /<command> (reload)
   assign:
-    description: Assign a command to any itme in your hand
+    description: Assign a command to any itme in your hand.
     usage: /<command> [command]
     aliases:
     - powertool
     - pt
   back:
-    description: Go back to previous location
+    description: Go back to previous location.
     usage: /<command>
   burn:
-    description: Sets a player on fire
+    description: Sets a player on fire.
     usage: /<command> [player] (seconds)
   clearinventory:
-    description: Clears your inventory
+    description: Clears your inventory.
     usage: /<command> (player)
     aliases:
     - clear
     - ci
   coords:
-    description: Shows a player's coordinates and world
+    description: Shows a player's coordinates and world.
     usage: /<command> (player)
     aliases:
     - location
@@ -64,40 +64,40 @@ commands:
     - echest
     - ec
   feed:
-    description: Refill hunger and saturation
+    description: Refill hunger and saturation.
     usage: /<command> (player)
   fly:
-    description: Toggles creative flymode for yourself or another player
+    description: Toggles creative flymode for yourself or another player.
     usage: /<command> (player)
   furnace:
     description: Remotely manage a furnace you set.
     usage: /<command> [set/show]
   gmadventure:
-    description: Set gamemode to adventure mode
+    description: Set gamemode to adventure mode.
     usage: /<command> (player)
     aliases:
     - gamemodeadventure
     - gma
   gmcreative:
-    description: Set gamemode to creative mode
+    description: Set gamemode to creative mode.
     usage: /<command> (player)
     aliases:
     - gamemodecreative
     - gmc
   gmspectator:
-    description: Set gamemode to spectator mode
+    description: Set gamemode to spectator mode.
     usage: /<command> (player)
     aliases:
     - gamemodespectator
     - gmsp
   gmsurvival:
-    description: Set gamemode to survival mode
+    description: Set gamemode to survival mode.
     usage: /<command> (player)
     aliases:
     - gamemodesurvival
     - gms
   harm:
-    description: Deals damae to a player
+    description: Deals damage to a player.
     usage: /<command> [player] (1 - 20)
   hat:
     description: Wear the Item/Block in your hand as a Hat/Helmet.
@@ -105,7 +105,7 @@ commands:
     aliases:
     - helmet
   heal:
-    description: Heals yuorself or another palyer.
+    description: Heals yourself or another player.
     usage: /<command> (player)
     aliases:
     - health
@@ -118,10 +118,10 @@ commands:
     aliases:
     - listhomes
   invmod:
-    description: Modifies other players; inventories.
+    description: Modifies other players inventories.
     usage: /<command> (player)
   jump:
-    description: Go to block in line of sight
+    description: Go to block in line of sight.
     usage: /<command>
   kickme:
     description: Kicks the player when command typed.
@@ -142,7 +142,7 @@ commands:
       - online
       - who
   repair:
-    description: Repairs the item in your hand or another palyers.
+    description: Repairs the item in your hand or another players.
     usage: /<command> (all/player (all) )
   seen:
     description: Shows when a player was last online.
@@ -155,29 +155,29 @@ commands:
     aliases:
     - homeset
   teleportaccept:
-    description: Accept teleport request
+    description: Accept teleport request.
     usage: /<command>
     aliases:
     - tpaccept
   teleportdeny:
-    description: Decline teleport request
+    description: Decline teleport request.
     usage: /<command>
     aliases:
     - tpdeny
   teleportrequest:
-    description: Request to teleport to another player
+    description: Request to teleport to another player.
     usage: /<command> player
     aliases:
     - tpa
     - tprequest
   teleportrequestall:
-    description: Send teleport here request to all players
+    description: Send teleport here request to all players.
     usage: /<command>
     aliases:
     - tpaall
     - teleportrequestall
   teleportrequesthere:
-    description: Request another player to teleport to you
+    description: Request another player to teleport to you.
     usage: /<command> player
     aliases:
     - tpah
@@ -185,13 +185,13 @@ commands:
     - teleportrequesth
     - teleportrequesthere
   teleporttoggle:
-    description: Toggle teleport requests on/off
+    description: Toggle teleport requests on/off.
     usage: /<command>
     aliases:
     - tpt
     - tptoggle
   tell:
-    description: Send a private message
+    description: Send a private message.
     permission: command.tell
     usage: /<command> [player] [message]
     aliases:
@@ -207,36 +207,36 @@ commands:
     - emsg
     - tell
   top:
-    description: Go to the highest block at current position
+    description: Go to the highest block at current position.
     usage: /<command>
   workbench:
-    description: Opens a workbench anywhere
+    description: Opens a workbench anywhere.
     usage: /<command>
 
 permissions:
   command.pl3xcraft:
-    description: Allows to reload configs
+    description: Allows to reload configs.
     default: op
   command.assign:
-    description: ssign a command to any itme in your hand
+    description: Assign a command to any itme in your hand.
     default: op
   command.back:
-    description: Go back to previous location
+    description: Go back to previous location.
     default: op
   command.burn:
-    description: Sets a player on fire
+    description: Sets a player on fire.
     default: op
   command.clearinventory:
-    description: Clears your inventory
+    description: Clears your inventory.
     default: op
   command.coords:
-    description: Allows you to see your own coords
+    description: Allows you to see your own coords.
     default: op
   command.delhome:
     description: Allows the player to delete a home.
     default: op
   command.depth:
-    description: Allows a player to see how far they are above/below sea level
+    description: Allows a player to see how far they are above/below sea level.
     default: op
   command.enchant:
     description: Allows you to enchant items.
@@ -257,7 +257,7 @@ permissions:
     description: Allows you to remotely manage a furnace you set.
     default: op
   command.harm:
-    description: Allows you to harm a player
+    description: Allows you to harm a player.
     default: op
   command.hat:
     description: Allows you to wear an item/block as a ht/helmet.
@@ -266,28 +266,28 @@ permissions:
     description: Allows you to heal yourself.
     default: op
   command.gamemode.adventure:
-    description: Allows player to set own gamemode to adventure mode
+    description: Allows player to set own gamemode to adventure mode.
     default: op
   command.gamemode.adventure.other:
-    description: Allows player to set another player's gamemode to adventure mode
+    description: Allows player to set another player's gamemode to adventure mode.
     default: op
   command.gamemode.creative:
-    description: Allows player to set own gamemode to creative mode
+    description: Allows player to set own gamemode to creative mode.
     default: op
   command.gamemode.creative.other:
-    description: Allows player to set another player's gamemode to creative mode
+    description: Allows player to set another player's gamemode to creative mode.
     default: op
   command.gamemode.spectator:
-    description: Allows player to set own gamemode to spectator mode
+    description: Allows player to set own gamemode to spectator mode.
     default: op
   command.gamemode.spectator.other:
-    description: Allows player to set another player's gamemode to spectator mode
+    description: Allows player to set another player's gamemode to spectator mode.
     default: op
   command.gamemode.survival:
-    description: Allows player to set own gamemode to survival mode
+    description: Allows player to set own gamemode to survival mode.
     default: op
   command.gamemode.survival.other:
-    description: Allows player to set another player's gamemode to survival mode
+    description: Allows player to set another player's gamemode to survival mode.
     default: op
   command.home:
     description: Allows the player to go home.
@@ -299,7 +299,7 @@ permissions:
     description: Allows the player to modify another palyers inventory.
     default: op
   command.jump:
-    description: Go to block in line of sight
+    description: Go to block in line of sight.
     default: op
   command.killall:
     description: Allows the player to kill all players online.
@@ -308,7 +308,7 @@ permissions:
     description: Lists all users on the server.
     default: op
   command.repair:
-    description: Allows the player to repair a item(s) in their hand
+    description: Allows the player to repair a item(s) in their hand.
     default: op
   command.seen:
     description: Allows the player to see when another player was last online.
@@ -321,31 +321,31 @@ permissions:
         description: Allows the player to set 1 home.
         default: true
   command.teleport.override:
-    description: Overrides teleport request toggle setting
+    description: Overrides teleport request toggle setting.
     default: op
   command.teleportaccept:
-    description: Accept teleport request
+    description: Accept teleport request.
     default: op
   command.teleportdeny:
-    description: Decline teleport request
+    description: Decline teleport request.
     default: op
   command.teleportrequest:
-    description: Request to teleport to another player
+    description: Request to teleport to another player.
     default: op
   command.teleportrequestall:
-    description: Send teleport here request to all players
+    description: Send teleport here request to all players.
     default: op
   command.teleportrequesthere:
-    description: Request another player to teleport to you
+    description: Request another player to teleport to you.
     default: op
   command.teleporttoggle:
-    description: Toggle teleport requests on/off
+    description: Toggle teleport requests on/off.
     default: op
   command.top:
-    description: Go to highest block at current position
+    description: Go to highest block at current position.
     default: op
   command.workench:
-    description: Allows you to open a workbench anywhere
+    description: Allows you to open a workbench anywhere.
     default: op
 
   command.clearinventory.other:
@@ -403,7 +403,7 @@ permissions:
     description: Makes it so other players cannot modify the player's inventory.
     default: op
   command.kickme.exempt:
-    description: Makes it so that the player typing this command wont get kicked.
+    description: Makes it so that the player typing this command won't get kicked.
     default: op
   command.killall.exempt:
     description: Makes it so other players cannnot kill them while killall command is ran.
