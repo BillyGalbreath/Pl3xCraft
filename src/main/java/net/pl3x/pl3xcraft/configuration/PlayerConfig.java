@@ -152,7 +152,7 @@ public class PlayerConfig extends YamlConfiguration {
         List<String> list = section.getValues(false).keySet().stream()
                 .filter(home -> home.toLowerCase().startsWith(name.toLowerCase()))
                 .collect(Collectors.toList());
-        if (player.getBedSpawnLocation() != null) {
+        if (player.getBedSpawnLocation() != null && "bed".startsWith(name.toLowerCase())) {
             list.add("bed");
         }
         return list;
