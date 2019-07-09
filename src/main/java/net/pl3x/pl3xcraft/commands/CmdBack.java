@@ -44,8 +44,8 @@ public class CmdBack implements TabExecutor {
         new TeleportSounds(back, player.getLocation())
                 .runTaskLater(Pl3xCraft.getInstance(), 1);
 
-        player.teleportAsync(back).thenAccept(result ->
-                Lang.send(sender, Lang.TELEPORTING_BACK));
+        player.teleport(back);
+        Lang.send(sender, Lang.TELEPORTING_BACK);
         return true;
     }
 

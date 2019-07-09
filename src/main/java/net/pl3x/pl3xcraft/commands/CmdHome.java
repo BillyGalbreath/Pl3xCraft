@@ -118,10 +118,9 @@ public class CmdHome implements TabExecutor {
                 .runTaskLater(Pl3xCraft.getInstance(), 1);
 
         String homeName = home;
-        player.teleportAsync(homeLoc).thenAccept(result ->
-                Lang.send(sender, Lang.HOME
-                        .replace("{home}", homeName))
-        );
+        player.teleport(homeLoc);
+        Lang.send(sender, Lang.HOME
+                .replace("{home}", homeName));
         return true;
     }
 }
