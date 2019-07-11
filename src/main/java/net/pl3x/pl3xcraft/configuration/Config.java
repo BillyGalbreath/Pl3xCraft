@@ -9,6 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Config {
@@ -27,6 +28,8 @@ public class Config {
 
     public static boolean ALLOW_REPAIR;
     public static boolean REPAIR_MAIN_HAND;
+
+    public static Map<String, String> CANNED_RESPONSES = new HashMap<>();
 
     public static void reload(Pl3xCraft plugin) {
         plugin.saveDefaultConfig();
@@ -59,6 +62,7 @@ public class Config {
         ALLOW_REPAIR = config.getBoolean("allow-repair", true);
         REPAIR_MAIN_HAND = config.getBoolean("repair-main-hand", false);
 
+        CANNED_RESPONSES.clear();
         ConfigurationSection responses = config.getConfigurationSection("canned-responses");
         if (responses != null) {
             for (String command : responses.getKeys(false)) {
@@ -74,7 +78,8 @@ public class Config {
                         }
                     });
                 } else {
-                    Logger.warn("Cannot register canned-response '" + command + "' (command is already registered)");
+                    Logger.warn("Cannot register canned-response '" + command + "' (command is already registered) Using backup command listener to handle.");
+                    CANNED_RESPONSES.put(command, response);
                 }
             }
         }
