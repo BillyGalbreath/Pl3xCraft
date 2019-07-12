@@ -1,5 +1,6 @@
 package net.pl3x.pl3xcraft.configuration;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -324,17 +325,50 @@ public class Lang {
         PLAYERS_ONLINE_GROUP_LIST = config.getString("players-online-group-list", "&6{getOnline}");
     }
 
+    /**
+     * Sends a message to a recipient
+     *
+     * @param recipient Recipient of message
+     * @param message   Message to send
+     */
     public static void send(CommandSender recipient, String message) {
-        if (message == null) {
-            return;
+        if (recipient != null) {
+            for (String part : colorize(message).split("\n")) {
+                if (part != null && !part.isEmpty()) {
+                    recipient.sendMessage(part);
+                }
+            }
         }
-        message = ChatColor.translateAlternateColorCodes('&', message);
-        if (ChatColor.stripColor(message).isEmpty()) {
-            return; // do not send blank messages
-        }
+    }
 
-        for (String part : message.split("\n")) {
-            recipient.sendMessage(part);
+    /**
+     * Broadcast a message to server
+     *
+     * @param message Message to broadcast
+     */
+    public static void broadcast(String message) {
+        for (String part : colorize(message).split("\n")) {
+            if (part != null && !part.isEmpty()) {
+                Bukkit.getOnlinePlayers().forEach(recipient -> recipient.sendMessage(part));
+                Bukkit.getConsoleSender().sendMessage(part);
+            }
         }
+    }
+
+    /**
+     * Colorize a String
+     *
+     * @param str String to colorize
+     * @return Colorized String
+     */
+    public static String colorize(String str) {
+        if (str == null) {
+            return "";
+        }
+        str = ChatColor.translateAlternateColorCodes('&', str);
+        if (ChatColor.stripColor(str).isEmpty()) {
+            return "";
+        }
+        return str;
     }
 }
