@@ -11,27 +11,33 @@ softdepend:
 commands:
   pl3xcraft:
     description: Reload configs.
+    permission: command.pl3xcraft
     usage: /<command> (reload)
   assign:
     description: Assign a command to any itme in your hand.
+    permission: command.assign
     usage: /<command> [command]
     aliases:
     - powertool
     - pt
   back:
     description: Go back to previous location.
+    permission: command.back
     usage: /<command>
   burn:
     description: Sets a player on fire.
+    permission: command.burn
     usage: /<command> [player] (seconds)
   clearinventory:
     description: Clears your inventory.
+    permission: command.clearinventory
     usage: /<command> (player)
     aliases:
     - clear
     - ci
   coords:
     description: Shows a player's coordinates and world.
+    permission: command.coords
     usage: /<command> (player)
     aliases:
     - location
@@ -40,17 +46,21 @@ commands:
     - pos
   delhome:
     description: Deletes a home.
+    permission: command.delhome
     usage: /<command> [home (player)]
     aliases:
     - deletehome
   depth:
     description: Allows a player to see how far they are above/below sea level.
+    permission: command.depth
     usage: /<command> (player)
   enchant:
     description: Enchants the item in hand
+    permission: command.enchant
     usage: /<command> [enchantment/all] (level)
   enchantingtable:
     description: Opens an enchanting table anywhere.
+    permission: command.enchantingtable
     usage: /<command>
     aliases:
     - enchantingt
@@ -58,6 +68,7 @@ commands:
     - et
   enderchest:
     description: Opens your enderchest anywhere.
+    permission: command.enderchest
     usage: /<command> (player)
     aliases:
     - enderc
@@ -65,75 +76,92 @@ commands:
     - ec
   feed:
     description: Refill hunger and saturation.
+    permission: command.feed
     usage: /<command> (player)
   fly:
     description: Toggles creative flymode for yourself or another player.
+    permission: command.fly
     usage: /<command> (player)
   furnace:
     description: Remotely manage a furnace you set.
+    permission: command.furnace
     usage: /<command> [set/show]
   gmadventure:
     description: Set gamemode to adventure mode.
+    permission: command.gamemode.adventure
     usage: /<command> (player)
     aliases:
     - gamemodeadventure
     - gma
   gmcreative:
     description: Set gamemode to creative mode.
+    permission: command.gamemode.creative
     usage: /<command> (player)
     aliases:
     - gamemodecreative
     - gmc
   gmspectator:
     description: Set gamemode to spectator mode.
+    permission: command.gamemode.spectator
     usage: /<command> (player)
     aliases:
     - gamemodespectator
     - gmsp
   gmsurvival:
     description: Set gamemode to survival mode.
+    permission: command.gamemode.survival
     usage: /<command> (player)
     aliases:
     - gamemodesurvival
     - gms
   harm:
     description: Deals damage to a player.
+    permission: command.harm
     usage: /<command> [player] (1 - 20)
   hat:
     description: Wear the Item/Block in your hand as a Hat/Helmet.
+    permission: command.hat
     usage: /<command> (remove/off)
     aliases:
     - helmet
   heal:
     description: Heals yourself or another player.
+    permission: command.heal
     usage: /<command> (player)
     aliases:
     - health
   home:
     description: Teleports the player home.
+    permission: command.home
     usage: /<command> (home (player))
   homes:
     description: List the player's homes.
+    permission: command.homes
     usage: /<command> (player)
     aliases:
     - listhomes
   invmod:
     description: Modifies other players inventories.
+    permission: command.invmod
     usage: /<command> (player)
   jump:
     description: Go to block in line of sight.
+    permission: command.jump
     usage: /<command>
   kickme:
     description: Kicks the player when command typed.
+    permission: command.kickme
     usage: /<command>
     aliases:
     - login
     - nope
   killall:
     description: Kills all players online.
+    permission: command.killall
     usage: /<command>
   list:
     description: Lists all users on the server.
+    permission: command.list
     usage: /<command>
     aliases:
       - listplayers
@@ -143,41 +171,49 @@ commands:
       - who
   repair:
     description: Repairs the item in your hand or another players.
+    permission: command.repair
     usage: /<command> (all/player (all) )
   seen:
     description: Shows when a player was last online.
+    permission: command.seen
     usage: /<command> [player]
     aliases:
       - lastseen
   sethome:
     description: Sets the player's home.
+    permission: command.sethome
     usage: /<command> (home (player))
     aliases:
     - homeset
   teleportaccept:
     description: Accept teleport request.
+    permission: command.teleportaccept
     usage: /<command>
     aliases:
     - tpaccept
   teleportdeny:
     description: Decline teleport request.
+    permission: command.teleportdeny
     usage: /<command>
     aliases:
     - tpdeny
   teleportrequest:
     description: Request to teleport to another player.
+    permission: command.teleportrequest
     usage: /<command> player
     aliases:
     - tpa
     - tprequest
   teleportrequestall:
     description: Send teleport here request to all players.
+    permission: command.teleportrequestall
     usage: /<command>
     aliases:
     - tpaall
     - teleportrequestall
   teleportrequesthere:
     description: Request another player to teleport to you.
+    permission: command.teleportrequesthere
     usage: /<command> player
     aliases:
     - tpah
@@ -186,6 +222,7 @@ commands:
     - teleportrequesthere
   teleporttoggle:
     description: Toggle teleport requests on/off.
+    permission: command.teleporttoggle
     usage: /<command>
     aliases:
     - tpt
@@ -208,9 +245,11 @@ commands:
     - tell
   top:
     description: Go to the highest block at current position.
+    permission: command.top
     usage: /<command>
   workbench:
     description: Opens a workbench anywhere.
+    permission: command.workbench
     usage: /<command>
 
 permissions:
