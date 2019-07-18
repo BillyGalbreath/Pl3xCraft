@@ -10,10 +10,12 @@ import org.bukkit.event.Listener;
 public class CannedResponseListener implements Listener {
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onCommand(ExecuteCommandEvent event) {
-        String response = Config.CANNED_RESPONSES.get(event.getCommand().getLabel().toLowerCase());
-        if (response != null && !response.isEmpty()) {
-            Lang.send(event.getSender(), response);
-            event.setCancelled(true);
+        if (event.getArgs().length == 0 && !event.getLabel().contains(":")) {
+            String response = Config.CANNED_RESPONSES.get(event.getCommand().getLabel().toLowerCase());
+            if (response != null && !response.isEmpty()) {
+                Lang.send(event.getSender(), response);
+                event.setCancelled(true);
+            }
         }
     }
 }
