@@ -1,8 +1,6 @@
 package net.pl3x.pl3xcraft.commands;
 
 import com.google.common.collect.ImmutableList;
-import java.util.Collection;
-import java.util.List;
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import org.apache.commons.lang.Validate;
@@ -10,6 +8,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
+import org.bukkit.metadata.MetadataValue;
+import java.util.Collection;
+import java.util.List;
 
 public class CmdList implements TabExecutor {
 
@@ -24,37 +25,44 @@ public class CmdList implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission("command.list")){
+        if (!sender.hasPermission("command.list")) {
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
             return true;
         }
 
         int maxPlayers = Pl3xCraft.getInstance().getServer().getMaxPlayers();
-        StringBuilder online = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         Collection<? extends Player> allPlayers = Pl3xCraft.getInstance().getServer().getOnlinePlayers();
 
         String playerSizeString = Integer.toString(allPlayers.size());
         String maxPlayersString = Integer.toString(maxPlayers);
 
-        for (Player player : allPlayers){
-            if (sender instanceof Player && !((Player) sender).canSee(player))
-                continue;
-
-            if (online.length() > 0){
-                online.append("&7,&r ");
+        Player player = sender instanceof Player ? (Player) sender : null;
+        for (Player online : allPlayers) {
+            if (isVanished(online) || (player != null && !player.canSee(online))) {
+                continue; // do not list vanished players
             }
 
-            online.append(player.getDisplayName());
+            if (sb.length() > 0) {
+                sb.append("&7,&r ");
+            }
+
+            sb.append(online.getDisplayName());
         }
 
         Lang.send(sender, Lang.PLAYERS_ONLINE_NUM_TITLE
                 .replace("{getPlayerSize}", playerSizeString)
-                .replace("{getMaxPlayers}", maxPlayersString) );
+                .replace("{getMaxPlayers}", maxPlayersString));
         Lang.send(sender, Lang.PLAYERS_ONLINE_GROUP_LIST
-                .replace("{getOnline}", online.toString()) );
+                .replace("{getOnline}", sb.toString()));
 
         return true;
     }
 
-
+    private boolean isVanished(Player player) {
+        for (MetadataValue meta : player.getMetadata("vanished")) {
+            if (meta.asBoolean()) return true;
+        }
+        return false;
+    }
 }
