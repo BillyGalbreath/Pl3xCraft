@@ -15,6 +15,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
+import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
@@ -83,6 +84,23 @@ public class PlayerListener implements Listener {
         CmdBack.setPreviousLocation(player, null);
         playerConfig.setSeen(System.currentTimeMillis());
         PlayerConfig.remove(event.getPlayer());
+
+        // Possible fix for enderchests merging with viewer
+        player.getEnderChest().getViewers().forEach(viewer -> {
+            viewer.closeInventory();
+            Lang.send(viewer, Lang.CLOSED_ENDERCHEST);
+            Lang.send(viewer, Lang.PLAYER_DISCONNECTED);
+        });
+    }
+
+    @EventHandler(priority = EventPriority.MONITOR)
+    public void onChangeWorld(PlayerChangedWorldEvent event) {
+        // Possible fix for enderchests merging with viewer
+        event.getPlayer().getEnderChest().getViewers().forEach(viewer -> {
+            viewer.closeInventory();
+            Lang.send(viewer, Lang.CLOSED_ENDERCHEST);
+            Lang.send(viewer, Lang.PLAYER_CHANGED_WORLDS);
+        });
     }
 
     @EventHandler(priority = EventPriority.MONITOR)

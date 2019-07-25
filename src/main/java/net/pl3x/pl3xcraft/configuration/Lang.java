@@ -100,6 +100,9 @@ public class Lang {
     public static String ENCHANTING_TABLE_OPENED;
     public static String OPENED_OTHER_PLAYER_ENDERCHEST;
     public static String OPENED_YOUR_ENDERCHEST;
+    public static String CLOSED_ENDERCHEST;
+    public static String PLAYER_DISCONNECTED;
+    public static String PLAYER_CHANGED_WORLDS;
 
     public static String FEED_SELF;
     public static String FEED_OTHER;
@@ -271,6 +274,9 @@ public class Lang {
 
         OPENED_OTHER_PLAYER_ENDERCHEST = config.getString("opened-other-player-enderchest", "&dYou opened {getPlayer}'s enderchest.");
         OPENED_YOUR_ENDERCHEST = config.getString("opened-your-enderchest", "&dYou opened your enderchest.");
+        CLOSED_ENDERCHEST = config.getString("closed-enderchest", "&cEnderchest was closed.");
+        PLAYER_DISCONNECTED = config.getString("player-disconnected", "&cPlayer disconnected.");
+        PLAYER_CHANGED_WORLDS = config.getString("player-changed-worlds", "&cPlayer changed worlds.");
 
         FEED_SELF = config.getString("feed-self", "&dYou just fed yourself");
         FEED_OTHER = config.getString("feed-other", "&dYou have fed {player}");
