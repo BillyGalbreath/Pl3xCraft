@@ -39,7 +39,7 @@ public class CmdList implements TabExecutor {
         String maxPlayersString = Integer.toString(maxPlayers);
 
         Player player = sender instanceof Player ? (Player) sender : null;
-        String color = ChatColor.getLastColors(Lang.PLAYERS_ONLINE_GROUP_LIST);
+        String color = ChatColor.getLastColors(ChatColor.translateAlternateColorCodes('&', Lang.PLAYERS_ONLINE_GROUP_LIST));
         for (Player online : allPlayers) {
             if (isVanished(online) || (player != null && !player.canSee(online))) {
                 continue; // do not list vanished players
