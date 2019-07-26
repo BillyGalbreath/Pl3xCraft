@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.pl3x.pl3xcraft.Pl3xCraft;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import org.apache.commons.lang.Validate;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
@@ -38,13 +39,14 @@ public class CmdList implements TabExecutor {
         String maxPlayersString = Integer.toString(maxPlayers);
 
         Player player = sender instanceof Player ? (Player) sender : null;
+        String color = ChatColor.getLastColors(Lang.PLAYERS_ONLINE_GROUP_LIST);
         for (Player online : allPlayers) {
             if (isVanished(online) || (player != null && !player.canSee(online))) {
                 continue; // do not list vanished players
             }
 
             if (sb.length() > 0) {
-                sb.append("&7,&r ");
+                sb.append("&7,").append(color).append(" ");
             }
 
             sb.append(online.getDisplayName());
