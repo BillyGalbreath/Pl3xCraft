@@ -58,7 +58,7 @@ public class CmdSetHome implements TabExecutor {
         Player player = (Player) sender;
         PlayerConfig config;
         String home = (args.length > 0) ? args[0] : "home";
-        if (home.equalsIgnoreCase("bed")) {
+        if (home.equalsIgnoreCase("bed") || home.contains(".")) {
             Lang.send(sender, Lang.INVALID_HOME_NAME);
             return;
         }
