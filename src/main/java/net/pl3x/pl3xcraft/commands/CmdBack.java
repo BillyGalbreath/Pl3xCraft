@@ -1,8 +1,10 @@
 package net.pl3x.pl3xcraft.commands;
 
 import net.pl3x.pl3xcraft.Pl3xCraft;
+import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.task.TeleportSounds;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -34,6 +36,10 @@ public class CmdBack implements TabExecutor {
         }
 
         Player player = (Player) sender;
+        if (Bukkit.getPluginManager().isPluginEnabled("CmdCD")) {
+            net.pl3x.bukkit.cmdcd.CmdCD.addCooldown(cmd, player.getUniqueId(), Config.BACK_COOLDOWN);
+        }
+
         Location back = getPreviousLocation(player);
 
         if (back == null) {

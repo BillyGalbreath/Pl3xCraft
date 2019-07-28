@@ -29,6 +29,8 @@ public class Config {
     public static boolean ALLOW_REPAIR;
     public static boolean REPAIR_MAIN_HAND;
 
+    public static int BACK_COOLDOWN;
+
     public static Map<String, String> CANNED_RESPONSES = new HashMap<>();
 
     public static void reload(Pl3xCraft plugin) {
@@ -58,6 +60,8 @@ public class Config {
         }
 
         UNSAFE_ENCHANTMENTS = config.getBoolean("unsafe-enchantments", false);
+
+        BACK_COOLDOWN = config.getInt("back-cooldown", 60);
 
         ALLOW_REPAIR = config.getBoolean("allow-repair", true);
         REPAIR_MAIN_HAND = config.getBoolean("repair-main-hand", false);
