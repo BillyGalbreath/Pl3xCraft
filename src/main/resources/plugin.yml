@@ -66,14 +66,6 @@ commands:
     - enchantingt
     - etable
     - et
-  enderchest:
-    description: Opens your enderchest anywhere.
-    permission: command.enderchest
-    usage: /<command> (player)
-    aliases:
-    - enderc
-    - echest
-    - ec
   feed:
     description: Refill hunger and saturation.
     permission: command.feed
@@ -140,10 +132,6 @@ commands:
     usage: /<command> (player)
     aliases:
     - listhomes
-  invmod:
-    description: Modifies other players inventories.
-    permission: command.invmod
-    usage: /<command> (player)
   jump:
     description: Go to block in line of sight.
     permission: command.jump
@@ -283,9 +271,6 @@ permissions:
   command.enchantingtable:
     description: Allows you to open an enchanting table anywhere.
     default: op
-  command.enderchest:
-    description: Allows you to open an enderchest anywhere.
-    default: op
   command.feed:
     description: Alows you to increase your hunger.
     default: op
@@ -333,9 +318,6 @@ permissions:
     default: op
   command.homes:
     description: Allows the player to list homes.
-    default: op
-  command.invmod:
-    description: Allows the player to modify another palyers inventory.
     default: op
   command.jump:
     description: Go to block in line of sight.
@@ -399,9 +381,6 @@ permissions:
   command.depth.other:
     description: Allows the player to see the depth of another player.
     default: op
-  command.enderchest.other:
-    description: Allows the player to see the enderchest of another player.
-    default: op
   command.feed.other:
     description: Allows the player to increase the hunger of another player.
     default: op
@@ -438,9 +417,6 @@ permissions:
   command.homes.exempt:
     description: Makes it so other players cannot list the player's homes.
     default: false
-  command.invmod.exempt:
-    description: Makes it so other players cannot modify the player's inventory.
-    default: op
   command.kickme.exempt:
     description: Makes it so that the player typing this command won't get kicked.
     default: op

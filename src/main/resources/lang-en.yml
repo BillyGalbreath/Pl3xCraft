@@ -113,9 +113,6 @@ add-x-enchantment-to-x: "&dAdded &7{getEnchantment}&d to &7{getItemInhand}&d at 
 
 enchanting-table-opened: "&dYou have opened a portable enchanting table."
 
-opened-other-player-enderchest: "&dYou opened {getPlayer}'s enderchest."
-opened-your-enderchest: "&dYou opened your enderchest."
-
 feed-self: "&dYou just fed yourself"
 feed-other: "&dYou have fed {player}"
 feed-notice: "&d{player} has fed you"
@@ -142,8 +139,6 @@ helmet-set: "&7Hat&d/&7Helmet&d has been set, enjoy!"
 heal-self: "&dYour health has been restored"
 heal-other: "&7{player}&d's health has been restored"
 heal-notice: "&7{player}&d has restored your health"
-
-opened-player-inventory: "&dYou have &2opened &7{player}{possessive} &dinventory."
 
 player-killed-you: "&7{getPlayer}&d has killed you!"
 killed-all-players: "&dYou killed all players on server."

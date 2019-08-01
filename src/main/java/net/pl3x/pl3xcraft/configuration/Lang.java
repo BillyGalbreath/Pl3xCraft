@@ -98,8 +98,6 @@ public class Lang {
     public static String ADD_X_ENCHANMENT_TO_30;
     public static String ADD_X_ENCHANMENT_TO_X;
     public static String ENCHANTING_TABLE_OPENED;
-    public static String OPENED_OTHER_PLAYER_ENDERCHEST;
-    public static String OPENED_YOUR_ENDERCHEST;
     public static String CLOSED_ENDERCHEST;
     public static String PLAYER_DISCONNECTED;
     public static String PLAYER_CHANGED_WORLDS;
@@ -129,7 +127,6 @@ public class Lang {
     public static String HEAL_OTHER;
     public static String HEAL_NOTICE;
 
-    public static String OPENED_PLAYER_INVENTORY;
     public static String PLAYER_KILLED_YOU;
     public static String KILLED_ALL_PLAYERS;
 
@@ -272,8 +269,6 @@ public class Lang {
 
         ENCHANTING_TABLE_OPENED = config.getString("enchanting-table-opened", "&dYou have opened a portable enchanting table.");
 
-        OPENED_OTHER_PLAYER_ENDERCHEST = config.getString("opened-other-player-enderchest", "&dYou opened {getPlayer}'s enderchest.");
-        OPENED_YOUR_ENDERCHEST = config.getString("opened-your-enderchest", "&dYou opened your enderchest.");
         CLOSED_ENDERCHEST = config.getString("closed-enderchest", "&cEnderchest was closed.");
         PLAYER_DISCONNECTED = config.getString("player-disconnected", "&cPlayer disconnected.");
         PLAYER_CHANGED_WORLDS = config.getString("player-changed-worlds", "&cPlayer changed worlds.");
@@ -304,8 +299,6 @@ public class Lang {
         HEAL_SELF = config.getString("heal-self", "&dYour health has been restored");
         HEAL_OTHER = config.getString("heal-other", "&7{player}&d's health has been restored");
         HEAL_NOTICE = config.getString("heal-notice", "&7{player}&d has restored your health");
-
-        OPENED_PLAYER_INVENTORY = config.getString("opened-player-inventory", "&dYou have &2opened &7{player}{possessive} &dinventory.");
 
         PLAYER_KILLED_YOU = config.getString("player-killed-you", "&7{getPlayer}&d has killed you!");
         KILLED_ALL_PLAYERS = config.getString("killed-all-players", "&dYou killed all players on server.");
