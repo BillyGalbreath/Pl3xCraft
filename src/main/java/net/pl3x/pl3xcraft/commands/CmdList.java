@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.MetadataValue;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -46,10 +47,14 @@ public class CmdList implements TabExecutor {
             }
 
             if (sb.length() > 0) {
-                sb.append("&7,").append(color).append(" ");
+                sb.append("&7,");
             }
 
-            sb.append(online.getDisplayName());
+            if (online.isAfk()) {
+                sb.append("&e[&3AFK&e]");
+            }
+
+            sb.append(color).append(" ").append(online.getDisplayName());
         }
 
         Lang.send(sender, Lang.PLAYERS_ONLINE_NUM_TITLE
