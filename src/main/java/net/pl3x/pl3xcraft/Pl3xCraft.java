@@ -42,6 +42,7 @@ import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.listener.CannedResponseListener;
 import net.pl3x.pl3xcraft.listener.MOTDListener;
 import net.pl3x.pl3xcraft.listener.PlayerListener;
+import net.pl3x.pl3xcraft.listener.SuperVanishListener;
 import net.pl3x.pl3xcraft.listener.VillagerListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -77,6 +78,10 @@ public class Pl3xCraft extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MOTDListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         getServer().getPluginManager().registerEvents(new VillagerListener(), this);
+
+        if (getServer().getPluginManager().isPluginEnabled("SuperVanish")) {
+            getServer().getPluginManager().registerEvents(new SuperVanishListener(), this);
+        }
 
         getCommand("pl3xcraft").setExecutor(new CmdPl3xCraft());
         getCommand("assign").setExecutor(new CmdAssign());
