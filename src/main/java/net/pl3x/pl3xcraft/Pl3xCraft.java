@@ -40,6 +40,7 @@ import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
 import net.pl3x.pl3xcraft.hook.Vault;
 import net.pl3x.pl3xcraft.listener.CannedResponseListener;
+import net.pl3x.pl3xcraft.listener.EntitySpawnListener;
 import net.pl3x.pl3xcraft.listener.MOTDListener;
 import net.pl3x.pl3xcraft.listener.PlayerListener;
 import net.pl3x.pl3xcraft.listener.SuperVanishListener;
@@ -75,6 +76,7 @@ public class Pl3xCraft extends JavaPlugin {
         }
 
         getServer().getPluginManager().registerEvents(new CannedResponseListener(), this);
+        getServer().getPluginManager().registerEvents(new EntitySpawnListener(), this);
         getServer().getPluginManager().registerEvents(new MOTDListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerListener(), this);
         getServer().getPluginManager().registerEvents(new VillagerListener(), this);
