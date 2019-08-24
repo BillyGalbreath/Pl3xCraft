@@ -1,12 +1,13 @@
-name: ${project.artifactId}
-main: ${project.groupId}.${project.artifactId}
-version: ${project.version}
-description: ${project.artifactId} Paper Plugin
-author: BillyGalbreath
-api-version: 1.13
+name: "${project.artifactId}"
+main: "${project.groupId}.${project.artifactId}"
+version: "${project.version}"
+description: "${project.artifactId} Purpur Plugin"
+author: "BillyGalbreath"
+api-version: "1.13"
 softdepend:
-- DiscordSRV
-- Vault
+  - SuperVanish
+  - DiscordSRV
+  - Vault
 
 commands:
   pl3xcraft:
@@ -18,8 +19,8 @@ commands:
     permission: command.assign
     usage: /<command> [command]
     aliases:
-    - powertool
-    - pt
+      - powertool
+      - pt
   back:
     description: Go back to previous location.
     permission: command.back
@@ -33,23 +34,23 @@ commands:
     permission: command.clearinventory
     usage: /<command> (player)
     aliases:
-    - clear
-    - ci
+      - clear
+      - ci
   coords:
     description: Shows a player's coordinates and world.
     permission: command.coords
     usage: /<command> (player)
     aliases:
-    - location
-    - loc
-    - position
-    - pos
+      - location
+      - loc
+      - position
+      - pos
   delhome:
     description: Deletes a home.
     permission: command.delhome
     usage: /<command> [home (player)]
     aliases:
-    - deletehome
+      - deletehome
   depth:
     description: Allows a player to see how far they are above/below sea level.
     permission: command.depth
@@ -63,9 +64,9 @@ commands:
     permission: command.enchantingtable
     usage: /<command>
     aliases:
-    - enchantingt
-    - etable
-    - et
+      - enchantingt
+      - etable
+      - et
   feed:
     description: Refill hunger and saturation.
     permission: command.feed
@@ -83,29 +84,29 @@ commands:
     permission: command.gamemode.adventure
     usage: /<command> (player)
     aliases:
-    - gamemodeadventure
-    - gma
+      - gamemodeadventure
+      - gma
   gmcreative:
     description: Set gamemode to creative mode.
     permission: command.gamemode.creative
     usage: /<command> (player)
     aliases:
-    - gamemodecreative
-    - gmc
+      - gamemodecreative
+      - gmc
   gmspectator:
     description: Set gamemode to spectator mode.
     permission: command.gamemode.spectator
     usage: /<command> (player)
     aliases:
-    - gamemodespectator
-    - gmsp
+      - gamemodespectator
+      - gmsp
   gmsurvival:
     description: Set gamemode to survival mode.
     permission: command.gamemode.survival
     usage: /<command> (player)
     aliases:
-    - gamemodesurvival
-    - gms
+      - gamemodesurvival
+      - gms
   harm:
     description: Deals damage to a player.
     permission: command.harm
@@ -115,13 +116,13 @@ commands:
     permission: command.hat
     usage: /<command> (remove/off)
     aliases:
-    - helmet
+      - helmet
   heal:
     description: Heals yourself or another player.
     permission: command.heal
     usage: /<command> (player)
     aliases:
-    - health
+      - health
   home:
     description: Teleports the player home.
     permission: command.home
@@ -131,7 +132,7 @@ commands:
     permission: command.homes
     usage: /<command> (player)
     aliases:
-    - listhomes
+      - listhomes
   jump:
     description: Go to block in line of sight.
     permission: command.jump
@@ -141,8 +142,8 @@ commands:
     permission: command.kickme
     usage: /<command>
     aliases:
-    - login
-    - nope
+      - login
+      - nope
   killall:
     description: Kills all players online.
     permission: command.killall
@@ -172,65 +173,65 @@ commands:
     permission: command.sethome
     usage: /<command> (home (player))
     aliases:
-    - homeset
+      - homeset
   teleportaccept:
     description: Accept teleport request.
     permission: command.teleportaccept
     usage: /<command>
     aliases:
-    - tpaccept
+      - tpaccept
   teleportdeny:
     description: Decline teleport request.
     permission: command.teleportdeny
     usage: /<command>
     aliases:
-    - tpdeny
+      - tpdeny
   teleportrequest:
     description: Request to teleport to another player.
     permission: command.teleportrequest
     usage: /<command> player
     aliases:
-    - tpa
-    - tprequest
+      - tpa
+      - tprequest
   teleportrequestall:
     description: Send teleport here request to all players.
     permission: command.teleportrequestall
     usage: /<command>
     aliases:
-    - tpaall
-    - teleportrequestall
+      - tpaall
+      - teleportrequestall
   teleportrequesthere:
     description: Request another player to teleport to you.
     permission: command.teleportrequesthere
     usage: /<command> player
     aliases:
-    - tpah
-    - tpahere
-    - teleportrequesth
-    - teleportrequesthere
+      - tpah
+      - tpahere
+      - teleportrequesth
+      - teleportrequesthere
   teleporttoggle:
     description: Toggle teleport requests on/off.
     permission: command.teleporttoggle
     usage: /<command>
     aliases:
-    - tpt
-    - tptoggle
+      - tpt
+      - tptoggle
   tell:
     description: Send a private message.
     permission: command.tell
     usage: /<command> [player] [message]
     aliases:
-    - whisper
-    - w
-    - privatemessage
-    - prvtmsg
-    - pm
-    - msg
-    - send
-    - m
-    - t
-    - emsg
-    - tell
+      - whisper
+      - w
+      - privatemessage
+      - prvtmsg
+      - pm
+      - msg
+      - send
+      - m
+      - t
+      - emsg
+      - tell
   top:
     description: Go to the highest block at current position.
     permission: command.top
