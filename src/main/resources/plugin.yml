@@ -6,7 +6,6 @@ author: "BillyGalbreath"
 api-version: "1.13"
 softdepend:
   - SuperVanish
-  - DiscordSRV
   - Vault
 
 commands:

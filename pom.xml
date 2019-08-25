@@ -23,12 +23,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>net.pl3x.bukkit.discord4bukkit</groupId>
-            <artifactId>Discord4Bukkit</artifactId>
-            <version>0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
             <groupId>net.pl3x.bukkit.cmdcd</groupId>
             <artifactId>CmdCD</artifactId>
             <version>1.0</version>
