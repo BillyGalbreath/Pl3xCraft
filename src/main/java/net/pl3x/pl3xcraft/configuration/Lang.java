@@ -150,6 +150,9 @@ public class Lang {
     public static String PLAYERS_ONLINE_NUM_TITLE;
     public static String PLAYERS_ONLINE_GROUP_LIST;
 
+    public static String SAVED_FROM_VOID;
+    public static String SAVED_FROM_SUFFOCATING;
+
     public static void reload(JavaPlugin plugin) {
         String langFile = Config.LANGUAGE_FILE;
         File configFile = new File(plugin.getDataFolder(), langFile);
@@ -322,6 +325,9 @@ public class Lang {
 
         PLAYERS_ONLINE_NUM_TITLE = config.getString("players-online-num-title", "&dThere are currently &7{getPlayerSize}&d out of &7{getMaxPlayers} &dplayers online&7:");
         PLAYERS_ONLINE_GROUP_LIST = config.getString("players-online-group-list", "&6{getOnline}");
+
+        SAVED_FROM_VOID = config.getString("saved-from-void", "&dYou were saved from falling out of the world");
+        SAVED_FROM_SUFFOCATING = config.getString("saved-from-suffocating", "&dYou were saved from suffocating in a block");
     }
 
     /**

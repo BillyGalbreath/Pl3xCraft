@@ -172,3 +172,6 @@ players-online-num-title: "&dThere are currently &7{getPlayerSize}&d out of &7{g
 players-online-group-list: "&6{getOnline}"
 
 cooldown-timer-left: "&dYou must wait &7{getCooldownSeconds}&d seconds before using &7*/me*&d again."
+
+saved-from-void: "&dYou were saved from falling out of the world"
+saved-from-suffocating: "&dYou were saved from suffocating in a block"

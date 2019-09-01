@@ -4,21 +4,25 @@ import net.pl3x.pl3xcraft.commands.CmdBack;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Chest;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerBedEnterEvent;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerKickEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 
@@ -146,5 +150,30 @@ public class PlayerListener implements Listener {
             Lang.send(event.getPlayer(), Lang.CANNOT_BREAK_LOOT_CHESTS);
             event.setCancelled(true);
         }
+    }
+
+    @EventHandler
+    public void onPlayerFallIntoVoid(PlayerMoveEvent event) {
+        if (event.getTo().getY() < 0) {
+            Player player = event.getPlayer();
+            player.teleportAsync(Bukkit.getWorlds().get(0).getSpawnLocation()).thenAccept(success -> Lang.send(player, Lang.SAVED_FROM_VOID));
+            player.setFallDistance(-1000);
+        }
+    }
+
+    @EventHandler
+    public void onPlayerSuffocate(EntityDamageEvent event) {
+        if (event.getEntityType() != EntityType.PLAYER) {
+            return; // not a player
+        }
+
+        if (event.getCause() != EntityDamageEvent.DamageCause.SUFFOCATION) {
+            return; // not suffocating
+        }
+
+        event.setCancelled(true);
+
+        Player player = (Player) event.getEntity();
+        player.teleportAsync(Bukkit.getWorlds().get(0).getSpawnLocation()).thenAccept(success -> Lang.send(player, Lang.SAVED_FROM_SUFFOCATING));
     }
 }
