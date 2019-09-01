@@ -156,24 +156,21 @@ public class PlayerListener implements Listener {
     public void onPlayerFallIntoVoid(PlayerMoveEvent event) {
         if (event.getTo().getY() < 0) {
             Player player = event.getPlayer();
-            player.teleportAsync(Bukkit.getWorlds().get(0).getSpawnLocation()).thenAccept(success -> Lang.send(player, Lang.SAVED_FROM_VOID));
+            player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+            Lang.send(player, Lang.SAVED_FROM_VOID);
             player.setFallDistance(-1000);
         }
     }
 
     @EventHandler
     public void onPlayerSuffocate(EntityDamageEvent event) {
-        if (event.getEntityType() != EntityType.PLAYER) {
-            return; // not a player
+        if (event.getEntityType() == EntityType.PLAYER) {
+            if (event.getCause() == EntityDamageEvent.DamageCause.SUFFOCATION) {
+                event.setCancelled(true);
+                Player player = (Player) event.getEntity();
+                player.teleport(Bukkit.getWorlds().get(0).getSpawnLocation());
+                Lang.send(player, Lang.SAVED_FROM_SUFFOCATING);
+            }
         }
-
-        if (event.getCause() != EntityDamageEvent.DamageCause.SUFFOCATION) {
-            return; // not suffocating
-        }
-
-        event.setCancelled(true);
-
-        Player player = (Player) event.getEntity();
-        player.teleportAsync(Bukkit.getWorlds().get(0).getSpawnLocation()).thenAccept(success -> Lang.send(player, Lang.SAVED_FROM_SUFFOCATING));
     }
 }
