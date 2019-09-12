@@ -4,16 +4,19 @@ import net.pl3x.pl3xcraft.commands.CmdBack;
 import net.pl3x.pl3xcraft.configuration.Config;
 import net.pl3x.pl3xcraft.configuration.Lang;
 import net.pl3x.pl3xcraft.configuration.PlayerConfig;
+import net.pl3x.pl3xcraft.util.ExpUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Chest;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -25,6 +28,8 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.HashSet;
 import java.util.List;
@@ -172,5 +177,32 @@ public class PlayerListener implements Listener {
                 Lang.send(player, Lang.SAVED_FROM_SUFFOCATING);
             }
         }
+    }
+
+    @EventHandler
+    public void onRightClickWithMending(PlayerInteractEvent event) {
+        if (event.getAction() != Action.RIGHT_CLICK_BLOCK && event.getAction() != Action.RIGHT_CLICK_AIR) {
+            return; // not a right click
+        }
+        Player player = event.getPlayer();
+        if (!player.isSneaking()) {
+            return; // not sneaking
+        }
+        ItemStack item = event.getItem();
+        if (item == null || item.getType() == Material.AIR) {
+            return; // not holding item
+        }
+        short damage = item.getDurability();
+        if (damage <= 0) {
+            return; // not damaged
+        }
+        if (item.getEnchantmentLevel(Enchantment.MENDING) <= 0) {
+            return; // not enchanted with mending
+        }
+        if (player.getTotalExperience() < 2 && player.getLevel() <= 0) {
+            return; // not enough experience
+        }
+        item.setDurability((short) (damage - 4));
+        ExpUtil.addPlayerXP(player, -2);
     }
 }
