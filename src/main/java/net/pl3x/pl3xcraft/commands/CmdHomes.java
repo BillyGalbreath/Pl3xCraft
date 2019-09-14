@@ -94,26 +94,29 @@ public class CmdHomes implements TabExecutor {
         TextComponent separator = new TextComponent(", ");
         separator.setColor(ChatColor.YELLOW);
 
-        for (Map.Entry<String, Location> entry : config.getHomeData().entrySet()) {
-            if (count > 0) {
-                homeList.add(separator);
+        Map<String, Location> data = config.getHomeData();
+        if (data != null) {
+            for (Map.Entry<String, Location> entry : data.entrySet()) {
+                if (count > 0) {
+                    homeList.add(separator);
+                }
+                count++;
+                TextComponent home = new TextComponent(entry.getKey());
+                home.setColor(ChatColor.GRAY);
+                if (entry.getValue() == null) {
+                    home.setStrikethrough(true);
+                    home.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, TextComponent.fromLegacyText("Not set...")));
+                } else {
+                    home.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, TextComponent.fromLegacyText(
+                            entry.getValue().getWorld().getName() + " "
+                                    + entry.getValue().getBlockX() + ","
+                                    + entry.getValue().getBlockY() + ","
+                                    + entry.getValue().getBlockZ())));
+                    home.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,
+                            "/home " + entry.getKey() + " " + config.getPlayer().getName()));
+                }
+                homeList.add(home);
             }
-            count++;
-            TextComponent home = new TextComponent(entry.getKey());
-            home.setColor(ChatColor.GRAY);
-            if (entry.getValue() == null) {
-                home.setStrikethrough(true);
-                home.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, TextComponent.fromLegacyText("Not set...")));
-            } else {
-                home.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, TextComponent.fromLegacyText(
-                        entry.getValue().getWorld().getName() + " "
-                                + entry.getValue().getBlockX() + ","
-                                + entry.getValue().getBlockY() + ","
-                                + entry.getValue().getBlockZ())));
-                home.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND,
-                        "/home " + entry.getKey() + " " + config.getPlayer().getName()));
-            }
-            homeList.add(home);
         }
 
         sender.sendMessage(homeList.toArray(new BaseComponent[0]));
