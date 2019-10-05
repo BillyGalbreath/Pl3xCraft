@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class VillagerListener implements Listener {
     @EventHandler
     public void onVillagerAcquireTrades(VillagerAcquireTradeEvent event) {
-        MerchantRecipe recipe = event.getRecipe();
+        /*MerchantRecipe recipe = event.getRecipe();
 
         // replace emerald ingredients with gold ingot
         recipe.setIngredients(recipe.getIngredients().stream()
@@ -32,6 +32,6 @@ public class VillagerListener implements Listener {
             newRecipe.setIngredients(recipe.getIngredients());
 
             event.setRecipe(newRecipe);
-        }
+        }*/
     }
 }
