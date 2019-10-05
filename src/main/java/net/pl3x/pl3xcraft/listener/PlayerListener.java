@@ -208,6 +208,6 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onBlockDropItem(BlockDropItemEvent event) {
-        event.getItems().removeIf(item -> event.getPlayer().getInventory().addItem(item.getItemStack()).isEmpty());
+        //event.getItems().removeIf(item -> event.getPlayer().getInventory().addItem(item.getItemStack()).isEmpty());
     }
 }
