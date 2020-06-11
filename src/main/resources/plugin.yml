@@ -14,7 +14,7 @@ commands:
     permission: command.pl3xcraft
     usage: /<command> (reload)
   assign:
-    description: Assign a command to any itme in your hand.
+    description: Assign a command to any item in your hand.
     permission: command.assign
     usage: /<command> [command]
     aliases:

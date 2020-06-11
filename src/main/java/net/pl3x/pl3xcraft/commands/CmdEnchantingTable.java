@@ -22,7 +22,7 @@ public class CmdEnchantingTable implements TabExecutor {
             return true;
         }
 
-        if (!sender.hasPermission("command.enchantingtanle")){
+        if (!sender.hasPermission("command.enchantingtable")){
             Lang.send(sender, Lang.COMMAND_NO_PERMISSION);
             return true;
         }
